@@ -2,7 +2,9 @@
 
 The following explains the contents of each folder:
 
-**Tests**  contains very basic, beginner java programs 
+<ol>
+
+<li>**Tests**  contains very basic, beginner java programs </li>
 
 **CS 140** contains slightly more difficult java programs with beginner concepts
 
