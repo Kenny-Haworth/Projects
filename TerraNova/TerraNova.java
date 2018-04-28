@@ -3,7 +3,7 @@
 	(not currently available on Netflix unfortunately). It ran for one
 	season and inspired me to make this game.
 	
-	This game is currently NOT complete but to see "Terra Nova Pseudocode.txt"
+	This game is currently NOT complete but see "Terra Nova Pseudocode.txt"
 	to see a list of planned features.
 	
 	The basis for this game is a player must make decisions to keep their colony
