@@ -1,6 +1,6 @@
 // Name: Kendall Haworth
 // Date: October 25, 2016
-// CS140 Section 1. Create a java program that uses nested for loops to display the given pattern.
+// CS130 Section 1. Create a java program that uses nested for loops to display the given pattern.
 
 public class asdf
 {
