@@ -1,3 +1,15 @@
+/**
+	A text-based video game based off the Netflix series Terra Nova
+	(not currently available on Netflix unfortunately). It ran for one
+	season and inspired me to make this game.
+	
+	This game is currently NOT complete but to see "Terra Nova Pseudocode.txt"
+	to see a list of planned features.
+	
+	The basis for this game is a player must make decisions to keep their colony
+	healthy each day. Each day is a loop and certain events are randomized.
+*/
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
