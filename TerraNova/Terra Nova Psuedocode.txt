@@ -1,0 +1,111 @@
+This file contains all planned ideas for the TerraNova game
+
+Ideas:
+	weather events, droughts
+	disease (medicine cure?)
+	difficulty levels??
+	lucas - each set of 10 days increases his chances of finishing his code to open the portal, exponential function?
+	sound files <===== this would be awesome. Rain in background on rainy days!
+	new population are children? three/five/ten days and they become adults?
+	have different defense numbers depending on attack - dino's or sixers
+		optionally adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
+	create exe file?
+	highlight text in purple for input
+	happiness maxes out at 100, but if that limit is hit additional resources are given
+	immersive randomized text when attacks aren't sent between events
+
+Program Begins and shows a menu with the following options
+	New Game
+	Tutorial
+		This goes through the basics of the game and how to play. It then returns the user to the main menu.
+	Credits
+		Just a statement of me and who helped me make the game
+
+New Game is selected.
+
+Exposition is read out. (warning of Lucas)
+
+the following loops each day:
+
+day is read out
+	after day 10, Lucas becomes a chance. 1/100 chance next 10 days tested each day. 1/50 next 10 each day. so on and so forth
+
+statistics of the colony are read out
+
+	statistics include:
+		happiness (too low and the population has a higher chance to refuse to fight, various bad things(fights, disturbed peace, etc))
+		food (no food means population decreases each day exponentially for each day the day terminates with 0 food)
+		population (people. more people means you need more food, but fewer people means weaker defenses) (0 people and GAME OVER)
+		offense (the ability to fight back when the colony is attacked and harvest materials in more dangerous places)
+		defense (the ability to withstand strong enemy offense against the colony, whether it be dinos or sixers)
+		materials (needed to create things)
+
+		(depending on difficulty, the above stats may be lower or higher and decrease or increase at a higher or lower rate)
+		
+
+options are displayed to harvest resources and increase colony stats. You may do 2 each day (random events intermingled). The user may:
+
+	Hold a festival (increases population, costs materials)
+		may hold a larger festival for more population but more material cost
+		Festivals can only get a maximum of half the total population in increase (for example: pop 100, increase only max 50)
+	Hold a feast (increases happiness, costs food(may hold a larger feast for more happiness but greater food cost))
+
+	Go on a hunt (increases food) (different hunt locations may net more food, but can be more dangerous and result
+					in a loss of population and decrease in happiness if someone dies)
+
+		locations: (in each case, offensive capabilities determine success rate. you either get food or lose people, with a small chance of both if you lose people first)
+			1 (low amount of food, no danger)
+			2 (low-moderate amount of food, low danger)
+			3 (moderate amount of food, moderate danger)
+			4 (moderate-high amount of food, moderate-high danger)
+			5 (high amount of food, high danger)
+			6 (very high amount of food, very high danger)
+
+	Gather materials (used to increase offensive or defensive capabilities)
+		1 
+
+	Spend materials (this is innate and will not count of one of the 2 things you are allowed to do each day)
+		Rovers (covers open ground, searches for resources each day and Lucas)
+		motorcycles (covers closed terrain and deep forests, searches for resources each day and Lucas)
+			a balance of rovers and motorcycles is best for finding Lucas; Rovers cover more ground and find more resources though, but they also cost more)
+		Defenses
+			Towers 			(low defense increase, low material cost)
+			Reinforced Gates	(low-medium defense increase, higher material cost)
+			Enchanced Weaponry	(medium defense increase, medium material cost)
+			Strengthened gates
+			etc.
+
+
+Randomized Events
+	In the event of an attack
+		Dino attack
+			same chance of attack the whole game
+			dino's get stronger after each set of 10 days
+		Sixer attack
+			chance of sixer attack begins after 10 days, increases again after day 20 and remains the same for the rest of the game
+			sixer's attack get stronger after each set of 15 days
+
+In the event of Sixer Victory
+	Terra Nova is taken, some manage to escape into a makeshift base in the forest. all stats are quartered (1/4)
+	Twice the chance for a dino attack each day
+	sixers have a tiny chance to find you each day, increasing slowly over time. If they find you, a huge wave is sent (the next day) The user will be warned of their compromised position.
+		if you conquer the wave you take back Terra Nova
+		if you lose to the wave, GAME OVER
+	You may choose to fight to reclaim Terra Nova; your offense must be greater than their defense, which is the defense of your forces before you lost Terra Nova plus (1/4) their offense when they took Terra Nova
+
+Resources are given from the other side of the portal at the end of the day. you get more of what you need.
+	if the portal is destroyed, you get nothing
+
+At the end of each day, the chance to find Lucas is rolled, depending on your motorcyles and land rovers.
+If you find him, Lucas can either be taken into custody or he will run again. If he manages to escape his research is set back,
+but it will be more difficult to find him in the future. Otherwise he is killed.
+
+If you don't find him, the chance for Lucas to finish his portal is rolled. If he finishes the portal, there is a 100% chance over the next
+ten days of enemy militia attack, with very difficult waves. Exposives may be made out of materials to blow the portal, but this
+results in a decrease in population and no more resources at the end of the day. FIND LUCAS!
+
+end of loop
+
+at game over, create a text document (that you append data to) that gives the date, time, and final day the user got to as well as what gave them their game over,
+maybe have a high score file and save/load game file
+	
