@@ -4,7 +4,7 @@ The following explains the contents of each folder:
 
 <ul>
 
-<li><strong>Tests</strong> contains very basic, beginner java programs</li>
+<li><strong>CS 130</strong> contains very basic, beginner java programs</li>
 <li><strong>CS 140</strong> contains slightly more difficult java programs with beginner concepts</li>
 <li><strong>CS 141</strong> contains java programs that focus on classes, inheritance, and polymorphism</li>
 <li><strong>CS 240</strong> contains Abstract Data Structures such as Bags, Stacks, Queues, Lists, Dictionaries, and others implemented in a variety of ways</li>
