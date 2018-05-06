@@ -1,5 +1,6 @@
 /**
 	@author Kendall Haworth
+	@version 1.5
 
 	A program that calculates the product of two matrixes using
 	the classical method, the divide and conquer method, and Strassen's
@@ -12,8 +13,7 @@
 	and in seconds to complete each method based upon the number of iterations.
 	
 	All randomly generated matrixes are stored in an array list so that the methods
-	can work on multiplying the same matrixes. The answers are then saved in a separate
-	array list and checked against each other to ensure correctness.
+	multiply the same matrixes.
 */
 
 import java.util.Random;
@@ -27,11 +27,12 @@ public class project1
 		double totalTime = 0;
 		int total = 0;
 		
-		int iterations = 1000000; //the number of two matrixes to multiply together
-		int matrixSize = 2; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
+		int iterations = 1; //the number of two matrixes to multiply together
+		int matrixSize = 4096; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
+		System.out.println("Number of iterations: " + iterations);
+		System.out.println("Matrix size: " + matrixSize + "\n");
 		
 		ArrayList<int[][]> matrixList = new ArrayList<int[][]>(); //a list to store the matrixes in
-		ArrayList<int[][]> answers = new ArrayList<int[][]>(); //a list to store the answers in
 		
 		//generates random matrixes and stores them in the matrix lists
 		for (int i = 0; i < iterations; i++)
@@ -43,14 +44,16 @@ public class project1
 			{
 				for (int c = 0; c < matrixSize; c++)
 				{
-					matrix1[r][c] = random.nextInt(100);
-					matrix2[r][c] = random.nextInt(100);
+					matrix1[r][c] = random.nextInt(1000000);
+					matrix2[r][c] = random.nextInt(1000000);
 				}
 			}
 			
 			matrixList.add(matrix1);
 			matrixList.add(matrix2);
 		}
+		
+		System.out.println("Matrixes are completed generating.");
 		
 		//////////////////////////////////////////////////
 		//				Classical Method				//
@@ -80,12 +83,11 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime; //the duration is the current system time minus the previous system time
 			totalTime += duration; //add the duration to the total time
-			answers.add(matrix3); //add the answer to the matrix list
 		}
 		
 		double averageTime = totalTime/iterations; //the average time (in nanoseconds) will be the total time divided by the number of iterations
 		
-		System.out.println("Classical Method of matrix size " + matrixSize);
+		System.out.println("Classical Method");
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000) + "\n");
 		averageTime = 0;
@@ -105,12 +107,11 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime;
 			totalTime += duration;
-			answers.add(l+iterations,matrix3);
 		}
 		
 		averageTime = totalTime/iterations;
 		
-		System.out.println("Divide and Conquer Method of matrix size " + matrixSize);
+		System.out.println("Divide and Conquer Method");
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000) + "\n");
 		averageTime = 0;
@@ -130,42 +131,13 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime;
 			totalTime += duration;
-			answers.add(l+(iterations*2),matrix3);
 		}
 		
 		averageTime = totalTime/iterations;
 		
-		System.out.println("Strassen's Method of matrix size " + matrixSize);
+		System.out.println("Strassen's Method");
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000));
-		
-		//now test and see if all the answers matched for each method
-		boolean match = true;
-		
-		for (int i = 0; i < iterations; i++)
-		{
-			//each of the three methods stored their answers in different places in the list
-			int[][] matrix1 = answers.get(i);
-			int[][] matrix2 = answers.get(i+iterations);
-			int[][] matrix3 = answers.get(i+(iterations*2));
-			
-			for (int r = 0; r < matrixSize; r++)
-			{
-				for (int c = 0; c < matrixSize; c++)
-				{
-					if (!(matrix1[r][c] == matrix2[r][c] && matrix2[r][c] == matrix3[r][c]))
-					{
-						System.out.println("Answers do not match!!!!");
-						match = false;
-					}
-				}
-			}
-		}
-		
-		if (match)
-		{
-			System.out.println("\nAll answers matched!");
-		}
 	}
 	
 	/**

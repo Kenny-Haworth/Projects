@@ -6,7 +6,7 @@ public class midterm
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		final int textDelay = 30;
+		final int textDelay = 15;
 		final int newLineDelay = 500;
 		
 		print("Welcome to your study buddy for Gilbert Young's CS 331 midterm!", TimeUnit.MILLISECONDS, textDelay);
@@ -23,7 +23,12 @@ public class midterm
 		
 		//sorting algorithms: tower of hanoi(2^n), Strassen's algorithm (n^2.81), classical matrix multiplication (n^3),
 		//divide and conquer (not strassens) matrix multiplication(n^3), merge sort (nlogn for all), quick sort (nlogn, nlogn, n^2),
-		//bubble sort (n, n^2, n^2), binary search (1, logn, logn)
+		//bubble sort (n, n^2  , n^2), binary search (1, logn, logn),
+		
+		
+		//INSERTION SORT (N, N^2, N^2), SEQUENTIAL SEARCH (1, N, N), selection sort (n^2 comparisons, n swaps all cases)
+		//FIND MAX AND MIN 2(N-1) REGULAR COMPARISONS, two large integers (n^2 traditional and divide and conquer, n^1.58 fast way)
+		//complexity of binary search in really small portions??
 		
 		Random random = new Random();
 		boolean[] array = new boolean[16];
@@ -427,5 +432,65 @@ public class midterm
 			System.out.print(ch);
 			unit.sleep(delay);
 		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+midterm(key, startIndex, endIndex, array)
+{
+	if(endIndex < startIndex)
+	{
+		number could not be found
+		return a negative a number to indicate failure
+	}
+	
+	i = startIndex + (endIndex-startIndex)/8
+	
+	if (key == array[i])
+	{
+		return i;
+	}
+	else if (key > array)
+	{
+		midterm(key, i+1, endIndex, array);
+	}
+	else if (key < array)
+	{
+		midterm(key, startIndex, i-1, array);
 	}
 }
