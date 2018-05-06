@@ -21,10 +21,10 @@ public class MatrixTester
     {
         final int NUMOFTIMES = 3;
         int n;
-        long bTime, fTime;
-        long TimeC = 0;
-        long TimeDC = 0;
-        long TimeS = 0;
+        double bTime, fTime;
+        double TimeC = 0;
+        double TimeDC = 0;
+        double TimeS = 0;
         int[][] A, B;
         
         for(int i = 1; i > 0; i++)

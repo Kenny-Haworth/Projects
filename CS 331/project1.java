@@ -25,10 +25,9 @@ public class project1
 	{
 		Random random = new Random();
 		double totalTime = 0;
-		int total = 0;
 		
-		int iterations = 1; //the number of two matrixes to multiply together
-		int matrixSize = 4096; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
+		int iterations = 100; //the number of two matrixes to multiply together
+		int matrixSize = 256; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
 		System.out.println("Number of iterations: " + iterations);
 		System.out.println("Matrix size: " + matrixSize + "\n");
 		
@@ -73,11 +72,8 @@ public class project1
 				{
 					for (int i = 0; i < matrixSize; i++)
 					{
-						total += (matrix1[r][i] * matrix2[i][c]);
+						matrix3[r][c] += (matrix1[r][i] * matrix2[i][c]);
 					}
-					
-					matrix3[r][c] = total;
-					total = 0;
 				}
 			}
 			
