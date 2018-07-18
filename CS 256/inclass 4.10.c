@@ -110,6 +110,7 @@ int main()
 {
 	//struct Books Book1;
 	Book Book1;
+	printf("Memory size occupied by data: %d\n", sizeof(Book1));
 	
 	strcpy(Book1.title, "C Programming");
 	strcpy(Book1.author, "Nima Davarpanah");

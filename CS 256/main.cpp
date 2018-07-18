@@ -1,49 +1,28 @@
-/**#include <iostream>
-//using namespace std;
+#include "Employee.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 int main()
 {
-	int i = 0;
-	std::cout << "Please enter an integer value: ";
-	std::cin >> i;
-	std::cout << "The value you entered is " << i;
-	std::cout << " and its double is " << i * 2 << ".\n";
-	return 0;
-}*/
+	Employee Susan("Susan Meyers", 47899, "Accounting", "Vice President");
+	Employee Mark("Mark Jones", 39119);
+	Employee Joy; //default constructor - no arguments
 
-#include <cstdio> 
-#include <string>	//NOTE:strings in C++ are objects. In C they were char arrays 
-namespace altstring
-{
-	const std::string prefix = "(altstring)";	//Declare constant string 
-	//must announce standard namespace 
-	class string
-	{
-		std::string _s = ""; 
-		string(); 
-		public: 
-		string(const std::string & s) : _s(prefix + s) {}; 
-		const char * c_str()
-		{
-			return _s.c_str();
-		
-		}
-		
-		operator const std::string & ()
-		{
-			return _s;
-		}; 
-	};
-};	// namespace altstring 
+	//Finish Mark's info
+	Mark.setDepartment("IT");
+	Mark.setPosition("Programmer");
 
-using namespace std;
+	//Finish Joy's info
+	Joy.setName("Joy Rogers");
+	Joy.setIdNumber(81774);
+	Joy.setDepartment("Manufacturing");
+	Joy.setPosition("Engineer");
 
-//std::string s1("This is a string");
+	cout << "Name\t\t" << "ID Number\t" << "Department\t" << "Position" << endl;
+	cout << Susan.getName() << "\t" << Susan.getIdNumber() << "\t\t" << Susan.getDepartment() << "\t" << Susan.getPosition() << endl;
+	cout << Mark.getName() << "\t" << Mark.getIdNumber() << "\t\t" << Mark.getDepartment() << "\t\t" << Mark.getPosition() << endl;
+	cout << Joy.getName() << "\t" << Joy.getIdNumber() << "\t\t" << Joy.getDepartment() << "\t" << Joy.getPosition() << endl;
 
-int main(int argc, char ** argv)
-{
-	altstring::string s(s1);
-	//std::puts(s.c_str());
-	puts(s.c_str());
 	return 0;
 }

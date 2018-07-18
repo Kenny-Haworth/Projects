@@ -1,4 +1,4 @@
-public class min
+public class recursiveTest
 {
 	public static void main(String[] args)
 	{

@@ -1,19 +1,19 @@
 /**
 	@author Kendall Haworth
-	@version 2.0
 
 	A program that calculates the product of two matrixes using
 	the classical method, the divide and conquer method, and Strassen's
 	method.
 	
-	The number of matrixes to be multiplied together and the matrix size can be
+	The number of matrixes to be calculated and the matrix size can be
 	changed from the declared variables at the beginning of the program.
 	
 	The program will return to the user the average time in nanoseconds
 	and in seconds to complete each method based upon the number of iterations.
 	
 	All randomly generated matrixes are stored in an array list so that the methods
-	multiply the same matrixes.
+	can work on multiplying the same matrixes. The answers are then saved in a separate
+	array list and checked against each other to ensure correctness.
 */
 
 import java.util.Random;
@@ -26,14 +26,15 @@ public class project1
 		Random random = new Random();
 		double totalTime = 0;
 		
-		int iterations = 100; //the number of two matrixes to multiply together
-		int matrixSize = 16; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
+		int iterations = 1000000; //the number of two matrixes to multiply together
+		int matrixSize = 2; //the size of each matrix to be multiplied (only use powers of 2, ie 2^2, 2^3, etc)
 		System.out.println("Number of iterations: " + iterations);
 		System.out.println("Matrix size: " + matrixSize + "\n");
 		
 		ArrayList<int[][]> matrixList = new ArrayList<int[][]>(); //a list to store the matrixes in
-
-		//generates random matrixes and stores them in the matrix list
+		ArrayList<int[][]> answers = new ArrayList<int[][]>(); //a list to store the answers in
+		
+		//generates random matrixes and stores them in the matrix lists
 		for (int i = 0; i < iterations; i++)
 		{
 			int[][] matrix1 = new int[matrixSize][matrixSize];
@@ -43,16 +44,14 @@ public class project1
 			{
 				for (int c = 0; c < matrixSize; c++)
 				{
-					matrix1[r][c] = random.nextInt(1000000);
-					matrix2[r][c] = random.nextInt(1000000);
+					matrix1[r][c] = random.nextInt(100);
+					matrix2[r][c] = random.nextInt(100);
 				}
 			}
 			
 			matrixList.add(matrix1);
 			matrixList.add(matrix2);
 		}
-		
-		System.out.println("Matrixes are completed generating.\n");
 		
 		//////////////////////////////////////////////////
 		//				Classical Method				//
@@ -79,11 +78,12 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime; //the duration is the current system time minus the previous system time
 			totalTime += duration; //add the duration to the total time
+			answers.add(matrix3); //add the answer to the matrix list
 		}
 		
 		double averageTime = totalTime/iterations; //the average time (in nanoseconds) will be the total time divided by the number of iterations
 		
-		System.out.println("Classical Method");
+		System.out.println("Classical Method of matrix size " + matrixSize);
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000) + "\n");
 		averageTime = 0;
@@ -103,11 +103,12 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime;
 			totalTime += duration;
+			answers.add(l+iterations,matrix3);
 		}
 		
 		averageTime = totalTime/iterations;
 		
-		System.out.println("Divide and Conquer Method");
+		System.out.println("Divide and Conquer Method of matrix size " + matrixSize);
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000) + "\n");
 		averageTime = 0;
@@ -127,13 +128,42 @@ public class project1
 			
 			double duration = System.nanoTime() - startTime;
 			totalTime += duration;
+			answers.add(l+(iterations*2),matrix3);
 		}
 		
 		averageTime = totalTime/iterations;
 		
-		System.out.println("Strassen's Method");
+		System.out.println("Strassen's Method of matrix size " + matrixSize);
 		System.out.println("Average time in nanoseconds: " + averageTime);
 		System.out.println("Average time in seconds: " + (averageTime/1000000000));
+		
+		//now test and see if all the answers matched for each method
+		boolean match = true;
+		
+		for (int i = 0; i < iterations; i++)
+		{
+			//each of the three methods stored their answers in different places in the list
+			int[][] matrix1 = answers.get(i);
+			int[][] matrix2 = answers.get(i+iterations);
+			int[][] matrix3 = answers.get(i+(iterations*2));
+			
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					if (!(matrix1[r][c] == matrix2[r][c] && matrix2[r][c] == matrix3[r][c]))
+					{
+						System.out.println("Answers do not match!!!!");
+						match = false;
+					}
+				}
+			}
+		}
+		
+		if (match)
+		{
+			System.out.println("\nAll answers matched!");
+		}
 	}
 	
 	/**
@@ -145,7 +175,7 @@ public class project1
 	*/
 	public static int[][] divideAndConquer(int[][] matrix1, int[][] matrix2)
 	{
-		if (matrix1.length == 2) //base case, matrix sizes are 2x2. Perform classical matrix multiplication and return the result
+		if (matrix1.length == 2) //base case, the matrixes to be multiplied are 2x2
 		{
 			int[][] matrix3 = new int[matrix1.length][matrix1.length];
 			
@@ -158,7 +188,7 @@ public class project1
 		}
 		else
 		{
-			//create 8 new matrixes (A11, A12, A21, A22 and B11, B12, B21, B22) based off the current two matrixes to be multiplied
+			//create 8 new matrixes (A11, 12, 21, 22 and B11, 12, 21, 22) based off the current two
 			int matrixSize = matrix1.length/2;
 			
 			int[][] matrixA11 = new int[matrixSize][matrixSize];
@@ -171,20 +201,79 @@ public class project1
 			int[][] matrixB21 = new int[matrixSize][matrixSize];
 			int[][] matrixB22 = new int[matrixSize][matrixSize];
 			
-			//fill the A and B set matrixes using matrix1 and matrix2
+			//fill the A set matrixes using matrix1
+			//top left quadrant
 			for (int r = 0; r < matrixSize; r++)
 			{
 				for (int c = 0; c < matrixSize; c++)
 				{
 					matrixA11[r][c] = matrix1[r][c];
-					matrixA12[r][c] = matrix1[r][c + matrixSize];
-					matrixA21[r][c] = matrix1[r + matrixSize][c];
-					matrixA22[r][c] = matrix1[r + matrixSize][c + matrixSize];
-					
+				}
+			}
+			
+			//top right quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixA12[r][c-matrixSize] = matrix1[r][c];
+				}
+			}
+			
+			//bottom left quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					matrixA21[r-matrixSize][c] = matrix1[r][c];
+				}
+			}
+			
+			//bottom right quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixA22[r-matrixSize][c-matrixSize] = matrix1[r][c];
+				}
+			}
+			
+			//////////////////////////////////////////////////////////////
+			
+			//fill the B set matrixes using matrix2
+			//top left quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
 					matrixB11[r][c] = matrix2[r][c];
-					matrixB12[r][c] = matrix2[r][c + matrixSize];
-					matrixB21[r][c] = matrix2[r + matrixSize][c];
-					matrixB22[r][c] = matrix2[r + matrixSize][c + matrixSize];
+				}
+			}
+			
+			//top right quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixB12[r][c-matrixSize] = matrix2[r][c];
+				}
+			}
+			
+			//bottom left quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					matrixB21[r-matrixSize][c] = matrix2[r][c];
+				}
+			}
+			
+			//bottom right quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixB22[r-matrixSize][c-matrixSize] = matrix2[r][c];
 				}
 			}
 			
@@ -239,20 +328,15 @@ public class project1
 	*/
 	public static int[][] Strassen(int[][] matrix1, int[][] matrix2)
 	{
-		if (matrix1.length == 2) //base case, matrix sizes are 2x2. Perform classical matrix multiplication and return the result
+		if (matrix1.length == 1) //base case, matrix sizes are 1x1 or just 1 number
 		{
-			int[][] matrix3 = new int[matrix1.length][matrix1.length];
-			
-			matrix3[0][0] = (matrix1[0][0]*matrix2[0][0] + matrix1[0][1]*matrix2[1][0]);
-			matrix3[0][1] = (matrix1[0][0]*matrix2[0][1] + matrix1[0][1]*matrix2[1][1]);
-			matrix3[1][0] = (matrix1[1][0]*matrix2[0][0] + matrix1[1][1]*matrix2[1][0]);
-			matrix3[1][1] = (matrix1[1][0]*matrix2[0][1] + matrix1[1][1]*matrix2[1][1]);
-			
+			int[][] matrix3 = new int[1][1]; 
+			matrix3[0][0] = matrix1[0][0] * matrix2[0][0];
 			return matrix3;
 		}
 		else
 		{
-			//create 8 new matrixes (A11, A12, A21, A22 and B11, B12, B21, B22) based off the current two matrixes to be multiplied
+			//create 8 new matrixes (A11, 12, 21, 22 and B11, 12, 21, 22) based off the current two
 			int matrixSize = matrix1.length/2;
 			
 			int[][] matrixA11 = new int[matrixSize][matrixSize];
@@ -265,24 +349,83 @@ public class project1
 			int[][] matrixB21 = new int[matrixSize][matrixSize];
 			int[][] matrixB22 = new int[matrixSize][matrixSize];
 			
-			//fill the A and B set matrixes using matrix1 and matrix2
+			//fill the A set matrixes using matrix1
+			//top left quadrant
 			for (int r = 0; r < matrixSize; r++)
 			{
 				for (int c = 0; c < matrixSize; c++)
 				{
 					matrixA11[r][c] = matrix1[r][c];
-					matrixA12[r][c] = matrix1[r][c + matrixSize];
-					matrixA21[r][c] = matrix1[r + matrixSize][c];
-					matrixA22[r][c] = matrix1[r + matrixSize][c + matrixSize];
-					
-					matrixB11[r][c] = matrix2[r][c];
-					matrixB12[r][c] = matrix2[r][c + matrixSize];
-					matrixB21[r][c] = matrix2[r + matrixSize][c];
-					matrixB22[r][c] = matrix2[r + matrixSize][c + matrixSize];
 				}
 			}
 			
-			//create P, Q, R, S, T, U, V using the formula. Multiplication is recursive.
+			//top right quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixA12[r][c-matrixSize] = matrix1[r][c];
+				}
+			}
+			
+			//bottom left quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					matrixA21[r-matrixSize][c] = matrix1[r][c];
+				}
+			}
+			
+			//bottom right quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixA22[r-matrixSize][c-matrixSize] = matrix1[r][c];
+				}
+			}
+			
+			///////////////////////////////////////////////////////////////
+			
+			//fill the B set matrixes using matrix2
+			//top left quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					matrixB11[r][c] = matrix2[r][c];
+				}
+			}
+			
+			//top right quadrant
+			for (int r = 0; r < matrixSize; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixB12[r][c-matrixSize] = matrix2[r][c];
+				}
+			}
+			
+			//bottom left quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = 0; c < matrixSize; c++)
+				{
+					matrixB21[r-matrixSize][c] = matrix2[r][c];
+				}
+			}
+			
+			//bottom right quadrant
+			for (int r = matrixSize; r < matrix1.length; r++)
+			{
+				for (int c = matrixSize; c < matrix1.length; c++)
+				{
+					matrixB22[r-matrixSize][c-matrixSize] = matrix2[r][c];
+				}
+			}
+			
+			//create P, Q, R, S, T, U, V using the formula. Multiplication is recursive
 			int[][] P = Strassen(addMatrix(matrixA11, matrixA22), addMatrix(matrixB11, matrixB22));
 			int[][] Q = Strassen(addMatrix(matrixA21, matrixA22), matrixB11);
 			int[][] R = Strassen(matrixA11, subtractMatrix(matrixB12, matrixB22));
@@ -360,7 +503,7 @@ public class project1
 	
 		@param matrix1 The first 2D array
 		@param matrix2 The 2D array to be subtracted from the first 2D array
-		@return matrix1 minus matrix2
+		@return Matrix1 minus matrix2
 	*/
 	public static int[][] subtractMatrix(int[][] matrix1, int[][] matrix2)
 	{

@@ -1,4 +1,4 @@
-/*//PASS BY VALUE, POINTER, AND REFERENCE 
+//PASS BY VALUE, POINTER, AND REFERENCE 
 #include <iostream> 
 using namespace std;
 

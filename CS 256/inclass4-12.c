@@ -57,7 +57,7 @@ int main()
 	fclose(fp);
 	
 	return 0;
-}*/
+}
 
 #include <stdio.h>
 

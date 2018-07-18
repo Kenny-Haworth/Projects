@@ -28,13 +28,13 @@ public class InsertionIterative
 		{
 			for (int w = r; w > 0; w--)
 			{
-				if (array[w] < array[w-1]) //If the element is less than the element in front of it, swap them.
+				if (array[w] < array[w-1]) //If the element is less than the element behind it, swap them.
 				{
 					int temp = array[w-1];
 					array[w-1] = array[w];
 					array[w] = temp;
 				}
-				else //If it's greater than or equal to the element in front of it,
+				else 			//If it's greater than or equal to the element in front of it,
 				{				//it is sorted up to that element and can break out of the second for loop.
 					break;
 				}

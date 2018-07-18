@@ -73,3 +73,43 @@ int main()
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int x = 25;
+cout << x;
+foo(x);
+cout << x;
+
+foo(int x)
+{
+	x = 3;
+}
+
+2525
+
+

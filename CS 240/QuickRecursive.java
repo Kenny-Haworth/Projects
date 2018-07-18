@@ -32,7 +32,7 @@ public class QuickRecursive
 		}
 	}
 	
-	public static void quickSort(int[] array, int leftPointer, int rightPointer)
+	public static void quickSortRecursive(int[] array, int leftPointer, int rightPointer)
 	{
 		if (leftPointer < rightPointer) //Base case, if leftPointer equals rightPointer, sorting is complete
 		{

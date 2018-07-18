@@ -104,7 +104,7 @@ int max(int num1, int num2)
 	{
 		return num2;
 	}
-	*/
+	
 	char big[6];
 	int small[77];
 	double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};

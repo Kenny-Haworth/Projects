@@ -1,41 +1,17 @@
 /**
-	A merge sort algorithm that uses recursion to
-	sort an array from low numbers to high numbers.
+	Algorithm 1, Merge Sort
+	
 	@author Kendall Haworth
 */
 
-import java.util.Random;
-
-public class MergeRecursive
+public class algorithm1
 {
-	public static void main(String[] args)
-	{
-		int[] array = new int[10];
-		
-		
-		Random randomObj = new Random();
-		
-		//This loop fills each element of the array with random numbers.
-		for (int q = 0; q < array.length; q++)
-		{
-			array[q] = randomObj.nextInt(1000);
-			System.out.print(array[q] + " ");
-		}
-		
-		
-		System.out.println();
-		
-		mergeSort(array, 0, array.length-1); //Call the method to sort the array.
-		
-		//This loop prints out the sorted array.
-		for (int m = 0; m < array.length; m++)
-		{
-			System.out.print(array[m] + " ");
-		}
-	}
-	
-	//This method sorts the array using merge sort
-	public static void mergeSort(int[] array, int first, int last)
+	/**
+		@param array The array to be sorted.
+		@param first The front pointer of the array.
+		@param last The back pointer of the array.
+	*/
+	public void mergeSort(int[] array, int first, int last)
 	{
 		if (first < last) //If the array has more than one element, split it up more.
 		{
@@ -45,8 +21,14 @@ public class MergeRecursive
 			merge(array, first, midpoint, last); //Merge the array together
 		}
 	}
-
-	public static void merge(int[] array, int first, int midpoint, int last)
+	
+	/**
+		@param array The array to be sorted.
+		@param first The front pointer of the array.
+		@param midpoint The middle pointer of the array.
+		@param last The back pointer of the array.
+	*/
+	public void merge(int[] array, int first, int midpoint, int last)
 	{
 		int firstHalf = midpoint - first + 1; //Define the size of the left half
 		int secondHalf = last - midpoint; //Define the size of the right half
@@ -63,38 +45,32 @@ public class MergeRecursive
 		{
 			right[i] = array[midpoint + 1 + i];
 		}
-
+	
+		//create two pointers to keep track of the data read
 		int leftPointer = 0;
 		int rightPointer = 0;
-		int index = first;
+		int index = first; //begin reading data at the beginning
 		
 		while(leftPointer < firstHalf && rightPointer < secondHalf) //Loops as long as there are more elements to sort
 		{
 			if(left[leftPointer] <= right[rightPointer]) //If the left element is less than the right element,
 			{											 //add the left element to the array and increment the left pointer
-				array[index] = left[leftPointer];
-				leftPointer++;
+				array[index++] = left[leftPointer++];
 			}
-			else									//If the right element is less than the left element,
-			{										//add the right element to the array and increment the right pointer
-				array[index] = right[rightPointer];
-				rightPointer++;
+			else //left[leftPointer] > right[rightPointer]	//If the right element is less than the left element,
+			{												//add the right element to the array and increment the right pointer
+				array[index++] = right[rightPointer++];
 			}
-			index++;
 		}
-
+	
 		while(leftPointer < firstHalf) //If there are more elements in the left side, add them to the array
 		{
-			array[index] = left[leftPointer];
-			leftPointer++;
-			index++;
+			array[index++] = left[leftPointer++];
 		}
-
+	
 		while(rightPointer < secondHalf) //If there are more elements in the right side, add them to the array
 		{
-			array[index] = right[rightPointer];
-			rightPointer++;
-			index++;
+			array[index++] = right[rightPointer++];
 		}
 	}
 }
