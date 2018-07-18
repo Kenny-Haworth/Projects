@@ -1,23 +1,25 @@
-This file contains all planned ideas for the TerraNova game
+This file contains all planned ideas for the Terra Nova game
 
 Ideas:
 	weather events, droughts
-	disease (medicine cure?)
+	disease (medicine cure from lab, can disease people or food, both of which decreases happiness)
 	difficulty levels??
-	lucas - each set of 10 days increases his chances of finishing his code to open the portal, exponential function?
+	lucas - each set of 10 days increases his chances of successfully blow up the portal, exponential function would work well
 	sound files <===== this would be awesome. Rain in background on rainy days!
 	new population are children? three/five/ten days and they become adults?
 	have different defense numbers depending on attack - dino's or sixers
 		optionally adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
 	create exe file?
-	highlight text in purple for input
-	happiness maxes out at 100, but if that limit is hit additional resources are given
+	highlight text in other color for input
+	happiness maxes out at 100
 	immersive randomized text when attacks aren't sent between events
 
 Program Begins and shows a menu with the following options
 	New Game
 	Tutorial
 		This goes through the basics of the game and how to play. It then returns the user to the main menu.
+	Remove Text Scroll
+		Makes all text immediate, rather than a delay. Some people don't like it I guess
 	Credits
 		Just a statement of me and who helped me make the game
 
@@ -28,13 +30,13 @@ Exposition is read out. (warning of Lucas)
 the following loops each day:
 
 day is read out
-	after day 10, Lucas becomes a chance. 1/100 chance next 10 days tested each day. 1/50 next 10 each day. so on and so forth
+	after day 25, Lucas becomes a chance, increasing each day
 
 statistics of the colony are read out
 
 	statistics include:
 		happiness (too low and the population has a higher chance to refuse to fight, various bad things(fights, disturbed peace, etc))
-		food (no food means population decreases each day exponentially for each day the day terminates with 0 food)
+		food (no food means population decreases each day by half of all population that weren't fed when the day terminates with 0 food)
 		population (people. more people means you need more food, but fewer people means weaker defenses) (0 people and GAME OVER)
 		offense (the ability to fight back when the colony is attacked and harvest materials in more dangerous places)
 		defense (the ability to withstand strong enemy offense against the colony, whether it be dinos or sixers)
@@ -43,11 +45,11 @@ statistics of the colony are read out
 		(depending on difficulty, the above stats may be lower or higher and decrease or increase at a higher or lower rate)
 		
 
-options are displayed to harvest resources and increase colony stats. You may do 2 each day (random events intermingled). The user may:
+options are displayed to harvest resources and increase colony stats. You may do 2 each day (random events intermingled, warnings of what low stats do if they're too low). The user may:
 
 	Hold a festival (increases population, costs materials)
 		may hold a larger festival for more population but more material cost
-		Festivals can only get a maximum of half the total population in increase (for example: pop 100, increase only max 50)
+		population can only increase by half (20 population means only get 10 children, since there are 10 couples at most)
 	Hold a feast (increases happiness, costs food(may hold a larger feast for more happiness but greater food cost))
 
 	Go on a hunt (increases food) (different hunt locations may net more food, but can be more dangerous and result
@@ -62,12 +64,15 @@ options are displayed to harvest resources and increase colony stats. You may do
 			6 (very high amount of food, very high danger)
 
 	Gather materials (used to increase offensive or defensive capabilities)
-		1 
 
 	Spend materials (this is innate and will not count of one of the 2 things you are allowed to do each day)
 		Rovers (covers open ground, searches for resources each day and Lucas)
 		motorcycles (covers closed terrain and deep forests, searches for resources each day and Lucas)
-			a balance of rovers and motorcycles is best for finding Lucas; Rovers cover more ground and find more resources though, but they also cost more)
+			a balance of rovers and motorcycles is best for finding Lucas; Rovers cover more ground and find more resources than motorcycles, but they also cost more)
+		Create a Laboratory
+			The lab is used to research upgrades which can then be bought once they are researched
+			The lab costs materials or food to research things
+			The lab may have unexpected negatives such as decreased in happiness, food, population, etc.
 		Defenses
 			Towers 			(low defense increase, low material cost)
 			Reinforced Gates	(low-medium defense increase, higher material cost)
@@ -79,17 +84,22 @@ options are displayed to harvest resources and increase colony stats. You may do
 Randomized Events
 	In the event of an attack
 		Dino attack
-			same chance of attack the whole game
+			increasing chance of attack up to a point, then chance flatlines
 			dino's get stronger after each set of 10 days
 		Sixer attack
-			chance of sixer attack begins after 10 days, increases again after day 20 and remains the same for the rest of the game
+			chance of sixer attack begins after 40 days, increases again after day 20 and remains the same for the rest of the game
 			sixer's attack get stronger after each set of 15 days
+			sixers are always much, much stronger than dinosaurs
+			sixers can sabotage equipment or machinery for a fight, research laboratory upgrade against this (see lab)
+			sixers can use dinosaurs to fight in rare cases, increasing their attack power even further.
+		Special attacks every set of 100 days?
+			very difficult to overcome
 
 In the event of Sixer Victory
 	Terra Nova is taken, some manage to escape into a makeshift base in the forest. all stats are quartered (1/4)
 	Twice the chance for a dino attack each day
 	sixers have a tiny chance to find you each day, increasing slowly over time. If they find you, a huge wave is sent (the next day) The user will be warned of their compromised position.
-		if you conquer the wave you take back Terra Nova
+		if you conquer the wave, you have a huge chance of retaking Terra Nova the next day
 		if you lose to the wave, GAME OVER
 	You may choose to fight to reclaim Terra Nova; your offense must be greater than their defense, which is the defense of your forces before you lost Terra Nova plus (1/4) their offense when they took Terra Nova
 
