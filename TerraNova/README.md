@@ -43,7 +43,7 @@ If you failed or partially failed to loot a dangerous area, get more offense and
 	</ul>
 	<li>Let's look at an example to clarify. In this case, the area's danger value is 10. The chances of failure, partial success, and complete success will be based on your offense as shown:</li>
 	
-	![alt text](https://github.com/Kenny-Haworth/Projects/blob/master/TerraNova/images/dangerExample.png)
+	
 	
 	<ul>
 		<li>The Total column on the right displays the combined chances of partial and complete success, or the chances of not getting a failure.</li>
@@ -57,6 +57,9 @@ If you failed or partially failed to loot a dangerous area, get more offense and
 	</ul>
 	<li>So, what is the danger value of each area, you might ask? You'll just have to the play the game enough to find out!</li>
 </ul>
+
+![alt text](https://github.com/Kenny-Haworth/Projects/blob/master/TerraNova/images/dangerExample.png)
+
 <li>Added an option to gather materials outside the gates with no danger.</li>
 <li>Changed gathering materials at the Shoreline to gathering materials at the Cove.</li>
 <li>Changed gathering materials at the Deep Mines to gathering materials at the Volcano.</li>
