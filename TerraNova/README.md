@@ -43,7 +43,7 @@ If you failed or partially failed to loot a dangerous area, get more offense and
 	</ul>
 	<li>Let's look at an example to clarify. In this case, the area's danger value is 10. The chances of failure, partial success, and complete success will be based on your offense as shown:</li>
 	
-	![Danger Example Photo](Danger Example.png)
+	![Danger Example Photo](https://github.com/Kenny-Haworth/Projects/tree/master/TerraNova/images/dangerExample.png)
 	
 	<ul>
 		<li>The Total column on the right displays the combined chances of partial and complete success, or the chances of not getting a failure.</li>
