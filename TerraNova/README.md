@@ -41,25 +41,20 @@ If you failed or partially failed to loot a dangerous area, get more offense and
 		<li>The closer your offense is to the minimum offense value for success, or half the area's danger value, the closer you are to having a 0% chance of complete success and 25% chance of partial success.</li>
 		<li>The closer your offense is to the maximum offense value for success (before reaching the area's danger value), the closer you are to having a 70% chance of complete success and 20% chance of partial success.</li>
 	</ul>
-	<li>Let's look at an example to clarify. In this case, the area's danger value is 10. The chances of failure, partial success, and complete success will be based on your offense as shown:</li>
-	
-	
-	
-	<ul>
-		<li>The Total column on the right displays the combined chances of partial and complete success, or the chances of not getting a failure.</li>
-		<li>The chances scale between half the area's danger value (5) and the area's danger value (10):</li>
-		<ul>
-			<li>Failure scales down between 75% and 10%.</li>
-			<li>Partial success scales down between 25% and 20%.</li>
-			<li>Complete success scales up between 0% and 70%.</li>
-			<li>Total success (the chances of a partial success or a complete success) scales up between 25% and 90%.</li>
-		</ul>
-	</ul>
-	<li>So, what is the danger value of each area, you might ask? You'll just have to the play the game enough to find out!</li>
 </ul>
-
-![alt text](https://github.com/Kenny-Haworth/Projects/blob/master/TerraNova/images/dangerExample.png)
-
+<li>Let's look at an example to clarify. In this case, the area's danger value is 10. The chances of failure, partial success, and complete success will be based on your offense as shown:</li>
+![alt text](https://github.com/Kenny-Haworth/Projects/blob/master/TerraNova/images/dangerExample.png "Danger Example")
+<ul>
+	<li>The Total column on the right displays the combined chances of partial and complete success, or the chances of not getting a failure.</li>
+	<li>The chances scale between half the area's danger value (5) and the area's danger value (10):</li>
+	<ul>
+		<li>Failure scales down between 75% and 10%.</li>
+		<li>Partial success scales down between 25% and 20%.</li>
+		<li>Complete success scales up between 0% and 70%.</li>
+		<li>Total success (the chances of a partial success or a complete success) scales up between 25% and 90%.</li>
+	</ul>
+</ul>
+<li>So, what is the danger value of each area, you might ask? You'll just have to the play the game enough to find out!</li>
 <li>Added an option to gather materials outside the gates with no danger.</li>
 <li>Changed gathering materials at the Shoreline to gathering materials at the Cove.</li>
 <li>Changed gathering materials at the Deep Mines to gathering materials at the Volcano.</li>
