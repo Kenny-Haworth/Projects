@@ -1,5 +1,94 @@
 # Terra Nova Changelog
 
+<strong>"Danger"</strong> update, <ins>July 30, 2018</ins>.
+This update focuses on implementing danger into the game.
+
+Most of the following are stats for nerds, so to summarize the danger update, successfully harvesting food or materials in a dangerous area is dependent upon your offense.
+If you failed or partially failed to loot a dangerous area, get more offense and try again. More offense will always increase your chances of success.
+
+<strong>Changes:</strong>
+
+<ul>
+
+<li>Hunting and gathering materials can be dangerous, and can have negative consequences.</li>
+<li>There are 3 possibilities when going to a dangerous area:</li>
+<ul>
+	<li><strong>Failure:</strong> a negative consequence occurs.</li>
+	<li><strong>Partial success:</strong> resources are successfully obtained, but a negative consequence occurs.</li>
+	<ul>
+		<li>Less resources are gained here than that from a complete success.</li>
+		<li>The negative consequence is not near as bad as that from a failure.</li>
+	</ul>
+	<li><strong>Complete success:</strong> all resources are successfully obtained.</li>
+</ul>
+<li>Areas are marked in order of increasing danger on the hunt and material gathering menus. (added in first update, re-mentioned here for clarity)</li>
+<li>The higher the danger, the greater the consequence if the player is not successful in hunting or gathering in these areas.</li>
+<li>Each area to hunt or gather materials has a corresponding danger value associated with it. The greater the danger, the higher the danger value.</li>
+<li><strong>Successfully hunting or gathering materials in these areas is determined by the following formula:</strong></li>
+<ul>
+	<li>If the player's offense is less than half the area's danger value, the player will always fail.</li>
+	<li>If the player's offense is exactly half the area's danger value, there is a 75% chance of failure, 25% chance of partial success, and a 0% chance of complete success.</li>
+	<li>If the player's offense is one less than the area's danger value, there is a 10% chance of failure, 20% chance of partial success, and a 70% chance of complete success.</li>
+	<li>If the player's offense is equal to or greater than the area's danger value, there is a 100% chance of complete success.</li>
+	<ul>
+		<li>Even when the player has a 100% chance of complete success, there is still a 25% or 75% chance of being attacked, depending on the area.</li>
+		<li>There will be no negative consequences in this case.</li>
+		<li>In some areas getting attacked will slightly decrease harvest gains, and in other areas it will slightly increase harvest gains.</li>
+	</ul>
+	<li>If the player's offense is between half the area's danger value and the area's danger value, it is calculated by linear regression.</li>
+	<ul>
+		<li>Chances of partial success and complete success will rise according to your offense in this case.</li>
+		<li>The closer your offense is to the minimum offense value for success, or half the area's danger value, the closer you are to having a 0% chance of complete success and 25% chance of partial success.</li>
+		<li>The closer your offense is to the maximum offense value for success (before reaching the area's danger value), the closer you are to having a 70% chance of complete success and 20% chance of partial success.</li>
+	</ul>
+	<li>Let's look at an example to clarify. In this case, the area's danger value is 10. The chances of failure, partial success, and complete success will be based on your offense as shown:</li>
+	
+	![Danger Example Photo](Danger Example.png)
+	
+	<ul>
+		<li>The Total column on the right displays the combined chances of partial and complete success, or the chances of not getting a failure.</li>
+		<li>The chances scale between half the area's danger value (5) and the area's danger value (10):</li>
+		<ul>
+			<li>Failure scales down between 75% and 10%.</li>
+			<li>Partial success scales down between 25% and 20%.</li>
+			<li>Complete success scales up between 0% and 70%.</li>
+			<li>Total success (the chances of a partial success or a complete success) scales up between 25% and 90%.</li>
+		</ul>
+	</ul>
+	<li>So, what is the danger value of each area, you might ask? You'll just have to the play the game enough to find out!</li>
+</ul>
+<li>Added an option to gather materials outside the gates with no danger.</li>
+<li>Changed gathering materials at the Shoreline to gathering materials at the Cove.</li>
+<li>Changed gathering materials at the Deep Mines to gathering materials at the Volcano.</li>
+<li>Changed the Underwater Caves to the Caves.</li>
+<li>Changed starting materials to 0.</li>
+
+
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+
+<li>Fixed some text on the material gathering menu for consistency.</li>
+<li>Removed duplicate option lines on the Offensive Upgrades menu.</li>
+<li>The tooltip now correctly displays valid inputs when an invalid input is entered.</li>
+<li>Fixed improper spacing caused by the following conditions:</li>
+<ul>
+	<li>Duplicate spaces caused when weather does not occur for a day.</li>
+	<li>Missing spacing on the Defensive Upgrades menu after buying an upgrade.</li>
+	<li>Missing spacing on the Main Menu after turning text delay off.</li>
+	<li>Missing spacing when displaying statistical gains after purchasing ballistas or trenches.</li>
+</ul>
+
+</ul>
+
+Total lines of code: <strong>2685</strong> (<strong>added 898</strong> since last update)
+
+
+<hr />
+
+
 <strong>"Quality of Life"</strong> update, <ins>July 18, 2018</ins>.
 This update mostly focuses on making the game more user-friendly and bugfixes.
 
@@ -11,14 +100,14 @@ This update mostly focuses on making the game more user-friendly and bugfixes.
 <li>The user can now enter 0 (zero) at any time to see the colony's current statistics.</li>
 <li>The user now has the option to go back on any menu.</li>
 <li>Added an option to toggle the text delay from the main menu.</li>
-<li>After each day, the console will clear the previous day's text to make things clearer and prevent a "wall of text".</li>
+<li>After each day, the console will clear the previous day's text to make things clearer and prevent a "wall of text."</li>
 <li>Food is eaten each day based upon the size of the population. For example, 35 population consume 35 food per day. Failure to feed your population results in 1/2 of all who went unfed that day to starve to death.</li>
 <li>Weather now only has a 50% chance of occuring each day.</li>
 <li>The chance of an enemy attack is now only 50% each day.</li>
-<li>Food now begins at 40, poppulation at 10, and offense at 0.</li>
+<li>Food now begins at 40, population at 10, and offense at 0.</li>
 <li>Changed text from holding a festival, holding a feast, and gathering resources to make it more realistic and immersive.</li>
 <li>Decreased the population gains from the portal to balance the food consumption of a larger population.</li>
-<li>Since the player will not have a reasonable chance of rescuing the fair maiden early on, she will now only spawn after day 50, but still has only a 1 in 100 chance of spawning each day after that point.</li>
+<li>Since the player will not have a reasonable chance of rescuing the fair maiden early on, she will now only spawn after day 50, but still has a 1 in 100 chance of spawning each day after that point.</li>
 
 </ul>
 
@@ -130,7 +219,7 @@ so this list includes all features since development began.
 	</ul>
 	<li>Increase Defense     	(increases defense, costs materials)</li>
 	<ul>
-		<li>Reinforced Walls      (+ 5 defense, -15 materials)</li>
+		<li>Reinforced Walls      (+5 defense, -15 materials)</li>
 		<li>Personal Body Armor   (+10 defense, -40 materials)</li>
 		<li>Trenches              (+20 defense, -100 materials)</li>
 	</ul>

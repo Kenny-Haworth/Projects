@@ -7,28 +7,16 @@ Ideas:
 	lucas - each set of 10 days increases his chances of successfully blow up the portal, exponential function would work well
 	sound files <===== this would be awesome. Rain in background on rainy days!
 	new population are children? three/five/ten days and they become adults?
-	have different defense numbers depending on attack - dino's or sixers
+	have different defense numbers depending on attack - dino's or sixers, sixers are stronger
 		optionally adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
-	create exe file?
+	create exe file? or jar file?
 	highlight text in other color for input
-	happiness maxes out at 100
+	happiness maxes at 100
 	immersive randomized text when attacks aren't sent between events
 
-Program Begins and shows a menu with the following options
-	New Game
-	Tutorial
-		This goes through the basics of the game and how to play. It then returns the user to the main menu.
-	Remove Text Scroll
-		Makes all text immediate, rather than a delay. Some people don't like it I guess
-	Credits
-		Just a statement of me and who helped me make the game
-
 New Game is selected.
-
 Exposition is read out. (warning of Lucas)
-
 the following loops each day:
-
 day is read out
 	after day 25, Lucas becomes a chance, increasing each day
 
@@ -42,7 +30,7 @@ statistics of the colony are read out
 		defense (the ability to withstand strong enemy offense against the colony, whether it be dinos or sixers)
 		materials (needed to create things)
 
-		(depending on difficulty, the above stats may be lower or higher and decrease or increase at a higher or lower rate)
+		(depending on difficulty, the above stats may start lower or higher and decrease or increase at a higher or lower rate, perhaps?)
 		
 
 options are displayed to harvest resources and increase colony stats. You may do 2 each day (random events intermingled, warnings of what low stats do if they're too low). The user may:
@@ -50,20 +38,16 @@ options are displayed to harvest resources and increase colony stats. You may do
 	Hold a festival (increases population, costs materials)
 		may hold a larger festival for more population but more material cost
 		population can only increase by half (20 population means only get 10 children, since there are 10 couples at most)
+		
 	Hold a feast (increases happiness, costs food(may hold a larger feast for more happiness but greater food cost))
 
-	Go on a hunt (increases food) (different hunt locations may net more food, but can be more dangerous and result
-					in a loss of population and decrease in happiness if someone dies)
-
-		locations: (in each case, offensive capabilities determine success rate. you either get food or lose people, with a small chance of both if you lose people first)
-			1 (low amount of food, no danger)
-			2 (low-moderate amount of food, low danger)
-			3 (moderate amount of food, moderate danger)
-			4 (moderate-high amount of food, moderate-high danger)
-			5 (high amount of food, high danger)
-			6 (very high amount of food, very high danger)
+	Go on a hunt (increases food) (different hunt locations may net more food, but can be more dangerous and result in a loss of population and decrease in happiness if someone dies)
+		maybe sixers can attack while on a hunt
 
 	Gather materials (used to increase offensive or defensive capabilities)
+		add scuba diving and uncovering underwater wrecks in the west ocean
+		add deep ocean (pleasiosaurus danger)
+		add making a boat in the cove (once it has been secured from the spinosaurus) to travel to other islands for materials
 
 	Spend materials (this is innate and will not count of one of the 2 things you are allowed to do each day)
 		Rovers (covers open ground, searches for resources each day and Lucas)
@@ -73,6 +57,10 @@ options are displayed to harvest resources and increase colony stats. You may do
 			The lab is used to research upgrades which can then be bought once they are researched
 			The lab costs materials or food to research things
 			The lab may have unexpected negatives such as decreased in happiness, food, population, etc.
+			Can hire paleontologists to read up on dinosaurs (give exact danger value?)
+				exploring the whole map (success gathering materials and hunting everywhere) grants a reward, the paleontologist can make a map
+		Create a Clinic
+			heals diseases
 		Defenses
 			Towers 			(low defense increase, low material cost)
 			Reinforced Gates	(low-medium defense increase, higher material cost)
@@ -118,4 +106,3 @@ end of loop
 
 at game over, create a text document (that you append data to) that gives the date, time, and final day the user got to as well as what gave them their game over,
 maybe have a high score file and save/load game file
-	
