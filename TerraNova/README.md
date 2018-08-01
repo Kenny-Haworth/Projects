@@ -1,5 +1,40 @@
 # Terra Nova Changelog
 
+<strong>"Colony Manger"</strong> update, <ins>August 1, 2018</ins>.
+
+The next few updates will not add any new content to the game but will instead focus on optimizing the existing parts of TerraNova.
+Specifically, code will be organized into a more object-oriented scheme, which should allow faster and more frequent updates.
+
+For example, in this update everything to do with managing a colony has been moved into ColonyManager.java.
+This can then be instantiated as an object for the main method in TerraNova.java to use.
+Should multiplayer or npc colonys later be added to the game, this will now be much easier to do since multiple objects of the colony can be made and managed individually.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>The colony is no longer managed within TerraNova.java but is instead it's own class in ColonyManager.java.</li>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>Fixed an uneven text delay on the main menu.</li>
+<li>Cleaned up inefficiency in the Fair Maiden method.</li>
+<li>Removed two unused methods, check and saveGameStatistics.</li>
+<li>Removed four unused import statements for date and time management and file management.</li>
+</ul>
+
+
+Total lines of code will now be measured as a combined total of all java and text files that are necessary for TerraNova to run.
+
+Total lines of code: <strong>2771</strong> (<strong>added 86</strong> since last update)
+
+
+
+<hr />
+
+
+
 <strong>"Danger"</strong> update, <ins>July 30, 2018</ins>.
 This update focuses on implementing danger into the game.
 

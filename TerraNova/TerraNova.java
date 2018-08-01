@@ -13,12 +13,8 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.io.*;
-import java.util.InputMismatchException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 
 public class TerraNova
 {
@@ -76,7 +72,7 @@ public class TerraNova
 			questionDelay = 0;
 		}
 		
-		print("||==========================================||\n", dinoDelay);
+		print("||==========================================||\n", mainmenuDelay);
 		print("||                                          ||\n", mainmenuDelay);
 		print("||         Welcome to Terra Nova!!!         ||\n", mainmenuDelay);
 		print("||                                          ||\n", mainmenuDelay);
@@ -177,12 +173,8 @@ public class TerraNova
 	
 	public static void startGame(int textDelay) throws Exception
 	{
-		int happiness = 60; //base stats
-		int food = 40;
-		int population = 10;
-		int offense = 0;
-		int defense = 10;
-		int materials = 0;
+		ColonyManager colony = new ColonyManager(60, 40, 10, 0, 10, 0); //creates a colony with these base stats
+									//happiness, food, population, offense, defense, materials
 		int day = 1;
 		
 		boolean gameOver = false; //special events control
@@ -249,7 +241,7 @@ public class TerraNova
 			print("\n", resultDelay);
 			print("           Your current colony statistics:", resultDelay);
 			print("\n", darkStatementDelay);
-			displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+			displayColonyStatistics(colony, menuDelay);
 			
 			weatherChance = random.nextInt(2) + 1; //%50 chance of weather
 			if (weatherChance == 1)
@@ -261,14 +253,14 @@ public class TerraNova
 					print("It's raining today", resultDelay);
 					print("...\n", darkStatementDelay);
 					print("\t-10 happiness\n", resourceGainDelay);
-					happiness -= 10;
+					colony.subtractHappiness(10);
 				}
 				else if (weather == 2)
 				{
 					sunshine = true;
 					print("The sun is out and it's shining brightly today!\n", resultDelay);
 					print("\t+10 happiness\n", resourceGainDelay);
-					happiness += 10;
+					colony.addHappiness(10);
 				}
 				else if (weather == 3)
 				{
@@ -289,7 +281,7 @@ public class TerraNova
 					print("The wailing of the wind through the trees slowly eats on everyone's nerves", resultDelay);
 					print("...\n", darkStatementDelay);
 					print("\t-10 offense\n", resourceGainDelay);
-					offense -= 10;
+					colony.subtractOffense(10);
 				}
 				else if (weather == 6)
 				{
@@ -300,7 +292,7 @@ public class TerraNova
 					print("This will make it much more difficult to see enemies", resultDelay);
 					print("...\n", darkStatementDelay);
 					print("\t-10 defense\n", resourceGainDelay);
-					defense -= 10;
+					colony.subtractDefense(10);
 				}
 				
 				print("\n", resultDelay);
@@ -336,7 +328,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+						displayColonyStatistics(colony, menuDelay);
 					}
 					else
 					{
@@ -382,7 +374,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 5)
 						{
@@ -396,22 +388,22 @@ public class TerraNova
 							}
 							else
 							{
-								if (input == 1 && materials < 10)
+								if (input == 1 && colony.getMaterials() < 10)
 								{
 									print("\nYou need at least 10 materials to hold a dance!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 2 && materials < 18)
+								else if (input == 2 && colony.getMaterials() < 18)
 								{
 									print("\nYou need at least 18 materials to hold a parade!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 3 && materials < 30)
+								else if (input == 3 && colony.getMaterials() < 30)
 								{
 									print("\nYou need at least 30 materials to hold a play!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 4 && materials < 45)
+								else if (input == 4 && colony.getMaterials() < 45)
 								{
 									print("\nYou need at least 45 materials to hold a carnival!\n\n", resultDelay);
 									input = -1;
@@ -431,38 +423,38 @@ public class TerraNova
 					
 					if (input == 1)
 					{
-						population += 5;
-						materials -= 10;
 						print("Your people enjoyed the lively dancing!\n", resultDelay);
 						print("\t +5 population\n", resourceGainDelay);
 						print("\t-10 materials\n", resourceGainDelay);
+						colony.addPopulation(5);
+						colony.subtractMaterials(10);
 						enter();
 					}
 					else if (input == 2)
 					{
-						population += 10;
-						materials -= 18;
 						print("The people paraded through the streets in ornate costumes!\n", resultDelay);
 						print("\t+10 population\n", resourceGainDelay);
 						print("\t-18 materials\n", resourceGainDelay);
+						colony.addPopulation(10);
+						colony.subtractMaterials(18);
 						enter();
 					}
 					else if (input == 3)
 					{
-						population += 20;
-						materials -= 30;
 						print("Actors performed an amazing play for the entertainment of the people!\n", resultDelay);
 						print("\t+20 population\n", resourceGainDelay);
 						print("\t-30 materials\n", resourceGainDelay);
+						colony.addPopulation(20);
+						colony.subtractMaterials(30);
 						enter();
 					}
 					else if (input == 4)
 					{
-						population += 30;
-						materials -= 45;
 						print("A fair was held with several entertaining games and events!\n", resultDelay);
 						print("\t+30 population\n", resourceGainDelay);
 						print("\t-45 materials\n", resourceGainDelay);
+						colony.addPopulation(30);
+						colony.subtractMaterials(45);
 						enter();
 					}
 				}
@@ -497,7 +489,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 5)
 						{
@@ -511,22 +503,22 @@ public class TerraNova
 							}
 							else
 							{
-								if (input == 1 && food < 10)
+								if (input == 1 && colony.getFood() < 10)
 								{
 									print("\nYou need at least 10 food to hold a picnic!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 2 && food < 18)
+								else if (input == 2 && colony.getFood() < 18)
 								{
 									print("\nYou need at least 18 food to hold a banquet!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 3 && food < 30)
+								else if (input == 3 && colony.getFood() < 30)
 								{
 									print("\nYou need at least 30 food to hold a barbeque!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 4 && food < 45)
+								else if (input == 4 && colony.getFood() < 45)
 								{
 									print("\nYou need at least 45 food to hold a feast!\n\n", resultDelay);
 									input = -1;
@@ -544,38 +536,38 @@ public class TerraNova
 					
 					if (input == 1)
 					{
-						happiness += 5;
-						food -= 10;
 						print("Your people enjoyed a quiet picnic on the green rolling hills just outside the colony gates!\n", resultDelay);
 						print("\t +5 happiness\n", resourceGainDelay);
 						print("\t-10 food\n", resourceGainDelay);
+						colony.addHappiness(5);
+						colony.subtractFood(10);
 						enter();
 					}
 					else if (input == 2)
 					{
-						happiness += 10;
-						food -= 18;
 						print("Everyone enjoyed the palete of food at the banquet!\n", resultDelay);
 						print("\t+10 happiness\n", resourceGainDelay);
 						print("\t-18 food\n", resourceGainDelay);
+						colony.addHappiness(10);
+						colony.subtractFood(18);
 						enter();
 					}
 					else if (input == 3)
 					{
-						happiness += 20;
-						food -= 30;
 						print("Meat and fish were grilled over open fires and handed out for the barbeque!\n", resultDelay);
 						print("\t+20 happiness\n", resourceGainDelay);
 						print("\t-30 food\n", resourceGainDelay);
+						colony.addHappiness(20);
+						colony.subtractFood(30);
 						enter();
 					}
 					else if (input == 4)
 					{
-						happiness += 30;
-						food -= 45;
 						print("Large, long tables were placed together and heaps of food were brought out in the all-you-can-eat feast!\n", resultDelay);
 						print("\t+30 happiness\n", resourceGainDelay);
 						print("\t-45 food\n", resourceGainDelay);
+						colony.addHappiness(30);
+						colony.subtractFood(45);
 						enter();
 					}
 				}
@@ -621,7 +613,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 7)
 						{
@@ -649,12 +641,12 @@ public class TerraNova
 						print("You feel safe in the shadow of your walls, but there's not very much food here either", resultDelay);
 						print("...\n", darkStatementDelay);
 						print("\t+5 food\n", resourceGainDelay);
-						food += 5;
+						colony.addFood(5);
 						enter();
 					}
 					else if (input == 2) //hunting at the waterfalls
 					{
-						int result = dangerChance(10, offense);
+						int result = dangerChance(10, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -668,8 +660,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return here some other time, you should craft some spears to fend off the Velociraptors", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + population/4 + " population\n", resourceGainDelay);
-							population -= population/4;
+							print("\t-" + colony.getPopulation()/4 + " population\n", resourceGainDelay);
+							colony.subtractPopulation(colony.getPopulation()/4);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -685,8 +677,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+7 food\n", resourceGainDelay);
 							print("\t-3 population\n", resourceGainDelay);
-							food += 7;
-							population -= 3;
+							colony.addFood(7);
+							colony.subtractPopulation(3);
 						}
 						else //result == 2, success
 						{
@@ -701,7 +693,7 @@ public class TerraNova
 								print("Fortunately, you have all come with sharp spears and have no difficulty fending them off.\n", resultDelay);
 								print("You gather what you can and return to Terra Nova before dark. The trip was a success!\n", resultDelay);
 								print("\t+8 food\n", resourceGainDelay);
-								food += 8;
+								colony.addFood(8);
 							}
 							else //not attacked
 							{
@@ -710,7 +702,7 @@ public class TerraNova
 								print("The area is calm and your party is able to fish and gather uninterrupted.\n", resultDelay);
 								print("You regroup and return to Terra Nova before dark. The trip was a success!\n", resultDelay);
 								print("\t+10 food\n", resourceGainDelay);
-								food += 10;
+								colony.addFood(10);
 							}
 						}
 						
@@ -718,7 +710,7 @@ public class TerraNova
 					}
 					else if (input == 3) //hunting at the open plains
 					{
-						int result = dangerChance(35, offense);
+						int result = dangerChance(35, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -735,8 +727,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return here some other time, you should use some form of transportation to outrun any Therizinosaurs", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + population/2 + " population\n", resourceGainDelay);
-							population -= population/2;
+							print("\t-" + colony.getPopulation()/2 + " population\n", resourceGainDelay);
+							colony.subtractPopulation(colony.getPopulation()/2);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -758,8 +750,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+15 food\n", resourceGainDelay);
 							print("\t-5 population\n", resourceGainDelay);
-							food += 15;
-							population -= 5;
+							colony.addFood(15);
+							colony.subtractPopulation(5);
 						}
 						else //result == 2, success
 						{
@@ -781,7 +773,7 @@ public class TerraNova
 								print("Since the Therizinosaurus poses no threat, your party is able to continue searching for food, simply keeping a good radius from the beast to prevent angering it.\n", resultDelay);
 								print("Your party gathers a good deal of food from picking berries and fruit on the plains and head back to Terra Nova!\n", resultDelay);
 								print("\t+18 food\n", resourceGainDelay);
-								food += 18;
+								colony.addFood(18);
 							}
 							else //not attacked
 							{
@@ -791,7 +783,7 @@ public class TerraNova
 								print("Sometime later, your party has easily found a good deal of food from picking berries and other fruit on the plains.\n", resultDelay);
 								print("You even managed to take down several small oviraptors for some meat thanks to the speed of your buggies!\n", resultDelay);
 								print("\t+20 food\n", resourceGainDelay);
-								food += 20;
+								colony.addFood(20);
 							}
 						}
 						
@@ -799,7 +791,7 @@ public class TerraNova
 					}
 					else if (input == 4) //hunting in the deep forest
 					{
-						int result = dangerChance(50, offense);
+						int result = dangerChance(50, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -824,8 +816,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return here some other time, you should consider crafting a weapon strong enough to penetrate the Utahraptors' thick hides", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + (3*population)/5 + " population\n", resourceGainDelay);
-							population -= (3*population)/5;
+							print("\t-" + (3*colony.getPopulation())/5 + " population\n", resourceGainDelay);
+							colony.subtractPopulation((3*colony.getPopulation())/5);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -854,8 +846,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+25 food\n", resourceGainDelay);
 							print("\t-10 population\n", resourceGainDelay);
-							food += 25;
-							population -= 10;
+							colony.addFood(25);
+							colony.subtractPopulation(10);
 						}
 						else //result == 2, success
 						{
@@ -883,7 +875,7 @@ public class TerraNova
 								print("There is a good amount of meat to be harvested from the fallen raptors, along with the creepers and berries you already picked.\n", resultDelay);
 								print("The trip was a great success!\n", resultDelay);
 								print("\t+35 food\n", resourceGainDelay);
-								food += 35;
+								colony.addFood(35);
 							}
 							else //not attacked
 							{
@@ -895,7 +887,7 @@ public class TerraNova
 								print("...\n", darkStatementDelay);
 								print("There are several edible vines and creepers in this forest, as well small berries. You harvest more than enough. It is time to head back to Terra Nova.\n", resultDelay);
 								print("\t+30 food\n", resourceGainDelay);
-								food += 30;
+								colony.addFood(30);
 							}
 						}
 						
@@ -903,7 +895,7 @@ public class TerraNova
 					}
 					else if (input == 5) //hunting at the badlands
 					{
-						int result = dangerChance(75, offense);
+						int result = dangerChance(75, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -931,8 +923,8 @@ public class TerraNova
 							print("Later, you finally make it back to Terra Nova. Nobody else has made it back except for you.\n", resultDelay);
 							print("Perhaps if you decide to return to the badlands some other time, you should consider bringing something powerful enough to kill Allosaurs", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + (10 + (3*population)/5) + " population\n", resourceGainDelay);
-							population -= (10 + (3*population)/5);
+							print("\t-" + (10 + (3*colony.getPopulation())/5) + " population\n", resourceGainDelay);
+							colony.subtractPopulation(10 + ((3*colony.getPopulation())/5));
 						}
 						else if (result == 1) //success and failure
 						{
@@ -962,8 +954,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+40 food\n", resourceGainDelay);
 							print("\t-15 population\n", resourceGainDelay);
-							food += 40;
-							population -= 15;
+							colony.addFood(40);
+							colony.subtractPopulation(15);
 						}
 						else //result == 2, success
 						{
@@ -1001,7 +993,7 @@ public class TerraNova
 								print("The battle is short and brutal. As soon as the Allosaurs are in range, half your party concentrate fire on the first and half your party fire at the second.\n", resultDelay);
 								print("Both Allosaur's fall, and the final Allosaur flees, realizing it is outmatched. There will be a plethora of meat to harvest from the two dead Allosaurs!\n", resultDelay);
 								print("\t+50 food\n", resourceGainDelay);
-								food += 50;
+								colony.addFood(50);
 							}
 						}
 						
@@ -1009,7 +1001,7 @@ public class TerraNova
 					}
 					else if (input == 6) //hunting at the t-rex breeding grounds
 					{
-						int result = dangerChance(100, offense);
+						int result = dangerChance(100, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -1031,7 +1023,7 @@ public class TerraNova
 							print("Later, you finally make it back to Terra Nova and regroup with the others. Thankfully, almost all the members of your party have made it back.\n", resultDelay);
 							print("That wasn't so bad!\n", resultDelay);
 							print("\t-5 population\n", resourceGainDelay);
-							population -= 5;
+							colony.subtractPopulation(5);
 							enter();
 							
 							print("You sit with your hunting party in the safety of Terra Nova's walls and begin to recover.\n", resultDelay);
@@ -1056,18 +1048,18 @@ public class TerraNova
 							print("Perhaps if you decide to return to the T-rex breeding grounds some other time, you should consider bringing something powerful enough to kill a rex", resultDelay);
 							print("...\n", darkStatementDelay);
 							print("\t-50 happiness\n", resourceGainDelay);
-							print("\t-" + (5*food)/6 + " food\n", resourceGainDelay);
-							print("\t-" + (4*population)/5 + " population\n", resourceGainDelay);
+							print("\t-" + (5*colony.getFood())/6 + " food\n", resourceGainDelay);
+							print("\t-" + (4*colony.getPopulation())/5 + " population\n", resourceGainDelay);
 							print("\t-30 offense\n", resourceGainDelay);
 							print("\t-40 defense\n", resourceGainDelay);
-							print("\t-" + materials + " materials\n", resourceGainDelay);
+							print("\t-" + colony.getMaterials() + " materials\n", resourceGainDelay);
 							
-							happiness -= 50;
-							food -= (5*food)/6;
-							population -= (4*population)/5;
-							offense -= 30;
-							defense -= 40;
-							materials = 0;
+							colony.subtractHappiness(50);
+							colony.subtractFood((5*colony.getFood())/6);
+							colony.subtractPopulation((4*colony.getPopulation())/5);
+							colony.subtractOffense(30);
+							colony.subtractDefense(40);
+							colony.subtractMaterials(colony.getMaterials());
 						}
 						else if (result == 1) //success and failure
 						{
@@ -1091,8 +1083,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+55 food\n", resourceGainDelay);
 							print("\t-20 population\n", resourceGainDelay);
-							food += 55;
-							population -= 20;
+							colony.addFood(55);
+							colony.subtractPopulation(20);
 						}
 						else //result == 2, success
 						{
@@ -1116,7 +1108,7 @@ public class TerraNova
 								print("It is a simple matter from there to bring it down with the assault rifles.\n", resultDelay);
 								print("It will make for some great meat in addition to all the fruit and berries you harvested!\n", resultDelay);
 								print("\t+65 food\n", resourceGainDelay);
-								food += 65;
+								colony.addFood(65);
 							}
 							else //not attacked
 							{
@@ -1127,7 +1119,7 @@ public class TerraNova
 								print("Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.\n", resultDelay);
 								print("The expedition was successful and uneventful!\n", resultDelay);
 								print("\t+60 food\n", resourceGainDelay);
-								food += 60;
+								colony.addFood(60);
 							}
 						}
 						
@@ -1167,7 +1159,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 6)
 						{
@@ -1195,12 +1187,12 @@ public class TerraNova
 						print("You feel safe in the shadow of your walls, but there's not very many materials here either", resultDelay);
 						print("...\n", darkStatementDelay);
 						print("\t+5 materials\n", resourceGainDelay);
-						materials += 5;
+						colony.addMaterials(5);
 						enter();
 					}
 					else if (input == 2) //gathering materials at the riverbeds
 					{
-						int result = dangerChance(10, offense);
+						int result = dangerChance(10, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -1219,8 +1211,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return to the riverbeds some other time, you should consider bringing something to fend the Dilophosaurs off", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + population/4 + " population\n", resourceGainDelay);
-							population -= population/4;
+							print("\t-" + colony.getPopulation()/4 + " population\n", resourceGainDelay);
+							colony.subtractPopulation(colony.getPopulation()/4);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -1244,8 +1236,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+7 materials\n", resourceGainDelay);
 							print("\t-3 population\n", resourceGainDelay);
-							materials += 7;
-							population -= 3;
+							colony.addMaterials(7);
+							colony.subtractPopulation(3);
 						}
 						else //result == 2, success
 						{
@@ -1268,7 +1260,7 @@ public class TerraNova
 								print("Your party emerges victorious! Luckily, the effects of the poison were temporary and your man who was hit at the beginning of the fight has recovered.\n", resultDelay);
 								print("Your party is exhausted from the fight and decide to head back to Terra Nova.\n", resultDelay);
 								print("\t+8 materials\n", resourceGainDelay);
-								materials += 8;
+								colony.addMaterials(8);
 							}
 							else //not attacked
 							{
@@ -1276,7 +1268,7 @@ public class TerraNova
 								print("There is wood and hardened stones here that will be good for making tools.\n", resultDelay);
 								print("You gather all that is worth salvaging. The trip is uneventful and you all head back to Terra Nova.\n", resultDelay);
 								print("\t+10 materials\n", resourceGainDelay);
-								materials += 10;
+								colony.addMaterials(10);
 							}
 						}
 						
@@ -1284,7 +1276,7 @@ public class TerraNova
 					}
 					else if (input == 3) //gathering materials at the cove
 					{
-						int result = dangerChance(35, offense);
+						int result = dangerChance(35, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -1308,8 +1300,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return here some other time, you should consider bringing some form of transportation to outrun the Spinosaur", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + population/2 + " population\n", resourceGainDelay);
-							population -= population/2;
+							print("\t-" + colony.getPopulation()/2 + " population\n", resourceGainDelay);
+							colony.subtractPopulation(colony.getPopulation()/2);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -1338,8 +1330,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+15 materials\n", resourceGainDelay);
 							print("\t-5 population\n", resourceGainDelay);
-							materials += 15;
-							population -= 5;
+							colony.addMaterials(15);
+							colony.subtractPopulation(5);
 						}
 						else //result == 2, success
 						{
@@ -1369,7 +1361,7 @@ public class TerraNova
 								print("It would be best to leave it alone for the time being. Your weapons are not strong enough to take it down without great risk.\n", resultDelay);
 								print("You still have managed to obtain a sizable amount of materials. The expedition was a success!\n", resultDelay);
 								print("\t+18 materials\n", resourceGainDelay);
-								materials += 18;
+								colony.addMaterials(18);
 							}
 							else //not attacked
 							{
@@ -1386,7 +1378,7 @@ public class TerraNova
 								print("Your party has obtained a good amount of materials. The trip was successful and uneventful.\n", resultDelay);
 								print("It is time to head back to Terra Nova.\n", resultDelay);
 								print("\t+20 materials\n", resourceGainDelay);
-								materials += 20;
+								colony.addMaterials(20);
 							}
 						}
 						
@@ -1394,7 +1386,7 @@ public class TerraNova
 					}
 					else if (input == 4) //gathering materials in the caves
 					{
-						int result = dangerChance(50, offense);
+						int result = dangerChance(50, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -1424,8 +1416,8 @@ public class TerraNova
 							print("...\n\n", darkStatementDelay);
 							print("Perhaps if you decide to return here some other time, you should consider crafting a weapon that can take out the Troodons from a distance", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + (3*population)/5 + " population\n", resourceGainDelay);
-							population -= (3*population)/5;
+							print("\t-" + (3*colony.getPopulation())/5 + " population\n", resourceGainDelay);
+							colony.subtractPopulation((3*colony.getPopulation())/5);
 						}
 						else if (result == 1) //success and failure
 						{
@@ -1455,8 +1447,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+25 materials\n", resourceGainDelay);
 							print("\t-10 population\n", resourceGainDelay);
-							materials += 25;
-							population -= 10;
+							colony.addMaterials(25);
+							colony.subtractPopulation(10);
 						}
 						else //result == 2, success
 						{
@@ -1475,7 +1467,7 @@ public class TerraNova
 								print("Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.\n", resultDelay);							
 								print("Your group gathers all you can carry and meet back up with the other groups. The mining trip was a great success!\n", resultDelay);
 								print("\t+35 materials\n", resourceGainDelay);
-								materials += 35;
+								colony.addMaterials(35);
 							}
 							else //attacked
 							{
@@ -1498,7 +1490,7 @@ public class TerraNova
 								print("Continuing to mine will be risky now that you know Troodons are in the area. You have all already managed to mine a good deal of resources.\n", resultDelay);
 								print("It is time to head back to Terra Nova.\n", resultDelay);
 								print("\t+30 materials\n", resourceGainDelay);
-								materials += 30;
+								colony.addMaterials(30);
 							}
 						}
 						
@@ -1506,7 +1498,7 @@ public class TerraNova
 					}
 					else if (input == 5) //gathering materials at the volcano, 50 mats
 					{
-						int result = dangerChance(75, offense);
+						int result = dangerChance(75, colony.getOffense());
 						
 						if (result == 0) //failure
 						{
@@ -1533,8 +1525,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("Perhaps if you decide to return to the volcano some other time, you should consider bringing something powerful enough to kill Quetzals", resultDelay);
 							print("...\n", darkStatementDelay);
-							print("\t-" + (10 + (3*population)/5) + " population\n", resourceGainDelay);
-							population -= (10 + (3*population)/5);
+							print("\t-" + (10 + (3*colony.getPopulation())/5) + " population\n", resourceGainDelay);
+							colony.subtractPopulation(10 + ((3*colony.getPopulation())/5));
 						}
 						else if (result == 1) //success and failure
 						{
@@ -1567,8 +1559,8 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("\t+40 materials\n", resourceGainDelay);
 							print("\t-15 population\n", resourceGainDelay);
-							materials += 40;
-							population -= 15;
+							colony.addMaterials(40);
+							colony.subtractPopulation(15);
 						}
 						else //result == 2, success
 						{
@@ -1596,7 +1588,7 @@ public class TerraNova
 								print("Your party gathers until they are exhausted from the previous battle and the heat, and you all begin the long trek home.\n", resultDelay);
 								print("The trip was a success!\n", resultDelay);
 								print("\t+45 materials\n", resourceGainDelay);
-								materials += 45;
+								colony.addMaterials(45);
 							}
 							else //not attacked
 							{
@@ -1610,7 +1602,7 @@ public class TerraNova
 								print("Your party gathers all they can carry and you begin the long trek home.\n", resultDelay);
 								print("The trip was a great success!\n", resultDelay);
 								print("\t+50 materials\n", resourceGainDelay);
-								materials += 50;
+								colony.addMaterials(50);
 							}
 						}
 						
@@ -1628,29 +1620,29 @@ public class TerraNova
 					attackStrength = random.nextInt(8 + (2*day)) + 1;
 					enter();
 						
-					print("Your defense: " + defense + "\n", attackDelay);
+					print("Your defense: " + colony.getDefense() + "\n", attackDelay);
 					print("Dino attack strength:", attackDelay);
 					print(" " + attackStrength + "", waitAfterQuestionDelay);
 					print("\n", attackDelay);
 					
-					if (defense > attackStrength)
+					if (colony.getDefense() > attackStrength)
 					{
 						print("You fought the dinosaurs out of your territory!\n", resultDelay);
 						enter();
 					}
-					else if (defense < attackStrength)
+					else if (colony.getDefense() < attackStrength)
 					{
 						print("The dinosaurs have overrun your base!\n", resultDelay);
 						print("GAME OVER!\n", gameOverDelay);
 						enter();
 						break;
 					}
-					else if (attackStrength == defense)
+					else if (attackStrength == colony.getDefense())
 					{
 						print("\nThe battle is tied! Because you hold the defensive position, they are unable to overrun you!\n", resultDelay);
 						print("However, because you cannot overcome the dinosaurs, your troop's moral has been greatly lowered!\n", resultDelay);
 						print("\t-20 happiness\n", resourceGainDelay);
-						happiness -= 20;
+						colony.subtractHappiness(20);
 						enter();
 					}
 				}
@@ -1663,29 +1655,29 @@ public class TerraNova
 						attackStrength = random.nextInt(8 + (2*day)) + 1;
 						enter();
 						
-						print("Your defense: " + defense + "\n", attackDelay);
+						print("Your defense: " + colony.getDefense() + "\n", attackDelay);
 						print("Dino attack strength: " + attackStrength + "\n", attackDelay);
 						print(" " + attackStrength + "", waitAfterQuestionDelay);
 						print("\n", resultDelay);
 						
-						if (defense > attackStrength)
+						if (colony.getDefense() > attackStrength)
 						{
 							print("You fought the dinosaurs out of your territory!\n", resultDelay);
 							enter();
 						}
-						else if (defense < attackStrength)
+						else if (colony.getDefense() < attackStrength)
 						{
 							print("The dinosaurs have overrun your base!\n", resultDelay);
 							print("GAME OVER!\n", gameOverDelay);
 							enter();
 							break;
 						}
-						else if (attackStrength == defense)
+						else if (attackStrength == colony.getDefense())
 						{
 							print("The battle is tied! But because you hold the defensive position, they are unable to overrun you!\n", resultDelay);
 							print("However, because you cannot overcome the dinosaurs, your troop's moral has been greatly lowered!\n", resultDelay);
 							print("\t-20 happiness\n", resourceGainDelay);
-							happiness -= 20;
+							colony.subtractHappiness(20);
 							enter();
 						}
 					}
@@ -1695,29 +1687,29 @@ public class TerraNova
 						attackStrength = random.nextInt(8 + (2*day)) + 1;
 						enter();
 						
-						print("Your defense: " + defense + "\n", attackDelay);
+						print("Your defense: " + colony.getDefense() + "\n", attackDelay);
 						print("Sixer attack strength: " + attackStrength + "\n", attackDelay);
 						print(" " + attackStrength + "", waitAfterQuestionDelay);
 						print("\n", resultDelay);
 						
-						if (defense > attackStrength)
+						if (colony.getDefense() > attackStrength)
 						{
 							print("You fought the Sixers out of your territory!\n", resultDelay);
 							enter();
 						}
-						else if (defense < attackStrength)
+						else if (colony.getDefense() < attackStrength)
 						{
 							print("The Sixers have overtaken your base!\n", resultDelay);
 							print("GAME OVER!\n", gameOverDelay);
 							enter();
 							break;
 						}
-						else if (attackStrength == defense)
+						else if (attackStrength == colony.getDefense())
 						{
 							print("The battle is tied! But because you hold the defensive position, they are unable to conquer you!\n", resultDelay);
 							print("However, because you cannot overcome the Sixers, your troop's moral has been greatly lowered!\n", resultDelay);
 							print("\t-20 happiness\n", resourceGainDelay);
-							happiness -= 20;
+							colony.subtractHappiness(20);
 							enter();
 						}
 					}
@@ -1752,7 +1744,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+						displayColonyStatistics(colony, menuDelay);
 					}
 					else
 					{
@@ -1794,7 +1786,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 4)
 						{
@@ -1808,17 +1800,17 @@ public class TerraNova
 							}
 							else
 							{
-								if (input == 1 && materials < 15)
+								if (input == 1 && colony.getMaterials() < 15)
 								{
 									print("\nYou need at least 15 materials to craft spears!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 2 && materials < 40)
+								else if (input == 2 && colony.getMaterials() < 40)
 								{
 									print("\nYou need at least 40 materials to craft guns!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 3 && materials < 100)
+								else if (input == 3 && colony.getMaterials() < 100)
 								{
 									print("\nYou need at least 100 materials to craft ballistas!\n\n", resultDelay);
 									input = -1;
@@ -1836,27 +1828,27 @@ public class TerraNova
 					
 					if (input == 1)
 					{
-						offense += 5;
-						materials -= 15;
 						print("Your people have made spears from hide, flint, stone, and wood!\n", resultDelay);
 						print("\t +5 offense\n", resourceGainDelay);
 						print("\t-15 materials\n\n", resourceGainDelay);
+						colony.addOffense(5);
+						colony.subtractMaterials(15);
 					}
 					else if (input == 2)
 					{
-						offense += 10;
-						materials -= 40;
 						print("Your people have fashioned guns using resources from the portal!\n", resultDelay); // Only Display choice for guns if portal is true (set it up
 						print("\t+10 offense\n", resourceGainDelay);									   // for higher values of materials, after Lucas should be done)
 						print("\t-40 materials\n\n", resourceGainDelay);
+						colony.addOffense(10);
+						colony.subtractMaterials(40);
 					}
 					else if (input == 3)
 					{
-						offense += 20;
-						materials -= 100;
 						print("Your men have put together ballistas using leather, wood, and metal!\n", resultDelay); //
 						print("\t +20 offense\n", resourceGainDelay);
 						print("\t-100 materials\n\n", resourceGainDelay);
+						colony.addOffense(20);
+						colony.subtractMaterials(100);
 					}
 				}
 				else if (input == 2)
@@ -1887,7 +1879,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+							displayColonyStatistics(colony, menuDelay);
 						}
 						else if (input == 4)
 						{
@@ -1902,17 +1894,17 @@ public class TerraNova
 							}
 							else
 							{
-								if (input == 1 && materials < 15)
+								if (input == 1 && colony.getMaterials() < 15)
 								{
 									print("\nYou need at least 15 materials to create reinforced walls!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 2 && materials < 40)
+								else if (input == 2 && colony.getMaterials() < 40)
 								{
 									print("\nYou need at least 40 materials to make personal body armor!\n\n", resultDelay);
 									input = -1;
 								}
-								else if (input == 3 && materials < 100)
+								else if (input == 3 && colony.getMaterials() < 100)
 								{
 									print("\nYou need at least 100 materials to dig trenches!\n\n", resultDelay);
 									input = -1;
@@ -1928,32 +1920,32 @@ public class TerraNova
 					
 					if (input == 1)
 					{
-						defense += 5;
-						materials -= 15;
 						print("\nYour people have reinforced the wall with hide, stone, and wood!\n", resultDelay);
 						print("\t +5 defense\n", resourceGainDelay);
 						print("\t-15 materials\n", resourceGainDelay);
 						print("\n", resourceGainDelay);
 						kb.nextLine();
+						colony.addDefense(5);
+						colony.subtractMaterials(15);
 					}
 					else if (input == 2)
 					{
-						defense += 10;
-						materials -= 40;
 						print("\nYour people have made personal body armor from dinosaur hide!\n", resultDelay); // Only this choice if survived
 						print("\t+10 defense\n", resourceGainDelay);									 	           // 10 dino attacks or something
 						print("\t-40 materials\n", resourceGainDelay);
 						print("\n", resourceGainDelay);
 						kb.nextLine();
+						colony.addDefense(10);
+						colony.subtractMaterials(40);
 					}
 					else if (input == 3)
 					{
-						defense += 20;
-						materials -= 100;
 						print("\nYour people dug trenches using iron shovels!\n", resultDelay);
 						print("\t +20 defense\n", resourceGainDelay);
 						print("\t-100 materials\n", resourceGainDelay);
 						print("\n", resourceGainDelay);
+						colony.addDefense(20);
+						colony.subtractMaterials(100);
 					}
 				}
 				else if (input == 3)
@@ -1962,20 +1954,21 @@ public class TerraNova
 				}
 			}
 			
-			if (food >= population)
+			//population consuming food at end of day
+			if (colony.getFood() >= colony.getPopulation())
 			{
 				print("Your people have consumed food by the end of the day.\n", resultDelay);
-				print("\t-" + population + " food\n", resourceGainDelay);
-				food -= population;
+				print("\t-" + colony.getPopulation() + " food\n", resourceGainDelay);
+				colony.subtractFood(colony.getPopulation());
 			}
 			else //food < population
 			{
-				print("You have " + population + " people at the end of the day, but only " + food + " food to feed them all!\n", resultDelay);
-				print(population-food + " people went unfed today, so " + (population-food)/2 + " of them starved to death!\n", resultDelay);
-				print("\t-" + food + " food\n", resourceGainDelay);
-				print("\t-" + (population-food)/2 + " population\n", resourceGainDelay);
-				population -= (population-food)/2;
-				food = 0;
+				print("You have " + colony.getPopulation() + " people at the end of the day, but only " + colony.getFood() + " food to feed them all!\n", resultDelay);
+				print(colony.getPopulation()-colony.getFood() + " people went unfed today, so " + (colony.getPopulation()-colony.getFood())/2 + " of them starved to death!\n", resultDelay);
+				print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+				print("\t-" + (colony.getPopulation()-colony.getFood())/2 + " population\n", resourceGainDelay);
+				colony.subtractPopulation((colony.getPopulation()-colony.getFood())/2);
+				colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
 			}
 			
 			if (rain == true)
@@ -1987,7 +1980,7 @@ public class TerraNova
 				print("The Jurassic Age truly holds a beautiful world", resultDelay);
 				print("...\n", darkStatementDelay);
 				print("\t+10 happiness\n", resourceGainDelay);
-				happiness += 10;
+				colony.addHappiness(10);
 			}
 			else if (sunshine == true)
 			{
@@ -1997,7 +1990,7 @@ public class TerraNova
 				print("Everyone's mood darkens as the world is once again cast into shadows", resultDelay);
 				print("...\n", darkStatementDelay);
 				print("\t-10 happiness\n", resourceGainDelay);
-				happiness -= 10;
+				colony.subtractHappiness(10);
 			}
 			else if (lightning == true)
 			{
@@ -2015,7 +2008,7 @@ public class TerraNova
 				print("\nThe howling gale of wind has finally ended at the end of the day!\n", resultDelay);
 				print("Your guards finally relax as the world once again falls quiet and peaceful.\n", resultDelay);
 				print("\t+10 offense\n", resourceGainDelay);
-				offense += 10;
+				colony.addOffense(10);
 			}
 			else if (fog == true)
 			{
@@ -2023,64 +2016,61 @@ public class TerraNova
 				print("\nThe fog finally has begun to lift at the end of the day!\n", resultDelay);
 				print("Your men are now at ease, being able to see far beyond your walls once more.\n", resultDelay);
 				print("\t+10 defense\n", resourceGainDelay);
-				defense += 10;
+				colony.addDefense(10);
 			}
 			
 			enter();
 			
 			if (portal = true)
 			{
-				if (population < food && population < materials)
+				if (colony.getPopulation() < colony.getFood() && colony.getPopulation() < colony.getMaterials())
 				{
-					population += 2;
-					food += 3;
-					materials += 3;
 					print("The portal has given you a small amount of resources at the end of the day.\n", resultDelay);
 					print("\t+2 population\n", resourceGainDelay);
 					print("\t+3 food\n", resourceGainDelay);
 					print("\t+3 materials\n", resourceGainDelay);
+					colony.addPopulation(2);
+					colony.addFood(3);
+					colony.addMaterials(3);
 				}
-				else if (food < population && food < materials)
+				else if (colony.getFood() < colony.getPopulation() && colony.getFood() < colony.getMaterials())
 				{
-					population += 1;
-					food += 5;
-					materials += 3;
 					print("The portal has given you a small amount of resources at the end of the day.\n", resultDelay);
 					print("\t+1 population\n", resourceGainDelay);
 					print("\t+5 food\n", resourceGainDelay);
 					print("\t+3 materials\n", resourceGainDelay);
+					colony.addPopulation(1);
+					colony.addFood(5);
+					colony.addMaterials(3);
 				}
-				else if (materials < food && materials < population)
+				else if (colony.getMaterials() < colony.getFood() && colony.getMaterials() < colony.getPopulation())
 				{
-					population += 1;
-					food += 3;
-					materials += 5;
 					print("The portal has given you a small amount of resources at the end of the day.\n", resultDelay);
 					print("\t+1 population\n", resourceGainDelay);
 					print("\t+3 food\n", resourceGainDelay);
 					print("\t+5 materials\n", resourceGainDelay);
+					colony.addPopulation(1);
+					colony.addFood(3);
+					colony.addMaterials(5);
 				}
 				else
 				{
-					population += 1;
-					food += 4;
-					materials += 4;
-
 					print("The portal has given you a small amount of resources at the end of the day.\n", resultDelay);
 					print("\t+1 population\n", resourceGainDelay);
 					print("\t+4 food\n", resourceGainDelay);
 					print("\t+4 materials\n", resourceGainDelay);
+					colony.addPopulation(1);
+					colony.addFood(4);
+					colony.addMaterials(4);
 				}
 			}
-			else if (portal = false)
+			else //portal = false, not implemented yet
 			{
 				print("The day ends on a bleak note as you reflect that the portal has been destroyed.\n", resultDelay);
 				print("You are alone and cut off from civilization, ", resultDelay);
 				print("forever.\n", darkStatementDelay);
 			}
 			
-			//consider beginning the roll for fairMaiden later in the game, as even if a player gets it early they won't get her,
-			//its not very fair for the player
 			Special = random.nextInt(100) + 1;
 			if (Special == 1 && !fairMaiden && day > 50)
 			{
@@ -2117,7 +2107,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(happiness, food, population, offense, defense, materials, menuDelay);
+						displayColonyStatistics(colony, menuDelay);
 					}
 					else
 					{
@@ -2140,9 +2130,9 @@ public class TerraNova
 					print("...\n", darkStatementDelay);
 					print("...\n\n", darkStatementDelay);
 					
-					if (offense < 100)
+					if (colony.getOffense() < 100)
 					{
-						if (offense > 90)
+						if (colony.getOffense() > 90)
 						{
 							rescueSpecial = random.nextInt(10) + 1; //90% chance
 							if (rescueSpecial == 10)
@@ -2154,7 +2144,7 @@ public class TerraNova
 								rescueSpecial = 1; //success
 							}
 						}
-						else if (offense > 80)
+						else if (colony.getOffense() > 80)
 						{
 							rescueSpecial = random.nextInt(5) + 1; //80% chance
 							if (rescueSpecial == 5)
@@ -2166,7 +2156,7 @@ public class TerraNova
 								rescueSpecial = 1; //success
 							}
 						}
-						else if (offense > 70)
+						else if (colony.getOffense() > 70)
 						{
 							rescueSpecial = random.nextInt(10) + 1; //70% chance
 							if (rescueSpecial == 8 || rescueSpecial == 9 || rescueSpecial == 10)
@@ -2178,7 +2168,7 @@ public class TerraNova
 								rescueSpecial = 1; //success
 							}
 						}
-						else if (offense > 60)
+						else if (colony.getOffense() > 60)
 						{
 							rescueSpecial = random.nextInt(5) + 1; //60% chance
 							if (rescueSpecial == 2 || rescueSpecial == 3)
@@ -2186,11 +2176,11 @@ public class TerraNova
 								rescueSpecial = 0;
 							}
 						}
-						else if (offense > 50)
+						else if (colony.getOffense() > 50)
 						{
 							rescueSpecial = random.nextInt(2) + 1; //50% chance
 						}
-						else if (offense > 40)
+						else if (colony.getOffense() > 40)
 						{
 							rescueSpecial = random.nextInt(5) + 1; //40% chance
 							if (rescueSpecial == 2)
@@ -2198,7 +2188,7 @@ public class TerraNova
 								rescueSpecial = 1; //success
 							}
 						}
-						else if (offense > 30)
+						else if (colony.getOffense() > 30)
 						{
 							rescueSpecial = random.nextInt(10) + 1; //30% chance
 							if (rescueSpecial == 2 || rescueSpecial == 3)
@@ -2206,7 +2196,7 @@ public class TerraNova
 								rescueSpecial = 1;
 							}
 						}
-						else if (offense > 20)
+						else if (colony.getOffense() > 20)
 						{
 							rescueSpecial = random.nextInt(5) + 1; //20% chance
 						}
@@ -2230,9 +2220,9 @@ public class TerraNova
 						print("Shivering and afraid, your squadron quickly forms a defensive perimeter around her!\n", resultDelay);
 						print("You leap out of your rover and wrap a blanket around her, assuring her that she's safe now!\n", resultDelay);
 						
-						if (defense < 100)
+						if (colony.getDefense() < 100)
 						{
-							if (defense > 90)
+							if (colony.getDefense() > 90)
 							{
 								returnSpecial = random.nextInt(10) + 1; //90% chance
 								if (returnSpecial == 10)
@@ -2244,7 +2234,7 @@ public class TerraNova
 									returnSpecial = 1; //success
 								}
 							}
-							else if (defense > 80)
+							else if (colony.getDefense() > 80)
 							{
 								returnSpecial = random.nextInt(5) + 1; //80% chance
 								if (returnSpecial == 5)
@@ -2256,7 +2246,7 @@ public class TerraNova
 									returnSpecial = 1; //success
 								}
 							}
-							else if (defense > 70)
+							else if (colony.getDefense() > 70)
 							{
 								returnSpecial = random.nextInt(10) + 1; //70% chance
 								if (returnSpecial == 8 || returnSpecial == 9 || returnSpecial == 10)
@@ -2268,7 +2258,7 @@ public class TerraNova
 									returnSpecial = 1; //success
 								}
 							}
-							else if (defense > 60)
+							else if (colony.getDefense() > 60)
 							{
 								returnSpecial = random.nextInt(5) + 1; //60% chance
 								if (returnSpecial == 2 || returnSpecial == 3)
@@ -2276,11 +2266,11 @@ public class TerraNova
 									returnSpecial = 0;
 								}
 							}
-							else if (defense > 50)
+							else if (colony.getDefense() > 50)
 							{
 								returnSpecial = random.nextInt(2) + 1; //50% chance
 							}
-							else if (defense > 40)
+							else if (colony.getDefense() > 40)
 							{
 								returnSpecial = random.nextInt(5) + 1; //40% chance
 								if (returnSpecial == 2)
@@ -2288,7 +2278,7 @@ public class TerraNova
 									returnSpecial = 1; //success
 								}
 							}
-							else if (defense > 30)
+							else if (colony.getDefense() > 30)
 							{
 								returnSpecial = random.nextInt(10) + 1; //30% chance
 								if (returnSpecial == 2 || returnSpecial == 3)
@@ -2296,7 +2286,7 @@ public class TerraNova
 									returnSpecial = 1;
 								}
 							}
-							else if (defense > 20)
+							else if (colony.getDefense() > 20)
 							{
 								returnSpecial = random.nextInt(5) + 1; //20% chance
 							}
@@ -2331,9 +2321,8 @@ public class TerraNova
 						print("Your troops are savagely torn limb from limb and you barely make it out with the men in your rover alive!\n", resultDelay);
 						print("Using your radios you manage to regroup with what is left of your squadron. It's going to a quiet ride back to Terra Nova", resultDelay);
 						print("...\n", darkStatementDelay);
-						int checkPop = population/2;
-						print("\t-" + checkPop + " population\n", resourceGainDelay);
-						population -= checkPop;
+						print("\t-" + colony.getPopulation()/2 + " population\n", resourceGainDelay);
+						colony.subtractPopulation(colony.getPopulation()/2);
 					}
 					
 				}
@@ -2352,20 +2341,11 @@ public class TerraNova
 			enter();
 			
 			day++;
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //clears the screen
 			print("\n", resultDelay);
 			
 		} // ends the while loop at the very beginning
 	} //ends method
-	
-	public static boolean check(int required, int current)
-	{
-		if (required > current)
-		{
-			return false;
-		}
-		return true;
-	}
 	
 	public static void print(String data, long delay) throws InterruptedException
 	{
@@ -2381,29 +2361,21 @@ public class TerraNova
 		Scanner kb = new Scanner(System.in);
 		kb.nextLine();
 	}
-	
-	public static void saveGameStatistics()
-	{
-		System.out.println("The game has been saved."); //Save all the current game statistics, then just run the loop with the inputted data!
-														//Perhaps don't initialize starting game data, but read it from a text file? Then saved games would	
-														//be read in through the same means, and it wouldn't change the system for new game/continue game.
-														//This means I must add a continue section at the menu as well! Save date/time as well (see import statements)
-	}
 
-	public static void displayColonyStatistics(int happiness, int food, int population, int offense, int defense, int materials, int menuDelay) throws InterruptedException
+	public static void displayColonyStatistics(ColonyManager colony, int menuDelay) throws InterruptedException
 	{
-		int happinessLen = Integer.toString(happiness).length() - 1;
-		int foodLen = Integer.toString(food).length() - 1;
-		int populationLen = Integer.toString(population).length() - 1;
-		int offenseLen = Integer.toString(offense).length() - 1;
-		int defenseLen = Integer.toString(defense).length() - 1;
-		int materialsLen = Integer.toString(materials).length() - 1;
+		int happinessLen = Integer.toString(colony.getHappiness()).length() - 1;
+		int foodLen = Integer.toString(colony.getFood()).length() - 1;
+		int populationLen = Integer.toString(colony.getPopulation()).length() - 1;
+		int offenseLen = Integer.toString(colony.getOffense()).length() - 1;
+		int defenseLen = Integer.toString(colony.getDefense()).length() - 1;
+		int materialsLen = Integer.toString(colony.getMaterials()).length() - 1;
 		
 		print("||====================================================||\n", menuDelay);
 		print("||                                                    ||\n", menuDelay);
 		print("||       Happiness        Food        Population      ||\n", menuDelay);     
 		
-		printBoxes(happinessLen, foodLen, populationLen, happiness, food, population, menuDelay);
+		printBoxes(happinessLen, foodLen, populationLen, colony.getHappiness(), colony.getFood(), colony.getPopulation(), menuDelay);
 		
 		print("||                                                    ||\n", menuDelay);
 		
@@ -2416,7 +2388,7 @@ public class TerraNova
 			print("||        Offense       Defense       Materials       ||\n", menuDelay);
 		}
 		
-		printBoxes(offenseLen, defenseLen, materialsLen, offense, defense, materials, menuDelay);
+		printBoxes(offenseLen, defenseLen, materialsLen, colony.getOffense(), colony.getDefense(), colony.getMaterials(), menuDelay);
 		
 		print("||                                                    ||\n", menuDelay);
 		print("||====================================================||\n", menuDelay);
@@ -2507,7 +2479,6 @@ public class TerraNova
 			{
 				print("||   ||", menuDelay);
 			}
-			
 			
 			if (secondLen == 0) //spaces in the middle
 			{

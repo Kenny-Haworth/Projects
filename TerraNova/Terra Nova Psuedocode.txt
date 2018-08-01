@@ -1,7 +1,7 @@
 This file contains all planned ideas for the Terra Nova game
 
 Ideas:
-	weather events, droughts
+	weather events (have one to add offense), droughts
 	disease (medicine cure from lab, can disease people or food, both of which decreases happiness)
 	difficulty levels??
 	lucas - each set of 10 days increases his chances of successfully blow up the portal, exponential function would work well
