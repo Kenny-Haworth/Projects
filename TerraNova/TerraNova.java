@@ -25,9 +25,8 @@ public class TerraNova
 		final int loop = 0;
 		
 		do
-		{	
+		{
 			input = DisplayMainMenu(textDelay);
-			//input = 1; //REMOVE THIS LINE
 			if (input == 1)
 			{
 				exposition(textDelay);
@@ -61,14 +60,12 @@ public class TerraNova
 	public static int DisplayMainMenu(int textDelay) throws Exception
 	{
 		int input;
-		int mainmenuDelay = 8;
-		int dinoDelay = 3;
-		int questionDelay = 50;
+		int mainmenuDelay = 3;
+		int questionDelay = 40;
 		
 		if (textDelay == 1)
 		{
 			mainmenuDelay = 0;
-			dinoDelay = 0;
 			questionDelay = 0;
 		}
 		
@@ -85,23 +82,23 @@ public class TerraNova
 		print("||          (recommended for new players)   ||\n", mainmenuDelay);
 		print("||                                          ||\n", mainmenuDelay);
 		print("||          4) Credits                      ||\n", mainmenuDelay);
-		print("||                              ____        ||\n", dinoDelay);
-		print("||                             / *__)       ||\n", dinoDelay);
-		print("||                            /  /          ||\n", dinoDelay);
-		print("||                           /  /           ||\n", dinoDelay);
-		print("||                          /  /            ||\n", dinoDelay);
-        print("||                _____    /  /             ||\n", dinoDelay);
-	    print("||            ___/     \\__/  /              ||\n", dinoDelay); // Offset one space because of escape character "\"
-        print("||           /              /               ||\n", dinoDelay);
-        print("||          /               |               ||\n", dinoDelay);
-	    print("||         / /|             |               ||\n", dinoDelay);
-        print("||        / / |   _______   |               ||\n", dinoDelay);
-        print("||       / /  |  |       |  |               ||\n", dinoDelay);
-		print("||      /_/   |  |       |  |               ||\n", dinoDelay);
-		print("||            |  |       |  |               ||\n", dinoDelay);
-		print("||            |__|       |__|               ||\n", dinoDelay);
-		print("||                                          ||\n", dinoDelay);																				
-		print("||==========================================||\n", dinoDelay);
+		print("||                              ____        ||\n", mainmenuDelay);
+		print("||                             / *__)       ||\n", mainmenuDelay);
+		print("||                            /  /          ||\n", mainmenuDelay);
+		print("||                           /  /           ||\n", mainmenuDelay);
+		print("||                          /  /            ||\n", mainmenuDelay);
+        print("||                _____    /  /             ||\n", mainmenuDelay);
+	    print("||            ___/     \\__/  /              ||\n", mainmenuDelay); // Offset one space because of escape character "\"
+        print("||           /              /               ||\n", mainmenuDelay);
+        print("||          /               |               ||\n", mainmenuDelay);
+	    print("||         / /|             |               ||\n", mainmenuDelay);
+        print("||        / / |   _______   |               ||\n", mainmenuDelay);
+        print("||       / /  |  |       |  |               ||\n", mainmenuDelay);
+		print("||      /_/   |  |       |  |               ||\n", mainmenuDelay);
+		print("||            |  |       |  |               ||\n", mainmenuDelay);
+		print("||            |__|       |__|               ||\n", mainmenuDelay);
+		print("||                                          ||\n", mainmenuDelay);																				
+		print("||==========================================||\n", mainmenuDelay);
 		print("           Enter your number choice:          \n", questionDelay); //Remove this line if I can highlight 1, 2, and 3 at some point, change color of choosable numbers
 		
 		Scanner kb = new Scanner(System.in);
@@ -129,7 +126,7 @@ public class TerraNova
 	
 	public static void exposition(int textDelay) throws Exception
 	{
-		int loreDelay = 50;
+		int loreDelay = 40;
 		
 		if (textDelay == 1)
 		{
@@ -143,7 +140,7 @@ public class TerraNova
 	
 	public static void tutorial(int textDelay) throws Exception
 	{
-		int tutorialDelay = 10;
+		int tutorialDelay = 40;
 		
 		if (textDelay == 1)
 		{
@@ -157,7 +154,7 @@ public class TerraNova
 	
 	public static void credits(int textDelay) throws Exception
 	{
-		int creditsDelay = 10;
+		int creditsDelay = 40;
 		
 		if (textDelay == 1)
 		{
@@ -169,12 +166,8 @@ public class TerraNova
 		print("\n", creditsDelay);
 	}
 	
-	
-	
 	public static void startGame(int textDelay) throws Exception
 	{
-		ColonyManager colony = new ColonyManager(60, 40, 10, 0, 10, 0); //creates a colony with these base stats
-									//happiness, food, population, offense, defense, materials
 		int day = 1;
 		
 		boolean gameOver = false; //special events control
@@ -182,43 +175,31 @@ public class TerraNova
 		boolean lucas = false;
 		boolean fairMaiden = false;
 		
-		boolean rain = false; //weather control
-		boolean sunshine = false;
-		boolean lightning = false;
-		boolean snow = false;
-		boolean wind = false;
-		boolean fog = false;
-		int weatherChance;
-		int weather;
-		
-		int menuDelay = 2;
-		int optionDelay = 8;
+		int colonyMenuDelay = 2; //text delays
+		int menuDelay = 6;
+		int largeMenuDelay = 2; //menu's with more options should have faster text delay
 		int questionDelay = 30;
-		int resultDelay = 30;
-		int gameOverDelay = 400;
-		int attackDelay = 50;
-		int endofdayDelay = 10;
 		int darkStatementDelay = 500;
-		
-		int huntMenuDelay = 2;
+		int resultDelay = 30;
 		int waitAfterQuestionDelay = 750;
 		int resourceGainDelay = 125;
 		
 		if (textDelay == 1) //text delay is turned OFF
 		{
+			colonyMenuDelay = 0;
 			menuDelay = 0;
-			optionDelay = 0;
+			largeMenuDelay = 0;
 			questionDelay = 0;
-			resultDelay = 0;
-			gameOverDelay = 0;
-			attackDelay = 0;
-			endofdayDelay = 0;
 			darkStatementDelay = 0;
-			
-			huntMenuDelay = 0;
+			resultDelay = 0;
 			waitAfterQuestionDelay = 0;
 			resourceGainDelay = 0;
 		}
+		
+		ColonyManager colony = new ColonyManager(60, 40, 10, 0, 10, 0); //creates a colony with these base stats
+								//happiness, food, population, offense, defense, materials
+									
+		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
 		
 		int input; //declared, uninitialized variables
 		int attackStrength;
@@ -240,63 +221,10 @@ public class TerraNova
 			print(" in the colony of Terra Nova.\n", resultDelay);
 			print("\n", resultDelay);
 			print("           Your current colony statistics:", resultDelay);
-			print("\n", darkStatementDelay);
-			displayColonyStatistics(colony, menuDelay);
+			print("\n", darkStatementDelay);	
+			displayColonyStatistics(colony, colonyMenuDelay); //display colony menu
 			
-			weatherChance = random.nextInt(2) + 1; //%50 chance of weather
-			if (weatherChance == 1)
-			{
-				weather = random.nextInt(6) + 1;
-				if (weather == 1)
-				{
-					rain = true;
-					print("It's raining today", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("\t-10 happiness\n", resourceGainDelay);
-					colony.subtractHappiness(10);
-				}
-				else if (weather == 2)
-				{
-					sunshine = true;
-					print("The sun is out and it's shining brightly today!\n", resultDelay);
-					print("\t+10 happiness\n", resourceGainDelay);
-					colony.addHappiness(10);
-				}
-				else if (weather == 3)
-				{
-					lightning = true;
-					print("There's a lightning storm today!\n", resultDelay); //Low chance of someone dying? Maybe make materials harder to get?
-				}
-				else if (weather == 4)
-				{
-					snow = true;
-					print("It's snowing today!\n", resultDelay);
-					print("The increased cold will drive animals into their dens for the day, making them harder to hunt!\n", resultDelay); //Decrease food gains if this condition is set to true
-				}
-				else if (weather == 5)
-				{
-					wind = true;
-					print("There are high winds today", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("The wailing of the wind through the trees slowly eats on everyone's nerves", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("\t-10 offense\n", resourceGainDelay);
-					colony.subtractOffense(10);
-				}
-				else if (weather == 6)
-				{
-					fog = true;
-					print("A dense fog has settled in over the area this morning", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("You can barely see 15 feet beyond your walls!\n", resultDelay);
-					print("This will make it much more difficult to see enemies", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("\t-10 defense\n", resourceGainDelay);
-					colony.subtractDefense(10);
-				}
-				
-				print("\n", resultDelay);
-			}
+			weatherManager.applyWeather(colony); //apply weather events
 			
 			optionNotChosen = true;
 			
@@ -306,14 +234,14 @@ public class TerraNova
 				{
 					print("What would you like to do today", questionDelay);
 					print("?", waitAfterQuestionDelay);
-					print("\n\n", optionDelay);
-					print("\t1) Hold a festival  	(increases population, costs materials)\n", optionDelay);
-					print("\n", optionDelay);
-					print("\t2) Hold a feast     	(increases happiness, costs food)\n", optionDelay);
-					print("\n", optionDelay);
-					print("\t3) Go on a hunt     	(increases food, may be dangerous)\n", optionDelay);
-					print("\n", optionDelay);
-					print("\t4) Gather resources 	(increases materials, may be dangerous)\n", optionDelay);
+					print("\n\n", menuDelay);
+					print("\t1) Hold a festival  	(increases population, costs materials)\n", menuDelay);
+					print("\n", menuDelay);
+					print("\t2) Hold a feast     	(increases happiness, costs food)\n", menuDelay);
+					print("\n", menuDelay);
+					print("\t3) Go on a hunt     	(increases food, may be dangerous)\n", menuDelay);
+					print("\n", menuDelay);
+					print("\t4) Gather resources 	(increases materials, may be dangerous)\n", menuDelay);
 					
 					try
 					{
@@ -328,19 +256,19 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, menuDelay);
+						displayColonyStatistics(colony, colonyMenuDelay);
 					}
 					else
 					{
 						if (!(input == 1 || input == 2 || input == 3 || input == 4))
 						{
-							print("\nPlease enter 1, 2, 3, or 4.\n\n", optionDelay);
+							print("\nPlease enter 1, 2, 3, or 4.\n\n", menuDelay);
 						}
 					}
 				}
 				while (!(input == 1 || input == 2 || input == 3 || input == 4));
 				
-				print("\n", optionDelay);
+				print("\n", menuDelay);
 				
 				if (input == 1)
 				{
@@ -348,18 +276,18 @@ public class TerraNova
 					{
 						print("How big of a festival would you like", questionDelay);
 						print("?", waitAfterQuestionDelay);
-						print("\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t1) A Dance        (+5 population,  -10 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t2) A Parade       (+10 population, -18 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t3) A Play         (+20 population, -30 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t4) A Carnival     (+30 population, -45 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t5) Go back", optionDelay);
-						print("\n", optionDelay);
+						print("\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t1) A Dance        (+5 population,  -10 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t2) A Parade       (+10 population, -18 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t3) A Play         (+20 population, -30 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t4) A Carnival     (+30 population, -45 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t5) Go back", menuDelay);
+						print("\n", menuDelay);
 						
 						try
 						{
@@ -374,7 +302,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 5)
 						{
@@ -384,7 +312,7 @@ public class TerraNova
 						{
 							if (!(input == 1 || input == 2 || input == 3 || input == 4))
 							{
-								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", optionDelay);
+								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", menuDelay);
 							}
 							else
 							{
@@ -419,7 +347,7 @@ public class TerraNova
 					}
 					while (!(input == 1 || input == 2 || input == 3 || input == 4));
 					
-					print("\n", optionDelay);
+					print("\n", menuDelay);
 					
 					if (input == 1)
 					{
@@ -464,17 +392,17 @@ public class TerraNova
 					{
 						print("How big of a feast would you like", questionDelay);
 						print("?", waitAfterQuestionDelay);
-						print("\n\n", optionDelay);
-						print("\t1) A Picnic                  (+5 happiness,  -10 food)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t2) A Banquet                 (+10 happiness, -18 food)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t3) A Barbeque                (+20 happiness, -30 food)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t4) A huge multi-meal feast!  (+30 happiness, -45 food)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t5) Go back", optionDelay);
-						print("\n", optionDelay);
+						print("\n\n", menuDelay);
+						print("\t1) A Picnic                  (+5 happiness,  -10 food)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t2) A Banquet                 (+10 happiness, -18 food)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t3) A Barbeque                (+20 happiness, -30 food)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t4) A huge multi-meal feast!  (+30 happiness, -45 food)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t5) Go back", menuDelay);
+						print("\n", menuDelay);
 						
 						try
 						{
@@ -489,7 +417,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 5)
 						{
@@ -499,7 +427,7 @@ public class TerraNova
 						{
 							if (!(input == 1 || input == 2 || input == 3 || input == 4))
 							{
-								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", optionDelay);
+								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", menuDelay);
 							}
 							else
 							{
@@ -532,7 +460,7 @@ public class TerraNova
 					}
 					while (!(input == 1 || input == 2 || input == 3 || input == 4));
 					
-					print("\n", optionDelay);
+					print("\n", menuDelay);
 					
 					if (input == 1)
 					{
@@ -577,28 +505,22 @@ public class TerraNova
 					{
 						print("Where would you like to hunt", questionDelay);
 						print("?", waitAfterQuestionDelay);
-						print("\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t1) Right Outside the Gates                 (+5 food)\n", huntMenuDelay);
-						print("                                                   (no danger)\n", huntMenuDelay); //0 offense requirement
-						print("\n", huntMenuDelay);
-						print("\t2) The Waterfalls                          (+10 food)\n", huntMenuDelay);
-						print("                                                   (low danger)\n", huntMenuDelay); //10
-						print("\n", huntMenuDelay);
-						print("\t3) The Open Plains                         (+20 food)\n", huntMenuDelay);
-						print("                                                   (moderate danger)\n", huntMenuDelay); //35
-						print("\n", huntMenuDelay);
-						print("\t4) The Deep Forest                         (+30 food)\n", huntMenuDelay);
-						print("                                                   (moderate-high danger)\n", huntMenuDelay); //50
-						print("\n", huntMenuDelay);
-						print("\t5) The Badlands                            (+50 food)\n", huntMenuDelay);
-						print("                                                   (high danger)\n", huntMenuDelay); //75
-						print("\n", huntMenuDelay);
-						print("\t6) The Tyrannosaurus Rex Breeding Grounds  (+60 food)\n", huntMenuDelay);
-						print("                                                   (very high danger)\n", huntMenuDelay); //100
-						print("\n", huntMenuDelay);
-						print("\t7) Go back", huntMenuDelay);
-						print("\n", huntMenuDelay);
+						print("\n", largeMenuDelay);
+						print("\n", largeMenuDelay);
+						print("\t1) Right Outside the Gates                 (+5 food, no danger)\n", largeMenuDelay); //0 danger value
+						print("\n", largeMenuDelay); 
+						print("\t2) The Waterfalls                          (+10 food, low danger)\n", largeMenuDelay); //10
+						print("\n", largeMenuDelay);
+						print("\t3) The Open Plains                         (+20 food, moderate danger)\n", largeMenuDelay); //35
+						print("\n", largeMenuDelay);
+						print("\t4) The Deep Forest                         (+30 food, moderate-high danger)\n", largeMenuDelay); //50
+						print("\n", largeMenuDelay);
+						print("\t5) The Badlands                            (+50 food, high danger)\n", largeMenuDelay); //75
+						print("\n", largeMenuDelay);
+						print("\t6) The Tyrannosaurus Rex Breeding Grounds  (+60 food, very high danger)\n", largeMenuDelay); //100
+						print("\n", largeMenuDelay);
+						print("\t7) Go back", largeMenuDelay);
+						print("\n", largeMenuDelay);
 						
 						try
 						{
@@ -613,7 +535,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 7)
 						{
@@ -1031,7 +953,7 @@ public class TerraNova
 							print("...\n", darkStatementDelay);
 							print("...and the water ripples...\n", darkStatementDelay);
 							print("Your eyes widen. Suddenly wide awake, you shout at the top of your lungs, ", resultDelay);
-							print("\"T-REX! RAISE THE DEFENSES! EVERYONE ON THE WALLS!!!\"\n", attackDelay);
+							print("\"T-REX! RAISE THE DEFENSES! EVERYONE ON THE WALLS!!!\"\n", resultDelay);
 							print("Everyone stares at you, thinking you surely must be reliving the traumatic event earlier today.\n", resultDelay);
 							print("But the shaking grows stronger, and you yell yet again.\n", resultDelay);
 							print("Beginning to realize the situation, the wall guards spring to life and beginning arming the outter walls with your strongest weapons.\n", resultDelay);
@@ -1132,19 +1054,19 @@ public class TerraNova
 					{
 						print("Where would you like to gather resources", questionDelay);
 						print("?", waitAfterQuestionDelay);
-						print("\n\n", optionDelay);
-						print("\t1) Right Outside the Gates      (+5 materials, no danger)\n", optionDelay); //0
-						print("\n", optionDelay);
-						print("\t2) The Riverbeds                (+10 materials, low danger)\n", optionDelay); //10 danger value
-						print("\n", optionDelay);
-						print("\t3) The Cove                     (+20 materials, moderate danger)\n", optionDelay); //35
-						print("\n", optionDelay);
-						print("\t4) The Caves                    (+30 materials, moderate-high danger)\n", optionDelay); //50
-						print("\n", optionDelay);
-						print("\t5) The Volcano                  (+50 materials, high danger)\n", optionDelay); //75
-						print("\n", optionDelay);
-						print("\t6) Go back", optionDelay);
-						print("\n", optionDelay);
+						print("\n\n", largeMenuDelay);
+						print("\t1) Right Outside the Gates      (+5 materials, no danger)\n", largeMenuDelay); //0 danger value
+						print("\n", largeMenuDelay);
+						print("\t2) The Riverbeds                (+10 materials, low danger)\n", largeMenuDelay); //10
+						print("\n", largeMenuDelay);
+						print("\t3) The Cove                     (+20 materials, moderate danger)\n", largeMenuDelay); //35
+						print("\n", largeMenuDelay);
+						print("\t4) The Caves                    (+30 materials, moderate-high danger)\n", largeMenuDelay); //50
+						print("\n", largeMenuDelay);
+						print("\t5) The Volcano                  (+50 materials, high danger)\n", largeMenuDelay); //75
+						print("\n", largeMenuDelay);
+						print("\t6) Go back", largeMenuDelay);
+						print("\n", largeMenuDelay);
 						
 						try
 						{
@@ -1159,7 +1081,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 6)
 						{
@@ -1169,7 +1091,7 @@ public class TerraNova
 						{
 							if (!(input == 1 || input == 2 || input == 3 || input == 4 || input == 5))
 							{
-								print("\nPlease enter 1, 2, 3, 4, 5, or 6.\n\n", optionDelay);
+								print("\nPlease enter 1, 2, 3, 4, 5, or 6.\n\n", menuDelay);
 							}
 							else
 							{
@@ -1620,10 +1542,10 @@ public class TerraNova
 					attackStrength = random.nextInt(8 + (2*day)) + 1;
 					enter();
 						
-					print("Your defense: " + colony.getDefense() + "\n", attackDelay);
-					print("Dino attack strength:", attackDelay);
+					print("Your defense: " + colony.getDefense() + "\n", resultDelay);
+					print("Dino attack strength:", resultDelay);
 					print(" " + attackStrength + "", waitAfterQuestionDelay);
-					print("\n", attackDelay);
+					print("\n", resultDelay);
 					
 					if (colony.getDefense() > attackStrength)
 					{
@@ -1633,7 +1555,7 @@ public class TerraNova
 					else if (colony.getDefense() < attackStrength)
 					{
 						print("The dinosaurs have overrun your base!\n", resultDelay);
-						print("GAME OVER!\n", gameOverDelay);
+						print("GAME OVER!\n", darkStatementDelay);
 						enter();
 						break;
 					}
@@ -1655,8 +1577,8 @@ public class TerraNova
 						attackStrength = random.nextInt(8 + (2*day)) + 1;
 						enter();
 						
-						print("Your defense: " + colony.getDefense() + "\n", attackDelay);
-						print("Dino attack strength: " + attackStrength + "\n", attackDelay);
+						print("Your defense: " + colony.getDefense() + "\n", resultDelay);
+						print("Dino attack strength:", resultDelay);
 						print(" " + attackStrength + "", waitAfterQuestionDelay);
 						print("\n", resultDelay);
 						
@@ -1668,7 +1590,7 @@ public class TerraNova
 						else if (colony.getDefense() < attackStrength)
 						{
 							print("The dinosaurs have overrun your base!\n", resultDelay);
-							print("GAME OVER!\n", gameOverDelay);
+							print("GAME OVER!\n", darkStatementDelay);
 							enter();
 							break;
 						}
@@ -1687,8 +1609,8 @@ public class TerraNova
 						attackStrength = random.nextInt(8 + (2*day)) + 1;
 						enter();
 						
-						print("Your defense: " + colony.getDefense() + "\n", attackDelay);
-						print("Sixer attack strength: " + attackStrength + "\n", attackDelay);
+						print("Your defense: " + colony.getDefense() + "\n", resultDelay);
+						print("Sixer attack strength:", resultDelay);
 						print(" " + attackStrength + "", waitAfterQuestionDelay);
 						print("\n", resultDelay);
 						
@@ -1700,7 +1622,7 @@ public class TerraNova
 						else if (colony.getDefense() < attackStrength)
 						{
 							print("The Sixers have overtaken your base!\n", resultDelay);
-							print("GAME OVER!\n", gameOverDelay);
+							print("GAME OVER!\n", darkStatementDelay);
 							enter();
 							break;
 						}
@@ -1724,12 +1646,12 @@ public class TerraNova
 				{
 					print("Would you like to use materials to increase offensive or defensive capabilities", questionDelay);
 					print("?", waitAfterQuestionDelay);
-					print("\n\n", optionDelay);
-					print("\t1) Increase Offense\n", optionDelay);
-					print("\n", optionDelay);
-					print("\t2) Increase Defense\n", optionDelay);
-					print("\n", optionDelay);
-					print("\t3) Continue to Next Day\n", optionDelay);
+					print("\n\n", menuDelay);
+					print("\t1) Increase Offense\n", menuDelay);
+					print("\n", menuDelay);
+					print("\t2) Increase Defense\n", menuDelay);
+					print("\n", menuDelay);
+					print("\t3) Continue to Next Day\n", menuDelay);
 					
 					try
 					{
@@ -1744,7 +1666,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, menuDelay);
+						displayColonyStatistics(colony, colonyMenuDelay);
 					}
 					else
 					{
@@ -1763,15 +1685,15 @@ public class TerraNova
 					do
 					{
 						print("||=============== Offensive Upgrades ===============||\n", menuDelay);
-						print("\n", optionDelay);
-						print("\t1) Spears      (+ 5 offense, -15 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t2) Guns        (+10 offense, -40 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t3) Ballistas   (+20 offense, -100 materials)\n", optionDelay); // try tamed dinos as offense (requires food(each day)?)
-						print("\n", optionDelay);
-						print("\t4) Go back", optionDelay);
-						print("\n", optionDelay);
+						print("\n", menuDelay);
+						print("\t1) Spears      (+ 5 offense, -15 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t2) Guns        (+10 offense, -40 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t3) Ballistas   (+20 offense, -100 materials)\n", menuDelay); // try tamed dinos as offense (requires food(each day)?)
+						print("\n", menuDelay);
+						print("\t4) Go back", menuDelay);
+						print("\n", menuDelay);
 						
 						try
 						{
@@ -1786,7 +1708,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 4)
 						{
@@ -1856,15 +1778,15 @@ public class TerraNova
 					do
 					{
 						print("||=============== Defensive Upgrades ===============||\n", menuDelay);
-						print("\n", optionDelay);
-						print("\t1) Reinforced Walls       (+5 defense, -15 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t2) Personal Body Armor   (+10 defense, -40 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t3) Trenches              (+20 defense, -100 materials)\n", optionDelay);
-						print("\n", optionDelay);
-						print("\t4) Go back", optionDelay);
-						print("\n", optionDelay);
+						print("\n", menuDelay);
+						print("\t1) Reinforced Walls       (+5 defense, -15 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t2) Personal Body Armor   (+10 defense, -40 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t3) Trenches              (+20 defense, -100 materials)\n", menuDelay);
+						print("\n", menuDelay);
+						print("\t4) Go back", menuDelay);
+						print("\n", menuDelay);
 						
 						try
 						{
@@ -1879,11 +1801,11 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, menuDelay);
+							displayColonyStatistics(colony, colonyMenuDelay);
 						}
 						else if (input == 4)
 						{
-							print("\n", optionDelay);
+							print("\n", menuDelay);
 							break;
 						}
 						else
@@ -1933,7 +1855,7 @@ public class TerraNova
 						print("\nYour people have made personal body armor from dinosaur hide!\n", resultDelay); // Only this choice if survived
 						print("\t+10 defense\n", resourceGainDelay);									 	           // 10 dino attacks or something
 						print("\t-40 materials\n", resourceGainDelay);
-						print("\n", resourceGainDelay);
+						print("\n", resultDelay);
 						kb.nextLine();
 						colony.addDefense(10);
 						colony.subtractMaterials(40);
@@ -1943,7 +1865,7 @@ public class TerraNova
 						print("\nYour people dug trenches using iron shovels!\n", resultDelay);
 						print("\t +20 defense\n", resourceGainDelay);
 						print("\t-100 materials\n", resourceGainDelay);
-						print("\n", resourceGainDelay);
+						print("\n", resultDelay);
 						colony.addDefense(20);
 						colony.subtractMaterials(100);
 					}
@@ -1971,54 +1893,7 @@ public class TerraNova
 				colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
 			}
 			
-			if (rain == true)
-			{
-				rain = false;
-				print("\nThe rain seems to have finally died down at the end of the day!\n", resultDelay);
-				print("You see a rainbow form off in the distance", resultDelay);
-				print("...\n", darkStatementDelay);
-				print("The Jurassic Age truly holds a beautiful world", resultDelay);
-				print("...\n", darkStatementDelay);
-				print("\t+10 happiness\n", resourceGainDelay);
-				colony.addHappiness(10);
-			}
-			else if (sunshine == true)
-			{
-				sunshine = false;
-				print("\nThe bright, orange sun has finally sunk beneath the horizon at the end of the day", resultDelay);
-				print("...\n", darkStatementDelay);
-				print("Everyone's mood darkens as the world is once again cast into shadows", resultDelay);
-				print("...\n", darkStatementDelay);
-				print("\t-10 happiness\n", resourceGainDelay);
-				colony.subtractHappiness(10);
-			}
-			else if (lightning == true)
-			{
-				lightning = false;
-				print("\nThe lightning storm has finally died down at the end of the day!\n", resultDelay); //end negative status effect
-			}
-			else if (snow == true)
-			{
-				snow = false;
-				print("\nThe snow has finally stopped, and the animals are slowly re-emerging from their dens and homes!\n", resultDelay); //end negative status effect
-			}
-			else if (wind == true)
-			{
-				wind = false;
-				print("\nThe howling gale of wind has finally ended at the end of the day!\n", resultDelay);
-				print("Your guards finally relax as the world once again falls quiet and peaceful.\n", resultDelay);
-				print("\t+10 offense\n", resourceGainDelay);
-				colony.addOffense(10);
-			}
-			else if (fog == true)
-			{
-				fog = false;
-				print("\nThe fog finally has begun to lift at the end of the day!\n", resultDelay);
-				print("Your men are now at ease, being able to see far beyond your walls once more.\n", resultDelay);
-				print("\t+10 defense\n", resourceGainDelay);
-				colony.addDefense(10);
-			}
-			
+			weatherManager.revertWeather(colony); //remove weather events
 			enter();
 			
 			if (portal = true)
@@ -2107,13 +1982,13 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, menuDelay);
+						displayColonyStatistics(colony, colonyMenuDelay);
 					}
 					else
 					{
 						if (!(input == 1 || input == 2))
 						{
-							print("\nPlease enter only 1 or 2.\n\n", optionDelay);
+							print("\nPlease enter only 1 or 2.\n\n", menuDelay);
 						}
 					}
 				}
@@ -2337,7 +2212,7 @@ public class TerraNova
 			
 			print("\n", resultDelay);
 			
-			print("||=================== End of Day " + day + " ===================||\n", endofdayDelay);
+			print("||=================== End of Day " + day + " ===================||\n", menuDelay);
 			enter();
 			
 			day++;
@@ -2362,7 +2237,7 @@ public class TerraNova
 		kb.nextLine();
 	}
 
-	public static void displayColonyStatistics(ColonyManager colony, int menuDelay) throws InterruptedException
+	public static void displayColonyStatistics(ColonyManager colony, int colonyMenuDelay) throws InterruptedException
 	{
 		int happinessLen = Integer.toString(colony.getHappiness()).length() - 1;
 		int foodLen = Integer.toString(colony.getFood()).length() - 1;
@@ -2371,238 +2246,238 @@ public class TerraNova
 		int defenseLen = Integer.toString(colony.getDefense()).length() - 1;
 		int materialsLen = Integer.toString(colony.getMaterials()).length() - 1;
 		
-		print("||====================================================||\n", menuDelay);
-		print("||                                                    ||\n", menuDelay);
-		print("||       Happiness        Food        Population      ||\n", menuDelay);     
+		print("||====================================================||\n", colonyMenuDelay);
+		print("||                                                    ||\n", colonyMenuDelay);
+		print("||       Happiness        Food        Population      ||\n", colonyMenuDelay);     
 		
-		printBoxes(happinessLen, foodLen, populationLen, colony.getHappiness(), colony.getFood(), colony.getPopulation(), menuDelay);
+		printBoxes(happinessLen, foodLen, populationLen, colony.getHappiness(), colony.getFood(), colony.getPopulation(), colonyMenuDelay);
 		
-		print("||                                                    ||\n", menuDelay);
+		print("||                                                    ||\n", colonyMenuDelay);
 		
 		if (materialsLen == 1)
 		{
-			print("||        Offense       Defense        Materials      ||\n", menuDelay);
+			print("||        Offense       Defense        Materials      ||\n", colonyMenuDelay);
 		}
 		else
 		{
-			print("||        Offense       Defense       Materials       ||\n", menuDelay);
+			print("||        Offense       Defense       Materials       ||\n", colonyMenuDelay);
 		}
 		
-		printBoxes(offenseLen, defenseLen, materialsLen, colony.getOffense(), colony.getDefense(), colony.getMaterials(), menuDelay);
+		printBoxes(offenseLen, defenseLen, materialsLen, colony.getOffense(), colony.getDefense(), colony.getMaterials(), colonyMenuDelay);
 		
-		print("||                                                    ||\n", menuDelay);
-		print("||====================================================||\n", menuDelay);
+		print("||                                                    ||\n", colonyMenuDelay);
+		print("||====================================================||\n", colonyMenuDelay);
 		enter();
 	}
 	
 	/**
 		@param firstLen, secondLen, and thirdLen: The number of digits of the stat - 1.
 		@param first, second, and third: the actual stat
-		@param menuDelay: the delay
+		@param colonyMenuDelay: the delay
 		
 		@note Fun fact, there are 27x27 possible combinations of menu's to be generated, or 729. By using a "smart" method such as this,
 			  the required if statements can be brought down to just 49 by taking into account the number of digits of each stat and
 			  the total spacing from either side of the menu. Special thanks to Ryan Bucinell for the idea behind this.
 	*/
-	public static void printBoxes(int firstLen, int secondLen, int thirdLen, int first, int second, int third, int menuDelay) throws InterruptedException
+	public static void printBoxes(int firstLen, int secondLen, int thirdLen, int first, int second, int third, int colonyMenuDelay) throws InterruptedException
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			if (firstLen == 0) //spaces from the side
 			{
-				print("||       ||", menuDelay);
+				print("||       ||", colonyMenuDelay);
 			}
 			else if (firstLen == 1)
 			{
-				print("||     ||", menuDelay);
+				print("||     ||", colonyMenuDelay);
 			}
 			else //firstLen == 2
 			{
-				print("||      ||", menuDelay);
+				print("||      ||", colonyMenuDelay);
 			}
 			
 			if (firstLen == 0) //equals in the middle
 			{
 				if (i == 0)
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + first + "  ", menuDelay);
+					print("  " + first + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 			}
 			else if (firstLen == 1)
 			{
 				if (i == 0)
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("   " + first + "   ", menuDelay);
+					print("   " + first + "   ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 			}
 			else //firstLen == 2
 			{
 				if (i == 0)
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + first + "  ", menuDelay);
+					print("  " + first + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 			}
 			
 			if (firstLen == 0 && secondLen == 0) //spaces inbetween
 			{
-				print("||     ||", menuDelay);
+				print("||     ||", colonyMenuDelay);
 			}
 			else if (firstLen == 0 || secondLen == 0)
 			{
-				print("||    ||", menuDelay);
+				print("||    ||", colonyMenuDelay);
 			}
 			else
 			{
-				print("||   ||", menuDelay);
+				print("||   ||", colonyMenuDelay);
 			}
 			
 			if (secondLen == 0) //spaces in the middle
 			{
 				if (i == 0)
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + second + "  ", menuDelay);
+					print("  " + second + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 			}
 			else if (secondLen == 1)
 			{
 				if (i == 0)
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("   " + second + "   ", menuDelay);
+					print("   " + second + "   ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 			}
 			else //secondLen == 2
 			{
 				if (i == 0)
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + second + "  ", menuDelay);
+					print("  " + second + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 			}
 			
 			if (secondLen == 0 && thirdLen == 0) //spaces inbetween
 			{
-				print("||     ", menuDelay);
+				print("||     ", colonyMenuDelay);
 			}
 			else if (secondLen == 0 || thirdLen == 0)
 			{
-				print("||    ", menuDelay);
+				print("||    ", colonyMenuDelay);
 			}
 			else
 			{
-				print("||   ", menuDelay);
+				print("||   ", colonyMenuDelay);
 			}
 			
 			if (secondLen != 1)
 			{
-				print(" ", menuDelay);
+				print(" ", colonyMenuDelay);
 			}
 			
-			print("||", menuDelay);
+			print("||", colonyMenuDelay);
 			
 			if (thirdLen == 0) //spaces in the middle
 			{
 				if (i == 0)
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + third + "  ", menuDelay);
+					print("  " + third + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=====", menuDelay);
+					print("=====", colonyMenuDelay);
 				}
 			}
 			else if (thirdLen == 1)
 			{
 				if (i == 0)
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("   " + third + "   ", menuDelay);
+					print("   " + third + "   ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("========", menuDelay);
+					print("========", colonyMenuDelay);
 				}
 			}
 			else //thirdLen == 2
 			{
 				if (i == 0)
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 				else if (i == 1)
 				{
-					print("  " + third + "  ", menuDelay);
+					print("  " + third + "  ", colonyMenuDelay);
 				}
 				else //i == 2
 				{
-					print("=======", menuDelay);
+					print("=======", colonyMenuDelay);
 				}
 			}
 			
 			if (thirdLen == 0) //spaces from the side
 			{
-				print("||       ||\n", menuDelay);
+				print("||       ||\n", colonyMenuDelay);
 			}
 			else if (thirdLen == 1)
 			{
-				print("||     ||\n", menuDelay);
+				print("||     ||\n", colonyMenuDelay);
 			}
 			else //thirdLen == 2
 			{
-				print("||      ||\n", menuDelay);
+				print("||      ||\n", colonyMenuDelay);
 			}
 		}
 	}

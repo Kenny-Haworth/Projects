@@ -1,5 +1,36 @@
 # Terra Nova Changelog
 
+<strong>"Weather Manger"</strong> update, <ins>August 2, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>Weather events are no longer controlled within TerraNova.java but are instead controlled within WeatherManager.java.</li>
+<li>The styling for the hunt menu now matches the styling for the resource gathering menu.</li>
+<li>Changed the following text delays:</li>
+<ul>
+<li>The main menu now has much faster text delay.</li>
+<li>The resource gathering menu now has much faster text delay.</li>
+<li>Increased the speed of all other menus by an equal amount.</li>
+<li>Changed the tutorial, credits, and lore text delays to the same values.</li>
+</ul>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>Removed several unnecessary text delay variables.</li>
+<li>Fixed a bug where after day 10 enemy attack strength would be read out twice.</li>
+</ul>
+
+Total lines of code: <strong>2793</strong> (<strong>added 22</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Colony Manger"</strong> update, <ins>August 1, 2018</ins>.
 
 The next few updates will not add any new content to the game but will instead focus on optimizing the existing parts of TerraNova.
@@ -29,9 +60,10 @@ Total lines of code will now be measured as a combined total of all java and tex
 
 Total lines of code: <strong>2771</strong> (<strong>added 86</strong> since last update)
 
-
-
 <hr />
+
+
+
 
 
 
@@ -120,8 +152,11 @@ If you failed or partially failed to loot a dangerous area, get more offense and
 
 Total lines of code: <strong>2685</strong> (<strong>added 898</strong> since last update)
 
-
 <hr />
+
+
+
+
 
 
 <strong>"Quality of Life"</strong> update, <ins>July 18, 2018</ins>.
@@ -161,9 +196,10 @@ This update mostly focuses on making the game more user-friendly and bugfixes.
 
 Total lines of code: <strong>1787</strong> (<strong>added 678</strong> since last update)
 
-
-
 <hr />
+
+
+
 
 
 
