@@ -1,5 +1,35 @@
 # Terra Nova Changelog
 
+<strong>"Display Manger"</strong> update, <ins>August 3, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>The following screen events are no longer executed within TerraNova.java but are instead handled and executed from DisplayManager.java:</li>
+<ul>
+	<li>The main menu.</li>
+	<li>The exposition.</li>
+	<li>The tutorial.</li>
+	<li>The credits.</li>
+	<li>The colony menu.</li>
+</ul>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+	<li>Removed an unused import statement used for file management (missed removing it in the Colony Manager update).</li>
+</ul>
+
+Total lines of code: <strong>2825</strong> (<strong>added 32</strong> since last update)
+
+<hr />
+
+
+
+
+
+
 <strong>"Weather Manger"</strong> update, <ins>August 2, 2018</ins>.
 
 <strong>Changes:</strong>

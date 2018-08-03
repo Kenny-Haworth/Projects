@@ -13,7 +13,6 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class TerraNova
@@ -23,13 +22,15 @@ public class TerraNova
 		int input;
 		int textDelay = 0; //1 is OFF, 0 is ON
 		final int loop = 0;
+		DisplayManager displayManager = new DisplayManager();
 		
 		do
 		{
-			input = DisplayMainMenu(textDelay);
+			input = displayManager.displayMainMenu(textDelay);
+			
 			if (input == 1)
 			{
-				exposition(textDelay);
+				displayManager.displayExposition(textDelay);
 				startGame(textDelay);
 			}
 			else if (input == 2)
@@ -47,123 +48,14 @@ public class TerraNova
 			}
 			else if (input == 3)
 			{
-				tutorial(textDelay);
+				displayManager.displayTutorial(textDelay);
 			}
 			else if (input == 4)
 			{
-				credits(textDelay);
+				displayManager.displayCredits(textDelay);
 			} 
 		}
 		while (loop == 0);
-	}
-	
-	public static int DisplayMainMenu(int textDelay) throws Exception
-	{
-		int input;
-		int mainmenuDelay = 3;
-		int questionDelay = 40;
-		
-		if (textDelay == 1)
-		{
-			mainmenuDelay = 0;
-			questionDelay = 0;
-		}
-		
-		print("||==========================================||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);
-		print("||         Welcome to Terra Nova!!!         ||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);
-		print("||          1) New Game                     ||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);
-		print("||          2) Toggle Text Delay            ||\n", mainmenuDelay);
-		print("||          (default on)                    ||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);
-		print("||          3) Tutorial                     ||\n", mainmenuDelay);
-		print("||          (recommended for new players)   ||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);
-		print("||          4) Credits                      ||\n", mainmenuDelay);
-		print("||                              ____        ||\n", mainmenuDelay);
-		print("||                             / *__)       ||\n", mainmenuDelay);
-		print("||                            /  /          ||\n", mainmenuDelay);
-		print("||                           /  /           ||\n", mainmenuDelay);
-		print("||                          /  /            ||\n", mainmenuDelay);
-        print("||                _____    /  /             ||\n", mainmenuDelay);
-	    print("||            ___/     \\__/  /              ||\n", mainmenuDelay); // Offset one space because of escape character "\"
-        print("||           /              /               ||\n", mainmenuDelay);
-        print("||          /               |               ||\n", mainmenuDelay);
-	    print("||         / /|             |               ||\n", mainmenuDelay);
-        print("||        / / |   _______   |               ||\n", mainmenuDelay);
-        print("||       / /  |  |       |  |               ||\n", mainmenuDelay);
-		print("||      /_/   |  |       |  |               ||\n", mainmenuDelay);
-		print("||            |  |       |  |               ||\n", mainmenuDelay);
-		print("||            |__|       |__|               ||\n", mainmenuDelay);
-		print("||                                          ||\n", mainmenuDelay);																				
-		print("||==========================================||\n", mainmenuDelay);
-		print("           Enter your number choice:          \n", questionDelay); //Remove this line if I can highlight 1, 2, and 3 at some point, change color of choosable numbers
-		
-		Scanner kb = new Scanner(System.in);
-		
-		do
-		{
-			try
-			{
-				input = kb.nextInt();
-			}
-			catch (InputMismatchException e)
-			{
-				kb.next();
-				input = -1;
-			}
-			
-			if (!(input == 1 || input == 2 || input == 3 || input == 4))
-			{
-				print("\nPlease enter 1, 2, 3, or 4.\n\n", mainmenuDelay);
-			}
-		}
-		while (!(input == 1 || input == 2 || input == 3 || input == 4));
-		return input;
-	}
-	
-	public static void exposition(int textDelay) throws Exception
-	{
-		int loreDelay = 40;
-		
-		if (textDelay == 1)
-		{
-			loreDelay = 0;
-		}
-		
-		print("\n", loreDelay);
-		print("Here's the lore.\n", loreDelay);
-		print("\n", loreDelay);
-	}
-	
-	public static void tutorial(int textDelay) throws Exception
-	{
-		int tutorialDelay = 40;
-		
-		if (textDelay == 1)
-		{
-			tutorialDelay = 0;
-		}
-		
-		print("\n", tutorialDelay);
-		print("Here's the tutorial.\n", tutorialDelay);
-		print("\n", tutorialDelay);
-	}
-	
-	public static void credits(int textDelay) throws Exception
-	{
-		int creditsDelay = 40;
-		
-		if (textDelay == 1)
-		{
-			creditsDelay = 0;
-		}
-		
-		print("\n", creditsDelay);
-		print("I'm Kenny and I made the game.\n", creditsDelay);
-		print("\n", creditsDelay);
 	}
 	
 	public static void startGame(int textDelay) throws Exception
@@ -201,6 +93,8 @@ public class TerraNova
 									
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
 		
+		DisplayManager displayManager = new DisplayManager(colonyMenuDelay); //creates a display manager to display certain menus
+		
 		int input; //declared, uninitialized variables
 		int attackStrength;
 		int enemyAttack;
@@ -222,7 +116,7 @@ public class TerraNova
 			print("\n", resultDelay);
 			print("           Your current colony statistics:", resultDelay);
 			print("\n", darkStatementDelay);	
-			displayColonyStatistics(colony, colonyMenuDelay); //display colony menu
+			displayManager.displayColonyStatistics(colony); //display colony menu
 			
 			weatherManager.applyWeather(colony); //apply weather events
 			
@@ -256,7 +150,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, colonyMenuDelay);
+						displayManager.displayColonyStatistics(colony);
 					}
 					else
 					{
@@ -276,8 +170,7 @@ public class TerraNova
 					{
 						print("How big of a festival would you like", questionDelay);
 						print("?", waitAfterQuestionDelay);
-						print("\n", menuDelay);
-						print("\n", menuDelay);
+						print("\n\n", menuDelay);
 						print("\t1) A Dance        (+5 population,  -10 materials)\n", menuDelay);
 						print("\n", menuDelay);
 						print("\t2) A Parade       (+10 population, -18 materials)\n", menuDelay);
@@ -302,7 +195,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 5)
 						{
@@ -417,7 +310,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 5)
 						{
@@ -535,7 +428,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 7)
 						{
@@ -1081,7 +974,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 6)
 						{
@@ -1666,7 +1559,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, colonyMenuDelay);
+						displayManager.displayColonyStatistics(colony);
 					}
 					else
 					{
@@ -1708,7 +1601,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 4)
 						{
@@ -1801,7 +1694,7 @@ public class TerraNova
 						if (input == 0)
 						{
 							System.out.println();
-							displayColonyStatistics(colony, colonyMenuDelay);
+							displayManager.displayColonyStatistics(colony);
 						}
 						else if (input == 4)
 						{
@@ -1982,7 +1875,7 @@ public class TerraNova
 					if (input == 0)
 					{
 						System.out.println();
-						displayColonyStatistics(colony, colonyMenuDelay);
+						displayManager.displayColonyStatistics(colony);
 					}
 					else
 					{
@@ -2235,251 +2128,6 @@ public class TerraNova
 	{
 		Scanner kb = new Scanner(System.in);
 		kb.nextLine();
-	}
-
-	public static void displayColonyStatistics(ColonyManager colony, int colonyMenuDelay) throws InterruptedException
-	{
-		int happinessLen = Integer.toString(colony.getHappiness()).length() - 1;
-		int foodLen = Integer.toString(colony.getFood()).length() - 1;
-		int populationLen = Integer.toString(colony.getPopulation()).length() - 1;
-		int offenseLen = Integer.toString(colony.getOffense()).length() - 1;
-		int defenseLen = Integer.toString(colony.getDefense()).length() - 1;
-		int materialsLen = Integer.toString(colony.getMaterials()).length() - 1;
-		
-		print("||====================================================||\n", colonyMenuDelay);
-		print("||                                                    ||\n", colonyMenuDelay);
-		print("||       Happiness        Food        Population      ||\n", colonyMenuDelay);     
-		
-		printBoxes(happinessLen, foodLen, populationLen, colony.getHappiness(), colony.getFood(), colony.getPopulation(), colonyMenuDelay);
-		
-		print("||                                                    ||\n", colonyMenuDelay);
-		
-		if (materialsLen == 1)
-		{
-			print("||        Offense       Defense        Materials      ||\n", colonyMenuDelay);
-		}
-		else
-		{
-			print("||        Offense       Defense       Materials       ||\n", colonyMenuDelay);
-		}
-		
-		printBoxes(offenseLen, defenseLen, materialsLen, colony.getOffense(), colony.getDefense(), colony.getMaterials(), colonyMenuDelay);
-		
-		print("||                                                    ||\n", colonyMenuDelay);
-		print("||====================================================||\n", colonyMenuDelay);
-		enter();
-	}
-	
-	/**
-		@param firstLen, secondLen, and thirdLen: The number of digits of the stat - 1.
-		@param first, second, and third: the actual stat
-		@param colonyMenuDelay: the delay
-		
-		@note Fun fact, there are 27x27 possible combinations of menu's to be generated, or 729. By using a "smart" method such as this,
-			  the required if statements can be brought down to just 49 by taking into account the number of digits of each stat and
-			  the total spacing from either side of the menu. Special thanks to Ryan Bucinell for the idea behind this.
-	*/
-	public static void printBoxes(int firstLen, int secondLen, int thirdLen, int first, int second, int third, int colonyMenuDelay) throws InterruptedException
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			if (firstLen == 0) //spaces from the side
-			{
-				print("||       ||", colonyMenuDelay);
-			}
-			else if (firstLen == 1)
-			{
-				print("||     ||", colonyMenuDelay);
-			}
-			else //firstLen == 2
-			{
-				print("||      ||", colonyMenuDelay);
-			}
-			
-			if (firstLen == 0) //equals in the middle
-			{
-				if (i == 0)
-				{
-					print("=====", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + first + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=====", colonyMenuDelay);
-				}
-			}
-			else if (firstLen == 1)
-			{
-				if (i == 0)
-				{
-					print("========", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("   " + first + "   ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("========", colonyMenuDelay);
-				}
-			}
-			else //firstLen == 2
-			{
-				if (i == 0)
-				{
-					print("=======", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + first + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=======", colonyMenuDelay);
-				}
-			}
-			
-			if (firstLen == 0 && secondLen == 0) //spaces inbetween
-			{
-				print("||     ||", colonyMenuDelay);
-			}
-			else if (firstLen == 0 || secondLen == 0)
-			{
-				print("||    ||", colonyMenuDelay);
-			}
-			else
-			{
-				print("||   ||", colonyMenuDelay);
-			}
-			
-			if (secondLen == 0) //spaces in the middle
-			{
-				if (i == 0)
-				{
-					print("=====", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + second + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=====", colonyMenuDelay);
-				}
-			}
-			else if (secondLen == 1)
-			{
-				if (i == 0)
-				{
-					print("========", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("   " + second + "   ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("========", colonyMenuDelay);
-				}
-			}
-			else //secondLen == 2
-			{
-				if (i == 0)
-				{
-					print("=======", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + second + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=======", colonyMenuDelay);
-				}
-			}
-			
-			if (secondLen == 0 && thirdLen == 0) //spaces inbetween
-			{
-				print("||     ", colonyMenuDelay);
-			}
-			else if (secondLen == 0 || thirdLen == 0)
-			{
-				print("||    ", colonyMenuDelay);
-			}
-			else
-			{
-				print("||   ", colonyMenuDelay);
-			}
-			
-			if (secondLen != 1)
-			{
-				print(" ", colonyMenuDelay);
-			}
-			
-			print("||", colonyMenuDelay);
-			
-			if (thirdLen == 0) //spaces in the middle
-			{
-				if (i == 0)
-				{
-					print("=====", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + third + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=====", colonyMenuDelay);
-				}
-			}
-			else if (thirdLen == 1)
-			{
-				if (i == 0)
-				{
-					print("========", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("   " + third + "   ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("========", colonyMenuDelay);
-				}
-			}
-			else //thirdLen == 2
-			{
-				if (i == 0)
-				{
-					print("=======", colonyMenuDelay);
-				}
-				else if (i == 1)
-				{
-					print("  " + third + "  ", colonyMenuDelay);
-				}
-				else //i == 2
-				{
-					print("=======", colonyMenuDelay);
-				}
-			}
-			
-			if (thirdLen == 0) //spaces from the side
-			{
-				print("||       ||\n", colonyMenuDelay);
-			}
-			else if (thirdLen == 1)
-			{
-				print("||     ||\n", colonyMenuDelay);
-			}
-			else //thirdLen == 2
-			{
-				print("||      ||\n", colonyMenuDelay);
-			}
-		}
 	}
 	
 	/**
