@@ -23,9 +23,9 @@ public class FileContents
 			System.out.println("Enter a file: ");
 			String inputFile = keyboard.nextLine();
 			
-			input = new File(inputFile); // Creates an instance of the File class. It passes the string "inputFile" to the constructor, creating a File object that represents the inputted file.
+			input = new File(inputFile); //Creates an instance of the File class. It passes the string "inputFile" to the constructor, creating a File object that represents the inputted file.
 			
-			if (!input.exists()) // This if statement tests to ensure the file exists. If it doesn't, an error message is displayed.
+			if (!input.exists()) //This if statement tests to ensure the file exists. If it doesn't, an error message is displayed.
 			{
 				System.out.println("The file " + inputFile + " does not exist, or was not found in the location specified. Would you like to create this file?");
 				System.out.println("Enter y or Y for yes, or anything else to choose another file: ");
