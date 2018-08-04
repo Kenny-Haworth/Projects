@@ -1,6 +1,36 @@
 # Terra Nova Changelog
 
-<strong>"Display Manger"</strong> update, <ins>August 3, 2018</ins>.
+<strong>"Menu Manager"</strong> update, <ins>August 4, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>Menu's and sub-menu's are no longer displayed from TerraNova.java but are instead displayed from MenuManager.java.</li>
+<ul>
+	<li>The only menu not handled by the Menu Manager is the main menu, which is handled by the Display Manager.</li>
+	<li>Menu's are now read in through a text file, and all text files are processed through the same method. This makes it much easier to add additional menu's or edit existing menu's.</li>
+</ul>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>The main game method now correctly throws InterruptedException and IOException rather than Exception.</li>
+<li>The people no longer enjoy a "palet of food" at the banquet.</li>
+<li>Wind now "dies down" at the end of the day rather then "ends at the end of the day."</li>
+</ul>
+
+As a testament to how efficient the Menu Manager is, for the first time the total amount of code has dropped from an update!
+
+Total lines of code: <strong>2672</strong> (<strong>removed 153</strong> since last update)
+
+<hr />
+
+
+
+
+
+<strong>"Display Manager"</strong> update, <ins>August 3, 2018</ins>.
 
 <strong>Changes:</strong>
 
@@ -18,7 +48,7 @@
 <strong>Bugfixes:</strong>
 
 <ul>
-	<li>Removed an unused import statement used for file management (missed removing it in the Colony Manager update).</li>
+<li>Removed an unused import statement used for file management (missed removing it in the Colony Manager update).</li>
 </ul>
 
 Total lines of code: <strong>2825</strong> (<strong>added 32</strong> since last update)
@@ -30,7 +60,7 @@ Total lines of code: <strong>2825</strong> (<strong>added 32</strong> since last
 
 
 
-<strong>"Weather Manger"</strong> update, <ins>August 2, 2018</ins>.
+<strong>"Weather Manager"</strong> update, <ins>August 2, 2018</ins>.
 
 <strong>Changes:</strong>
 
@@ -61,7 +91,7 @@ Total lines of code: <strong>2793</strong> (<strong>added 22</strong> since last
 
 
 
-<strong>"Colony Manger"</strong> update, <ins>August 1, 2018</ins>.
+<strong>"Colony Manager"</strong> update, <ins>August 1, 2018</ins>.
 
 The next few updates will not add any new content to the game but will instead focus on optimizing the existing parts of TerraNova.
 Specifically, code will be organized into a more object-oriented scheme, which should allow faster and more frequent updates.

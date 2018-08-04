@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.InputMismatchException;
+import java.io.*;
 
 public class TerraNova
 {
@@ -58,7 +59,7 @@ public class TerraNova
 		while (loop == 0);
 	}
 	
-	public static void startGame(int textDelay) throws Exception
+	public static void startGame(int textDelay) throws InterruptedException, IOException
 	{
 		int day = 1;
 		
@@ -93,7 +94,9 @@ public class TerraNova
 									
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
 		
-		DisplayManager displayManager = new DisplayManager(colonyMenuDelay); //creates a display manager to display certain menus
+		DisplayManager displayManager = new DisplayManager(colonyMenuDelay); //creates a display manager to display the main menu and the colony menu
+		
+		MenuManager menuManager = new MenuManager(questionDelay, waitAfterQuestionDelay, menuDelay, largeMenuDelay, resultDelay, colonyMenuDelay); //creates a menu manager to display all menu's except the main menu and colony menu
 		
 		int input; //declared, uninitialized variables
 		int attackStrength;
@@ -122,125 +125,13 @@ public class TerraNova
 			
 			optionNotChosen = true;
 			
-			while (optionNotChosen)
+			while(optionNotChosen)
 			{
-				do
-				{
-					print("What would you like to do today", questionDelay);
-					print("?", waitAfterQuestionDelay);
-					print("\n\n", menuDelay);
-					print("\t1) Hold a festival  	(increases population, costs materials)\n", menuDelay);
-					print("\n", menuDelay);
-					print("\t2) Hold a feast     	(increases happiness, costs food)\n", menuDelay);
-					print("\n", menuDelay);
-					print("\t3) Go on a hunt     	(increases food, may be dangerous)\n", menuDelay);
-					print("\n", menuDelay);
-					print("\t4) Gather resources 	(increases materials, may be dangerous)\n", menuDelay);
-					
-					try
-					{
-						input = kb.nextInt();
-					}
-					catch (InputMismatchException e)
-					{
-						kb.next();
-						input = -1;
-					}
-					
-					if (input == 0)
-					{
-						System.out.println();
-						displayManager.displayColonyStatistics(colony);
-					}
-					else
-					{
-						if (!(input == 1 || input == 2 || input == 3 || input == 4))
-						{
-							print("\nPlease enter 1, 2, 3, or 4.\n\n", menuDelay);
-						}
-					}
-				}
-				while (!(input == 1 || input == 2 || input == 3 || input == 4));
+				input = menuManager.displayMenu(colony, "PrimaryMenu.txt");
 				
-				print("\n", menuDelay);
-				
-				if (input == 1)
+				if (input == 1) //festival
 				{
-					do
-					{
-						print("How big of a festival would you like", questionDelay);
-						print("?", waitAfterQuestionDelay);
-						print("\n\n", menuDelay);
-						print("\t1) A Dance        (+5 population,  -10 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t2) A Parade       (+10 population, -18 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t3) A Play         (+20 population, -30 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t4) A Carnival     (+30 population, -45 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t5) Go back", menuDelay);
-						print("\n", menuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-						
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 5)
-						{
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3 || input == 4))
-							{
-								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", menuDelay);
-							}
-							else
-							{
-								if (input == 1 && colony.getMaterials() < 10)
-								{
-									print("\nYou need at least 10 materials to hold a dance!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 2 && colony.getMaterials() < 18)
-								{
-									print("\nYou need at least 18 materials to hold a parade!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 3 && colony.getMaterials() < 30)
-								{
-									print("\nYou need at least 30 materials to hold a play!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 4 && colony.getMaterials() < 45)
-								{
-									print("\nYou need at least 45 materials to hold a carnival!\n\n", resultDelay);
-									input = -1;
-								}
-								else
-								{
-									optionNotChosen = false;
-								}
-							}
-						}
-						
-						
-					}
-					while (!(input == 1 || input == 2 || input == 3 || input == 4));
-					
-					print("\n", menuDelay);
+					input = menuManager.displayMenu(colony, "FestivalMenu.txt");
 					
 					if (input == 1)
 					{
@@ -250,6 +141,7 @@ public class TerraNova
 						colony.addPopulation(5);
 						colony.subtractMaterials(10);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 2)
 					{
@@ -259,6 +151,7 @@ public class TerraNova
 						colony.addPopulation(10);
 						colony.subtractMaterials(18);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 3)
 					{
@@ -268,6 +161,7 @@ public class TerraNova
 						colony.addPopulation(20);
 						colony.subtractMaterials(30);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 4)
 					{
@@ -277,83 +171,12 @@ public class TerraNova
 						colony.addPopulation(30);
 						colony.subtractMaterials(45);
 						enter();
+						optionNotChosen = false;
 					}
 				}
-				else if (input == 2)
+				else if (input == 2) //feast
 				{
-					do
-					{
-						print("How big of a feast would you like", questionDelay);
-						print("?", waitAfterQuestionDelay);
-						print("\n\n", menuDelay);
-						print("\t1) A Picnic                  (+5 happiness,  -10 food)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t2) A Banquet                 (+10 happiness, -18 food)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t3) A Barbeque                (+20 happiness, -30 food)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t4) A huge multi-meal feast!  (+30 happiness, -45 food)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t5) Go back", menuDelay);
-						print("\n", menuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 5)
-						{
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3 || input == 4))
-							{
-								print("\nPlease enter 1, 2, 3, 4, or 5.\n\n", menuDelay);
-							}
-							else
-							{
-								if (input == 1 && colony.getFood() < 10)
-								{
-									print("\nYou need at least 10 food to hold a picnic!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 2 && colony.getFood() < 18)
-								{
-									print("\nYou need at least 18 food to hold a banquet!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 3 && colony.getFood() < 30)
-								{
-									print("\nYou need at least 30 food to hold a barbeque!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 4 && colony.getFood() < 45)
-								{
-									print("\nYou need at least 45 food to hold a feast!\n\n", resultDelay);
-									input = -1;
-								}
-								else
-								{
-									optionNotChosen = false;
-								}
-							}
-						}
-					}
-					while (!(input == 1 || input == 2 || input == 3 || input == 4));
-					
-					print("\n", menuDelay);
+					input = menuManager.displayMenu(colony, "FeastMenu.txt");
 					
 					if (input == 1)
 					{
@@ -363,15 +186,17 @@ public class TerraNova
 						colony.addHappiness(5);
 						colony.subtractFood(10);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 2)
 					{
-						print("Everyone enjoyed the palete of food at the banquet!\n", resultDelay);
+						print("Everyone enjoyed the wide variety of food at the banquet!\n", resultDelay);
 						print("\t+10 happiness\n", resourceGainDelay);
 						print("\t-18 food\n", resourceGainDelay);
 						colony.addHappiness(10);
 						colony.subtractFood(18);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 3)
 					{
@@ -381,6 +206,7 @@ public class TerraNova
 						colony.addHappiness(20);
 						colony.subtractFood(30);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 4)
 					{
@@ -390,67 +216,14 @@ public class TerraNova
 						colony.addHappiness(30);
 						colony.subtractFood(45);
 						enter();
+						optionNotChosen = false;
 					}
 				}
-				else if (input == 3)
+				else if (input == 3) //hunt
 				{
-					do
-					{
-						print("Where would you like to hunt", questionDelay);
-						print("?", waitAfterQuestionDelay);
-						print("\n", largeMenuDelay);
-						print("\n", largeMenuDelay);
-						print("\t1) Right Outside the Gates                 (+5 food, no danger)\n", largeMenuDelay); //0 danger value
-						print("\n", largeMenuDelay); 
-						print("\t2) The Waterfalls                          (+10 food, low danger)\n", largeMenuDelay); //10
-						print("\n", largeMenuDelay);
-						print("\t3) The Open Plains                         (+20 food, moderate danger)\n", largeMenuDelay); //35
-						print("\n", largeMenuDelay);
-						print("\t4) The Deep Forest                         (+30 food, moderate-high danger)\n", largeMenuDelay); //50
-						print("\n", largeMenuDelay);
-						print("\t5) The Badlands                            (+50 food, high danger)\n", largeMenuDelay); //75
-						print("\n", largeMenuDelay);
-						print("\t6) The Tyrannosaurus Rex Breeding Grounds  (+60 food, very high danger)\n", largeMenuDelay); //100
-						print("\n", largeMenuDelay);
-						print("\t7) Go back", largeMenuDelay);
-						print("\n", largeMenuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-						
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 7)
-						{
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3 || input == 4 || input == 5 || input == 6))
-							{
-								print("\nPlease enter 1, 2, 3, 4, 5, 6, or 7.\n\n", resultDelay);
-							}
-							else
-							{
-								optionNotChosen = false;
-							}
-						}
-					}
-					while (!(input == 1 || input == 2 || input == 3 || input == 4 || input == 5 || input == 6));
+					input = menuManager.displayMenu(colony, "HuntMenu.txt");
 					
-					print("\n", resultDelay);
-					
-					if (input == 1)
+					if (input == 1) //hunting outside the gates
 					{
 						print("You scavenged the area right outside your gates for food!\n", resultDelay);
 						print("You feel safe in the shadow of your walls, but there's not very much food here either", resultDelay);
@@ -458,6 +231,7 @@ public class TerraNova
 						print("\t+5 food\n", resourceGainDelay);
 						colony.addFood(5);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 2) //hunting at the waterfalls
 					{
@@ -522,6 +296,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 3) //hunting at the open plains
 					{
@@ -603,6 +378,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 4) //hunting in the deep forest
 					{
@@ -707,6 +483,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 5) //hunting at the badlands
 					{
@@ -813,6 +590,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 6) //hunting at the t-rex breeding grounds
 					{
@@ -939,62 +717,12 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 				}
-				else if (input == 4)
+				else if (input == 4) //resources
 				{
-					do
-					{
-						print("Where would you like to gather resources", questionDelay);
-						print("?", waitAfterQuestionDelay);
-						print("\n\n", largeMenuDelay);
-						print("\t1) Right Outside the Gates      (+5 materials, no danger)\n", largeMenuDelay); //0 danger value
-						print("\n", largeMenuDelay);
-						print("\t2) The Riverbeds                (+10 materials, low danger)\n", largeMenuDelay); //10
-						print("\n", largeMenuDelay);
-						print("\t3) The Cove                     (+20 materials, moderate danger)\n", largeMenuDelay); //35
-						print("\n", largeMenuDelay);
-						print("\t4) The Caves                    (+30 materials, moderate-high danger)\n", largeMenuDelay); //50
-						print("\n", largeMenuDelay);
-						print("\t5) The Volcano                  (+50 materials, high danger)\n", largeMenuDelay); //75
-						print("\n", largeMenuDelay);
-						print("\t6) Go back", largeMenuDelay);
-						print("\n", largeMenuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-						
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 6)
-						{
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3 || input == 4 || input == 5))
-							{
-								print("\nPlease enter 1, 2, 3, 4, 5, or 6.\n\n", menuDelay);
-							}
-							else
-							{
-								optionNotChosen = false;
-							}
-						}
-					}
-					while (!(input == 1 || input == 2 || input == 3 || input == 4 || input == 5));
-					
-					print("\n", resultDelay);
+					input = menuManager.displayMenu(colony, "ResourcesMenu.txt");
 					
 					if (input == 1) //gathering materials right outside the gates
 					{
@@ -1004,6 +732,7 @@ public class TerraNova
 						print("\t+5 materials\n", resourceGainDelay);
 						colony.addMaterials(5);
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 2) //gathering materials at the riverbeds
 					{
@@ -1088,6 +817,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 3) //gathering materials at the cove
 					{
@@ -1198,6 +928,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 4) //gathering materials in the caves
 					{
@@ -1310,6 +1041,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 					else if (input == 5) //gathering materials at the volcano, 50 mats
 					{
@@ -1422,6 +1154,7 @@ public class TerraNova
 						}
 						
 						enter();
+						optionNotChosen = false;
 					}
 				}
 			}
@@ -1533,115 +1266,15 @@ public class TerraNova
 			
 			optionNotChosen = true;
 			
-			while (optionNotChosen)
+			while(optionNotChosen)
 			{
-				do
-				{
-					print("Would you like to use materials to increase offensive or defensive capabilities", questionDelay);
-					print("?", waitAfterQuestionDelay);
-					print("\n\n", menuDelay);
-					print("\t1) Increase Offense\n", menuDelay);
-					print("\n", menuDelay);
-					print("\t2) Increase Defense\n", menuDelay);
-					print("\n", menuDelay);
-					print("\t3) Continue to Next Day\n", menuDelay);
-					
-					try
-					{
-						input = kb.nextInt();
-					}
-					catch (InputMismatchException e)
-					{
-						kb.next();
-						input = -1;
-					}
-					
-					if (input == 0)
-					{
-						System.out.println();
-						displayManager.displayColonyStatistics(colony);
-					}
-					else
-					{
-						if (!(input == 1 || input == 2 || input == 3))
-						{
-							print("\nPlease enter 1, 2, or 3.\n\n", resultDelay);
-						}
-					}
-				}
-				while (!(input == 1 || input == 2 || input == 3));
+				input = menuManager.displayMenu(colony, "UpgradeMenu.txt");
 				
-				print("\n", resultDelay);
-				
-				if (input == 1)
+				if (input == 1) //offensive upgrade menu
 				{
-					do
-					{
-						print("||=============== Offensive Upgrades ===============||\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t1) Spears      (+ 5 offense, -15 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t2) Guns        (+10 offense, -40 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t3) Ballistas   (+20 offense, -100 materials)\n", menuDelay); // try tamed dinos as offense (requires food(each day)?)
-						print("\n", menuDelay);
-						print("\t4) Go back", menuDelay);
-						print("\n", menuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-						
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 4)
-						{
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3))
-							{
-								print("\nPlease enter 1, 2, 3, or 4.\n\n", resultDelay);
-							}
-							else
-							{
-								if (input == 1 && colony.getMaterials() < 15)
-								{
-									print("\nYou need at least 15 materials to craft spears!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 2 && colony.getMaterials() < 40)
-								{
-									print("\nYou need at least 40 materials to craft guns!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 3 && colony.getMaterials() < 100)
-								{
-									print("\nYou need at least 100 materials to craft ballistas!\n\n", resultDelay);
-									input = -1;
-								}
-								else
-								{
-									optionNotChosen = false;
-								}
-							}
-						}
-					}
-					while (!(input == 1 || input == 2 || input == 3));
+					input = menuManager.displayMenu(colony, "OffensiveMenu.txt");
 					
-					print("\n", resultDelay);
-					
-					if (input == 1)
+					if (input == 1) //making spears
 					{
 						print("Your people have made spears from hide, flint, stone, and wood!\n", resultDelay);
 						print("\t +5 offense\n", resourceGainDelay);
@@ -1649,7 +1282,7 @@ public class TerraNova
 						colony.addOffense(5);
 						colony.subtractMaterials(15);
 					}
-					else if (input == 2)
+					else if (input == 2) //making guns
 					{
 						print("Your people have fashioned guns using resources from the portal!\n", resultDelay); // Only Display choice for guns if portal is true (set it up
 						print("\t+10 offense\n", resourceGainDelay);									   // for higher values of materials, after Lucas should be done)
@@ -1657,7 +1290,7 @@ public class TerraNova
 						colony.addOffense(10);
 						colony.subtractMaterials(40);
 					}
-					else if (input == 3)
+					else if (input == 3) //making ballistas
 					{
 						print("Your men have put together ballistas using leather, wood, and metal!\n", resultDelay); //
 						print("\t +20 offense\n", resourceGainDelay);
@@ -1666,74 +1299,11 @@ public class TerraNova
 						colony.subtractMaterials(100);
 					}
 				}
-				else if (input == 2)
+				else if (input == 2) //defensive upgrade menu
 				{
-					do
-					{
-						print("||=============== Defensive Upgrades ===============||\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t1) Reinforced Walls       (+5 defense, -15 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t2) Personal Body Armor   (+10 defense, -40 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t3) Trenches              (+20 defense, -100 materials)\n", menuDelay);
-						print("\n", menuDelay);
-						print("\t4) Go back", menuDelay);
-						print("\n", menuDelay);
-						
-						try
-						{
-							input = kb.nextInt();
-						}
-						catch (InputMismatchException e)
-						{
-							kb.next();
-							input = -1;
-						}
-						
-						if (input == 0)
-						{
-							System.out.println();
-							displayManager.displayColonyStatistics(colony);
-						}
-						else if (input == 4)
-						{
-							print("\n", menuDelay);
-							break;
-						}
-						else
-						{
-							if (!(input == 1 || input == 2 || input == 3))
-							{
-								print("\nPlease enter 1, 2, 3, or 4.\n\n", resultDelay);
-							}
-							else
-							{
-								if (input == 1 && colony.getMaterials() < 15)
-								{
-									print("\nYou need at least 15 materials to create reinforced walls!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 2 && colony.getMaterials() < 40)
-								{
-									print("\nYou need at least 40 materials to make personal body armor!\n\n", resultDelay);
-									input = -1;
-								}
-								else if (input == 3 && colony.getMaterials() < 100)
-								{
-									print("\nYou need at least 100 materials to dig trenches!\n\n", resultDelay);
-									input = -1;
-								}
-								else
-								{
-									optionNotChosen = false;
-								}
-							}
-						}
-					}
-					while (!(input == 1 || input == 2 || input == 3));
+					input = menuManager.displayMenu(colony, "DefensiveMenu.txt");
 					
-					if (input == 1)
+					if (input == 1) //making reinforced walls
 					{
 						print("\nYour people have reinforced the wall with hide, stone, and wood!\n", resultDelay);
 						print("\t +5 defense\n", resourceGainDelay);
@@ -1743,7 +1313,7 @@ public class TerraNova
 						colony.addDefense(5);
 						colony.subtractMaterials(15);
 					}
-					else if (input == 2)
+					else if (input == 2) //making personal body armor
 					{
 						print("\nYour people have made personal body armor from dinosaur hide!\n", resultDelay); // Only this choice if survived
 						print("\t+10 defense\n", resourceGainDelay);									 	           // 10 dino attacks or something
@@ -1753,7 +1323,7 @@ public class TerraNova
 						colony.addDefense(10);
 						colony.subtractMaterials(40);
 					}
-					else if (input == 3)
+					else if (input == 3) //making trenches
 					{
 						print("\nYour people dug trenches using iron shovels!\n", resultDelay);
 						print("\t +20 defense\n", resourceGainDelay);

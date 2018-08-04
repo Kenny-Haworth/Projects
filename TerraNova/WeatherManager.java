@@ -121,7 +121,7 @@ public class WeatherManager
 		else if (wind)
 		{
 			wind = false;
-			print("\nThe howling gale of wind has finally ended at the end of the day!\n", resultDelay);
+			print("\nThe howling gale of wind has finally died down at the end of the day!\n", resultDelay);
 			print("Your guards finally relax as the world once again falls quiet and peaceful.\n", resultDelay);
 			print("\t+10 offense\n", resourceGainDelay);
 			colony.addOffense(10);

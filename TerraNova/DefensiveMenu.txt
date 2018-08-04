@@ -1,0 +1,5 @@
+||=============== Defensive Upgrades ===============||;slow;materials
+1) Reinforced Walls       (+5 defense, -15 materials);15;You need at least 15 materials to create reinforced walls!
+2) Personal Body Armor   (+10 defense, -40 materials);40;You need at least 40 materials to make personal body armor!
+3) Trenches              (+20 defense, -100 materials);100;You need at least 100 materials to dig trenches!
+4) Go back

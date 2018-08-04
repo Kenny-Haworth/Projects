@@ -1,0 +1,5 @@
+||=============== Offensive Upgrades ===============||;slow;materials
+1) Spears      (+ 5 offense, -15 materials);15;You need at least 15 materials to craft spears!
+2) Guns        (+10 offense, -40 materials);40;You need at least 40 materials to craft guns!
+3) Ballistas   (+20 offense, -100 materials);100;You need at least 100 materials to craft ballistas!
+4) Go back

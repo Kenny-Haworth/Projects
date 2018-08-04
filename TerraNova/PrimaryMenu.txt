@@ -1,0 +1,5 @@
+What would you like to do today?;slow
+1) Hold a festival  	(increases population, costs materials)
+2) Hold a feast     	(increases happiness, costs food)
+3) Go on a hunt     	(increases food, may be dangerous)
+4) Gather resources 	(increases materials, may be dangerous)

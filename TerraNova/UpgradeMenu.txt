@@ -1,0 +1,4 @@
+Would you like to use materials to increase offensive or defensive capabilities?;slow
+1) Increase Offense
+2) Increase Defense
+3) Continue to Next Day
