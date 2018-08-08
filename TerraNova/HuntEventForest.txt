@@ -1,0 +1,81 @@
+0) Failure
+
+Your party ventures southwest into the deep forest for food.
+There are thousands of trees all around you, growing thick and closely together. Little light penetrates this area due to the dense forest canopy.
+Visibility is reduced to around 25 feet in front of you.
+Because the trees grow so close together, buggies cannot enter this forest, so all your party has brought to defend yourselves are spears.
+It is eerily quiet, and the only sounds you can hear around you are the crunching of twigs and foliage underfoot as you walk...
+There are several edible vines and creepers in this forest, as well as small berries. You start to harvest what you can find.
+The silence and darkness begin to wear on everyones nerves. Perhaps you should consider heading back...
+
+Before you can voice your concerns, your party hears a faint, audible cackling from deeper within the forest.
+The sound steadily grows louder. Other voices begin to join in as well, making the cackling yet louder.
+Your party forms a tight circle, spears thrust outward, and begin slowly walking back the way you came.
+Just as the cackling rises to a climax, you see Utahraptors emerge from the trees. They are easily 6 feet tall and weigh half a ton each.
+They begin to circle you, looking for a break in your party's defenses. Your party yells and stabs at the raptors, attempting to hold them back.
+However, your makeshift spears are unable to penetrate their thick skin. It seems the Utahraptors realize this as well, and all at once they attack!
+Those that aren't immediately taken down by the Utahraptors drop their packs and flee in every direction. As you run, you hear the cries of your friends as they fall to the raptors...
+You eventually find your way outside the forest and regroup with what is left of your party.
+It's going to be a long walk back to Terra Nova...
+
+Perhaps if you decide to return here some other time, you should consider crafting a weapon strong enough to penetrate the Utahraptors' thick hides...
+	-3/5 population;
+
+
+1) Success and Failure
+
+Your party ventures southwest into the deep forest for food.
+There are thousands of trees all around you, growing thick and closely together. Little light penetrates this area due to the dense forest canopy.
+Visibility is reduced to around 25 feet in front of you.
+Because the trees grow so close together, buggies cannot enter this forest, so your party has brought a handful of muskets to defend yourselves. Those without muskets carry spears.
+It is eerily quiet, and the only sounds you can hear around you are the crunching of twigs and foliage underfoot as you walk...
+There are several edible vines and creepers in this forest, as well as small berries. You start to harvest what you can find.
+The silence and darkness begin to wear on everyones nerves. Perhaps you should consider heading back...
+
+Just as you are thinking this, your party hears a faint, audible cackling from deeper within the forest.
+The sound steadily grows louder. Other voices begin to join in as well, making the cackling yet louder.
+Your party forms a tight circle, with those with spears keeping them thrust outward, and begin slowly walking back the way you came.
+Just as the cackling rises to a climax, you see Utahraptors emerge from the trees. They are easily 6 feet tall and weigh half a ton each.
+You order each member of your team with a musket to target a different Utahraptor, but not to fire. You know as soon as you fire, they will attack.
+You want the raptors to get as close as possible before you fire so you don't miss. The raptors begin to circle your party, looking for any breaks in your defenses.
+Once they are close enough, you give the order and your party opens fire! Several Utahraptors immediately fall, but the others pounce on the vulnerable members of your party.
+Those that aren't immediately taken down by the Utahraptors quickly reload and fire again, falling yet more raptors.
+Realizing they are outmatched, the raptors run off in every direction. You hear their cackling grow fainter as they retreat back into the dark forest...
+There is a good amount of meat to be harvested from the fallen raptors, but several members of your party died in the fight...
+
+Perhaps if you decide to return here some other time, you should consider bringing enough muskets for everyone...
+	+25 food
+	-10 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party ventures southwest into the deep forest for food.
+There are thousands of trees all around you, growing thick and closely together. Little light penetrates this area due to the dense forest canopy.
+Visibility is reduced to around 25 feet in front of you.
+Because the trees grow so close together, buggies cannot enter this forest, so your party has all brought muskets to defend yourselves.
+It is eerily quiet, and the only sounds you can hear around you are the crunching of twigs and foliage underfoot as you walk...
+There are several edible vines and creepers in this forest, as well as small berries. You harvest more than enough. Perhaps you should consider heading back...
+
+Just as you are thinking this, your party hears a faint, audible cackling from deeper within the forest.
+The sound steadily grows louder. Other voices begin to join in as well, making the cackling yet louder.
+Your party forms a tight circle and begin slowly walking back the way you came.
+Just as the cackling rises to a climax, you see Utahraptors emerge from the trees. They are easily 6 feet tall and weigh half a ton each.
+You order each member of your team with a musket to target a different Utahraptor, but not to fire. You know as soon as you fire, they will attack.
+You want the raptors to get as close as possible before you fire so you don't miss. The raptors begin to circle your party, looking for any breaks in your defenses.
+Once they are close enough, you give the order and your party opens fire! Over half the Utahraptors immediately fall, discouraging the ones still standing from immediately leaping.
+Realizing they are outmatched, the raptors run off in every direction. You hear their cackling grow fainter as they retreat back into the dark forest...
+There is a good amount of meat to be harvested from the fallen raptors, along with the creepers and berries you already picked.
+The trip was a great success!
+	+35 food;
+
+
+3) Success, not attacked (75% chance)
+
+Your party ventures southwest into the deep forest for food.
+There are thousands of trees all around you, growing thick and closely together. Little light penetrates this area due to the dense forest canopy.
+Visibility is reduced to around 25 feet in front of you.
+Because the trees grow so close together, buggies cannot enter this forest, so your party has all brought muskets to defend yourselves.
+It is eerily quiet, and the only sounds you can hear around you are the crunching of twigs and foliage underfoot as you walk...
+There are several edible vines and creepers in this forest, as well small berries. You harvest more than enough. It is time to head back to Terra Nova.
+	+30 food;

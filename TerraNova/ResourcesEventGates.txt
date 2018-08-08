@@ -1,0 +1,5 @@
+1) Success
+
+You scavenged the area right outside your gates for materials!
+You feel safe in the shadow of your walls, but there's not very many materials here either...
+	+5 materials;

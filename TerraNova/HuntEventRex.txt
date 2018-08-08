@@ -1,0 +1,97 @@
+0) Failure
+
+Your party travels far north into Tyrannosaurus territory for food.
+Lush jungle surrounds you. There is plenty of fruit and berries to pick.
+It seems herbivores do not venture into this region, which is why there is so much food...
+
+Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.
+As you walk back, you feel a faint rumbling in the toes of your feet. You glance at a puddle of water next to you.
+Ripples emanate from the center of the puddle and spread outward during each rumble.
+An earthquake? No...
+The rumbling is growing steadily louder. It's massive footsteps!
+A terrible roar splits the air! It's a T-rex!
+Your party has brought assault rifles as defense, but in this thick jungle the rex isn't visible until it is almost directly on top of you!
+Unable to get many shots off, the rex quickly crushes and devours whoever is in it's path!
+Fortunately, it is easy to drop your packs, run, and hide in the jungle, although the rex still manages to get a few of you...
+
+Later, you finally make it back to Terra Nova and regroup with the others. Thankfully, almost all the members of your party have made it back.
+That wasn't so bad!
+	-5 population
+	enter()
+You sit with your hunting party in the safety of Terra Nova's walls and begin to recover.
+You drink your fill from your water canteen and look deep into it, reflecting on the men you lost today...
+...and the water ripples...#darkStatementDelay
+Your eyes widen. Suddenly wide awake, you shout at the top of your lungs, #noNewLine
+"T-REX! RAISE THE DEFENSES! EVERYONE ON THE WALLS!!!"#60
+Everyone stares at you, thinking you surely must be reliving the traumatic event earlier today.
+But the shaking grows stronger, and you yell yet again.
+Starting to realize the situation, the wall guards spring to life and begin arming the outter walls with your strongest weapons.
+The beast must have perceived you entering it's territory as a threat, and followed your scent back to Terra Nova!
+Before your men can fully prepare, it emerges into the clearing surrounding the outer walls and charges!
+It tears an opening into the wall and savagely begins to crush and destroy everything in its path...
+
+The battle was long and bloody, but the beast finally falls. Terra Nova is in ruins.
+There are several holes in the walls, your weapons cache was destroyed, and nearly all the houses and buildings were demolished.
+The granary was crushed in the battle as well. The meat from the rex will not be enough to replace the food that was lost.
+It will take all your materials to rebuild Terra Nova.
+Almost everyone died...
+
+Perhaps if you decide to return to the T-rex breeding grounds some other time, you should consider bringing something powerful enough to kill a rex...
+	-50 happiness
+	-5/6 food
+	-4/5 population
+	-30 offense
+	-40 defense
+	-1/1 materials;
+
+
+1) Success and Failure
+
+Your party travels far north into Tyrannosaurus territory for food.
+Lush jungle surrounds you. There is plenty of fruit and berries to pick.
+It seems herbivores do not venture into this region, which is why there is so much food...
+
+Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.
+As you walk back, you feel a faint rumbling in the toes of your feet. You glance at a puddle of water next to you.
+Ripples emanate from the center of the puddle and spread outward during each rumble.
+An earthquake? No...
+The rumbling is growing steadily louder. It's massive footsteps!
+A terrible roar splits the air! It's a T-rex!
+Your party has brought assault rifles and a rocket launcher as defense, but in this thick jungle the rex isn't visible until it is almost directly on top of you!
+Luckily, your man with the rocket launcher manages to land a direct hit on the rex, severely wounding it.
+However, the rex still manages to crush and devour several members of your team before you can bring it down.
+At least the animal will make for some good meat in addition to all the fruit and berries you harvested...
+
+Perhaps if you decide to return to the T-rex breeding grounds some other time, you should consider bringing a second rocket launcher...
+	+55 food
+	-20 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party travels far north into Tyrannosaurus territory for food.
+Lush jungle surrounds you. There is plenty of fruit and berries to pick.
+It seems herbivores do not venture into this region, which is why there is so much food...
+
+Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.
+As you walk back, you feel a faint rumbling in the toes of your feet. You glance at a puddle of water next to you.
+Ripples emanate from the center of the puddle and spread outward during each rumble.
+An earthquake? No...
+The rumbling is growing steadily louder. It's massive footsteps!
+A terrible roar splits the air! It's a T-rex!
+Your party has brought assault rifles and a couple of rocket launchers as defense!
+Luckily, your men with the rocket launchers manage to land direct hits, severely wounding the rex.
+It is a simple matter from there to bring it down with the assault rifles.
+It will make for some great meat in addition to all the fruit and berries you harvested!
+	+65 food;
+
+
+3) Success, not attacked (75% chance)
+
+Your party travels far north into Tyrannosaurus territory for food.
+Lush jungle surrounds you. There is plenty of fruit and berries to pick.
+It seems herbivores do not venture into this region, which is why there is so much food...
+
+Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.
+The expedition was successful and uneventful!
+	+60 food;

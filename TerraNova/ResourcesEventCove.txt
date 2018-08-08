@@ -1,0 +1,90 @@
+0) Failure
+
+Your party ventures to the far west to look for materials. It is a several hour walk to reach the sea.
+A natural, circular cove has formed here, leaving a calm bay with gentle waves.
+There appear to be plenty of scrap and driftwood washed ashore here as well.
+Your party begins to pick through the sand, salvaging anything useful.
+Some of your men enter the water to dive for small treasures buried in the sand bar.
+
+Sometime later, you notice your men in the water struggling to overcome large waves.
+It strikes you as odd that such large waves are forming in such a gentle cove...
+You peer out over the surface of the water to find the source of the disturbance and see a fin sticking up out of the water!
+You immediately think of a shark, but a shark couldn't be making waves that large.
+What's more, this fin is huge, at least as tall as you are, and sticks up out of the water like a half circle, unlike the typical triangle fins sharks have.
+You shout at your men in the water to get out of the bay, pointing towards the fin. The scavengers on the shore begin to run toward you to regroup.
+Before the men in the water can reach the shoreline, the fin rises out of the water and a Spinosaurus is revealed, rapidly swimming straight towards your men!
+Your men are slow and sluggish in the water, and the Spinosaurus easily overcomes them. You can do nothing for them.
+The best thing you can do now is run. However, the Spinosaur emerges from the water and reveals it's uncanny ability to run on land just as fast as it swims in water!
+You all drop your packs to run faster, but several of you are picked off by the beast before you can finally lose it...
+
+Perhaps if you decide to return here some other time, you should consider bringing some form of transportation to outrun the Spinosaur...
+	-1/2 population;
+
+
+1) Success and Failure
+
+Your party ventures to the far west to look for materials.
+Your men take turns riding the buggies and walking, since there are not enough buggies for everyone to ride in.
+You reach the western sea by high noon.
+A natural, circular cove has formed here, leaving a calm bay with gentle waves.
+There appear to be plenty of scrap and driftwood washed ashore here as well.
+Your party begins to pick through the sand, salvaging anything useful.
+Some of your men enter the water to dive for small treasures buried in the sand bar.
+
+Sometime later, you notice your men in the water struggling to overcome large waves.
+It strikes you as odd that such large waves are forming in such a gentle cove...
+You peer out over the surface of the water to find the source of the disturbance and see a fin sticking up out of the water!
+You immediately think of a shark, but a shark couldn't be making waves that large.
+What's more, this fin is huge, at least as tall as you are, and sticks up out of the water like a half circle, unlike the typical triangle fins sharks have.
+You shout at your men in the water to get out of the bay, pointing towards the fin. The scavengers on the shore begin to run toward you to regroup.
+Before the men in the water can reach the shoreline, the fin rises out of the water and a Spinosaurus is revealed, rapidly swimming straight towards your men!
+Your men are slow and sluggish in the water, and the Spinosaurus easily overcomes them. You can do nothing for them.
+The best thing you can do now is run. The Spinosaur emerges from the water and reveals it's uncanny ability to run on land just as fast as it swims in water!
+Luckily, your buggies are fast enough to lose it, and all the scavengers can hop on since half of your men are still in the water.
+However, this leaves the divers at the mercy of the Spinosaur, as it turns to reenter the water and finish them off...
+
+Perhaps if you decide to return here some other time, you should consider keeping an eye out for the Spinosaur and bring enough buggies for everyone...
+	+15 materials
+	-5 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party ventures to the far west to look for materials.
+Your men are all able to ride buggies, making the long trip much faster.
+You make good time reaching the western sea.
+A natural, circular cove has formed here, leaving a calm bay with gentle waves.
+There appear to be plenty of scrap and driftwood washed ashore here as well.
+Your party begins to pick through the sand, salvaging anything useful.
+Some of your men enter the water to dive for small treasures buried in the sand bar.
+
+Sometime later, you notice your men in the water struggling to overcome large waves.
+It strikes you as odd that such large waves are forming in such a gentle cove...
+You peer out over the surface of the water to find the source of the disturbance and see a fin sticking up out of the water!
+You immediately think of a shark, but a shark couldn't be making waves that large.
+What's more, this fin is huge, at least as tall as you are, and sticks up out of the water like a half circle, unlike the typical triangle fins sharks have.
+You shout at your men in the water to get out of the bay, pointing towards the fin. The scavengers on the shore begin to run toward you to regroup.
+Your divers in the water reach the shore just as the fin rises out of the water and a Spinosaurus is revealed, swimming straight towards you!
+The best thing you can do now is run. The Spinosaur emerges from the water and reveals it's uncanny ability to run on land just as fast as it swims in water!
+Luckily, your buggies are fast enough to lose it, and there is enough buggies for everyone to ride in.
+The Spinosaur quickly loses interest, but continues to territorially patrol the cove.
+It would be best to leave it alone for the time being. Your weapons are not strong enough to take it down without great risk.
+You still have managed to obtain a sizable amount of materials. The expedition was a success!
+	+18 materials;
+
+
+3) Success, not attacked (75% chance)
+
+Your party ventures to the far west to look for materials.
+Your men are all able to ride buggies, making the long trip much faster.
+You make good time reaching the western sea.
+A natural, circular cove has formed here, leaving a calm bay with gentle waves.
+There appear to be plenty of scrap and driftwood washed ashore here as well.
+Your party begins to pick through the sand, salvaging anything useful.
+Some of your men enter the water to dive for small treasures buried in the sand bar.
+
+Sometime later, you look across the sea and see the sun stretching towards the horizon.
+You estimate there is little over an hours worth of light left.
+Your party has obtained a good amount of materials. The trip was successful and uneventful.
+It is time to head back to Terra Nova.
+	+20 materials;

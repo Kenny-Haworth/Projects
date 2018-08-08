@@ -1,0 +1,67 @@
+0) Failure
+
+Your party heads east to scavenge for materials at the riverbeds.
+There is wood and hardened stones here that will be good for making tools.
+As you are gathering, you notice a small dinosaur standing on a nearby boulder, observing the party.
+You point it out to everyone else. The dinosaur cocks its head. It seems harmless enough, so your party continues to gather.
+You feel like you know this dinosaur from somewhere, but you're not sure where...
+
+Sometime later, one of your men gets too close to the dinosaur. It shrieks, and a large fan bristles out on either side of its neck!
+You recognize it now, it's a Dilophosaurus! The Dilophosaur spits venom into the face of the man who stumbled too close!
+The man falls to the ground, clutching his eyes from the venom!
+Not satisfied, the Dilo turns to the rest of your party and approaches, making hissing noises like a rattle snake!
+The hissing seems to have attracted other Dilophosaurs as well! You have brought nothing to fight with, and will have to run!
+Your party drop their packs and take off, but the Dilophosaurs manage to pick off several of you by pouncing with their sharp claws...
+
+Perhaps if you decide to return to the riverbeds some other time, you should consider bringing something to fend the Dilophosaurs off...
+	-1/4 population;
+
+
+1) Success and Failure
+
+Your party heads east to scavenge for materials at the riverbeds.
+There is wood and hardened stones here that will be good for making tools.
+As you are gathering, you notice a small dinosaur standing on a nearby boulder, observing the party.
+You point it out to everyone else. The dinosaur cocks its head. It seems harmless enough, so your party continues to gather.
+You feel like you know this dinosaur from somewhere, but you're not sure where...
+
+Sometime later, one of your men gets too close to the dinosaur. It shrieks, and a large fan bristles out on either side of its neck!
+You recognize the dinosaur now, it's a Dilophosaurus! The Dilophosaur spits venom into the face of the man who stumbled too close!
+The man falls to the ground, clutching his eyes from the venom!
+The Dilo turns to the rest of your party and advances, making hissing noises like a rattle snake!
+The hissing seems to have attracted other Dilophosaurs as well! You have brought a few spears to fight with, so your party tries to fend them off!
+To keep a good distance from the spitting poison, you hurl the spears at the Dilophosaurs. They easily bring them down or severely injure them.
+However, your party does not have enough spears to take out all the Dilophosaurs. After your party has thrown the few you have, you are defenseless.
+Some of your men run to pull their spears out of the Dilophosaurs they have already hit, while your men without spears throw sharp stones at the Dilo's.
+Eventually your party emerges victorious, but the Dilophosaurs managed to pick off several of you by pouncing with their sharp claws...
+
+Perhaps if you decide to return to the riverbeds some other time, you should consider bringing enough spears for everyone...
+	+7 materials
+	-3 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party heads east to scavenge for materials at the riverbeds.
+There is wood and hardened stones here that will be good for making tools.
+As you are gathering, you notice a small dinosaur standing on a nearby boulder, observing the party.
+You point it out to everyone else. The dinosaur cocks its head. It seems harmless enough, so your party continues to gather.
+You feel like you know this dinosaur from somewhere, but you're not sure where...
+
+Sometime later, one of your men gets too close to the dinosaur. It shrieks, and a large fan bristles out on either side of its neck!
+You recognize the dinosaur now, it's a Dilophosaurus! The Dilophosaur spits venom into the face of the man who stumbled too close!
+The man falls to the ground, clutching his eyes from the venom!
+The Dilo turns to the rest of your party and advances, making hissing noises like a rattle snake!
+The hissing seems to have attracted other Dilophosaurs as well! You have all brought spears to fight with, and engage the Dilophosaurs!
+To keep a good distance from the spitting poison, you hurl the spears at the Dilophosaurs. They easily bring them down or injure them.
+Your party emerges victorious! Luckily, the effects of the poison were temporary and your man who was hit at the beginning of the fight has recovered.
+Your party is exhausted from the fight and decide to head back to Terra Nova.
+	+8 materials;
+
+
+3) Success, not attacked (75% chance)
+
+Your party heads east to scavenge for materials at the riverbeds.
+There is wood and hardened stones here that will be good for making tools.
+You gather all that is worth salvaging. The trip is uneventful and you all head back to Terra Nova.
+	+10 materials;

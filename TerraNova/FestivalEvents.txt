@@ -1,0 +1,23 @@
+1) A Dance
+
+Your people enjoyed the lively dancing!
+	+5 population
+	-10 materials;
+
+2) A Parade
+
+The people paraded through the streets in ornate costumes!
+	+10 population
+	-18 materials;
+
+3) A Play
+
+Actors performed an amazing play for the entertainment of the people!
+	+20 population
+	-30 materials;
+
+4) A Carnival
+
+A fair was held with several entertaining games and events!
+	+30 population
+	-45 materials;

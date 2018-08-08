@@ -1,0 +1,17 @@
+1) Reinforced Walls
+
+Your people have reinforced the wall with hide, stone, and wood!
+	 +5 defense
+	-15 materials;
+
+2) Personal Body Armor
+
+Your people have made personal body armor from dinosaur hide!
+	+10 defense
+	-40 materials;
+
+3) Trenches
+
+Your people dug trenches using iron shovels!
+	+ 20 defense
+	-100 materials;

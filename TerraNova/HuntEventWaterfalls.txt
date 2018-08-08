@@ -1,0 +1,47 @@
+0) Failure
+
+Your scavenging party hikes to the waterfalls a few miles east of Terra Nova.
+You find edible mushrooms and fish in the rivers and streams beneath the waterfalls.
+While gathering food, your party suddenly hears long, udulating calls from all around you!
+Before you can retreat, half a hundred small Velociraptors, each about the size of your foot, emerge from the foliage and surround you!
+Your men try to kick them and fight them off, but the Velociraptors get back up and lunge again!
+Unable to win the fight, your party drop their packs and run for it!
+Unfortunately, several members of your party trip and fall to the Velociraptors' sharp fangs and are quickly swarmed by them...
+
+Perhaps if you decide to return here some other time, you should craft some spears to fend off the Velociraptors...
+	-1/4 population;
+
+
+1) Success and Failure
+
+Your scavenging party hikes to the waterfalls a few miles east of Terra Nova.
+You find edible mushrooms and fish in the rivers and streams beneath the waterfalls.
+While gathering food, your party suddenly hears long, udulating calls from all around you!
+Before you can retreat, half a hundred small Velociraptors, each about the size of your foot, emerge from the foliage and surround you!
+Some of you have come with sharp spears and are able to defend yourselves, retreating with the food you have managed to scavenge so far.
+However, those without spears can only kick at the Velociraptors, who simply get back up and lunge at them again!
+Unable to protect themselves, they panic and run off into the jungle, closely followed by several Velociraptors...
+
+Perhaps if you decide to return to the riverbeds some other time, you should consider bringing enough spears for everyone...
+	+7 food
+	-3 population;
+
+
+2) Success, attacked (25% chance)
+
+Your scavenging party hikes to the waterfalls a few miles east of Terra Nova.
+You find edible mushrooms and fish in the rivers and streams beneath the waterfalls.
+While gathering food, your party suddenly hears long, udulating calls from all around you!
+Half a hundred small Velociraptors, each about the size of your foot, emerge from the foliage and surround you!
+Fortunately, you have all come with sharp spears and have no difficulty fending them off.
+You gather what you can and return to Terra Nova before dark. The trip was a success!
+	+8 food;
+
+
+3) Success, not attacked (75% chance)
+
+Your scavenging party hikes to the waterfalls only a few miles east of Terra Nova.
+You find edible mushrooms and fish in the rivers and streams beneath the waterfalls.
+The area is calm and your party is able to fish and gather uninterrupted.
+You regroup and return to Terra Nova before dark. The trip was a success!
+	+10 food;

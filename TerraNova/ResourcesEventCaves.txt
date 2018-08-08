@@ -1,0 +1,94 @@
+0) Failure
+
+Your party ventures south towards the mountains to gather materials.
+The climate is much colder and wetter in this region. The terrain becomes rocky and steeply inclined.
+You find large cave openings that lead deep into the mountain. The caves are damp and dark.
+The caves narrow further in, so your party splits into small groups, with each group tackling a different cave entrance.
+You have brought pickaxes to mine the precious stones in these caves.
+The stones will be good for making tools and reinforcing Terra Nova's walls.
+Your group stays near enough to the cave's entrance to have enough light to see with.
+
+Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.
+Suddenly, a bright pair of orange eyes blaze out of the darkness, staring directly at you!
+Your group turns and begin stumbling through the dark back towards the cave entrance, but turning your backs was a bad idea!
+With a shriek, the eyes leap forward with astounding speed, and you can make out razor-sharp teeth sink into the leg of the man next to you!
+He yells but quickly falls unconscious! It seems the bite of this animal has some sort of venomous effect to immobilize their prey!
+You all drop your packs and run for the cave entrance, cutting yourselves on jagged rocks and rough cave walls as you feel towards the exit.
+Several of your men fall to the beast. Some try to strike at it with their pickaxes but it is too fast to take in close quarters.
+You finally see the way out and emerge into the sunlight. You turn and see the glowing orange eyes slowly take form.
+It's a Troodon! It pauses momentarily as it enters the light, shrieks, and then continues to chase after you!
+As you run, you see the other groups shout and run out of their caves as well, with more Troodons chasing after them!
+
+You eventually shake off the Troodons and regroup with what is left of your party.
+You all want to return and help those that fell to the Troodons, but you know it will only end worse, as you have nothing to fight them with...
+For now, you will have to hope they escape the Troodons and make it back to Terra Nova...
+
+Perhaps if you decide to return here some other time, you should consider crafting a weapon that can take out the Troodons from a distance...
+	-3/5 population;
+
+
+1) Success and Failure
+
+Your party ventures south towards the mountains to gather materials.
+The climate is much colder and wetter in this region. The terrain becomes rocky and steeply inclined.
+You find large cave openings that lead deep into the mountain. The caves are damp and dark.
+The caves narrow further in, so your party splits into small groups, with each group tackling a different cave entrance.
+You have brought a few muskets to protect yourselves and pickaxes to mine the precious stones in these caves.
+The stones will be good for making tools and reinforcing Terra Nova's walls.
+Your group stays near enough to the cave's entrance to have enough light to see with.
+
+Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.
+Suddenly, a bright pair of orange eyes blaze out of the darkness, staring directly at you!
+Wielding a musket, you quickly get a shot off, flinging the eyes back into the darkness as you hear the beast shriek from the impact.
+You reload but the cave has fallen silent. It seems there are no other attackers. You check on the beast and discover it is a Troodon!
+Troodons are vicious cave-dwellers, with bites that render their prey unconscious. The one before you has a row of sharp teeth and long claws.
+Not every group had someone with a musket. You should check on them to make sure they are okay...
+
+As your group finds their way out of the cave and emerge into the sunlight, you are met with shouts and screams!
+The other groups are running from their caves, closely followed by Troodons!
+You and musket-wielders from other groups join to help take them out.
+Your party eventually kill enough of them to force the remaining Troodons back into the caves.
+It will not be safe to return to the caves for now.
+Several groups still have the stones they mined, but it was at the cost of several lives...
+
+Perhaps if you decide to return here some other time, you should consider bringing enough muskets for everyone...
+	+25 materials
+	-10 population;
+
+
+2) Success, not attacked (25% chance)
+
+Your party ventures south towards the mountains to gather materials.
+The climate is much colder and wetter in this region. The terrain becomes rocky and steeply inclined.
+You find large cave openings that lead deep into the mountain. The caves are damp and dark.
+The caves narrow further in, so your party splits into small groups, with each group tackling a different cave entrance.
+You have all brought muskets to protect yourselves and pickaxes to mine the precious stones in these caves.
+The stones will be good for making tools and reinforcing Terra Nova's walls.
+Your group stays near enough to the cave's entrance to have enough light to see with.
+
+Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.
+Your group gathers all you can carry and meet back up with the other groups. The mining trip was a great success!
+	+35 materials;
+
+
+3) Success, attacked (75% chance)
+
+Your party ventures south towards the mountains to gather materials.
+The climate is much colder and wetter in this region. The terrain becomes rocky and steeply inclined.
+You find large cave openings that lead deep into the mountain. The caves are damp and dark.
+The caves narrow further in, so your party splits into small groups, with each group tackling a different cave entrance.
+You have all brought muskets to protect yourselves and pickaxes to mine the precious stones in these caves.
+The stones will be good for making tools and reinforcing Terra Nova's walls.
+Your group stays near enough to the cave's entrance to have enough light to see with.
+
+Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.
+Suddenly, a bright pair of orange eyes blaze out of the darkness, staring directly at you!
+Wielding a musket, you quickly get a shot off, flinging the eyes back into the darkness as you hear the beast shriek from the impact.
+You reload but the cave has fallen silent. It seems there are no other attackers. You check on the beast and discover it is a Troodon!
+Troodons are vicious cave-dwellers, with bites that render their prey unconscious. The one before you has a row of sharp teeth and long claws.
+The other groups had muskets as well, but you should check on them to make sure they are okay.
+
+As your group finds their way out and emerge into the sunlight, you find the other groups were also attacked by Troodons but are safe.
+Continuing to mine will be risky now that you know Troodons are in the area. You have all already managed to mine a good deal of resources.
+It is time to head back to Terra Nova.
+	+30 materials;

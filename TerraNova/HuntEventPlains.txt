@@ -1,0 +1,60 @@
+0) Failure
+
+Your party travels west to scavenge the green, rolling plains for food.
+There appear to be plenty of berries and fruit to pick here.
+There are also several packs of docile dinosaurs grazing in the plain and gathered at the watering holes, such as stegosarus, brachiosaurus, ankylosarus, and pteranodons.
+
+Sometime later, after you have been scavenging for a while, you begin to feel uneasy. There are no longer dinosaurs all around you. They seem to have migrated elsewhere...
+Suddenly, you hear a deep roar that shakes the trees at the edge of the clearing, and a Therizinosaurus bursts into the open, headed straight for your party!
+You are unable to defend yourselves against it's long, sharp claws, so you will have to make it to the safety of the trees at the edge of the clearing!
+You all drop your packs and make a run for it, but it catches up to you and slashes several members of your party, bringing them down.
+You finally make it to the treeline. As what is left of your party retreat back to Terra Nova, you can hear the screams of your friends behind you as the Therizinosaurus devours them...
+
+Perhaps if you decide to return here some other time, you should use some form of transportation to outrun any Therizinosaurs...
+	-1/2 population;
+
+
+1) Success and Failure
+
+Your party travels west to scavenge the green, rolling plains for food on a couple of land buggies.
+There appear to be plenty of berries and fruit to pick here.
+There are also several packs of docile dinosaurs grazing in the plain and gathered at the watering holes, such as stegosarus, brachiosaurus, ankylosarus, and pteranodons.
+
+Sometime later, after you have been scavenging for a while, you begin to feel uneasy. There are no longer dinosaurs all around you. They seem to have migrated elsewhere...
+Suddenly, you hear a deep roar that shakes the trees at the edge of the clearing, and a Therizinosaurus bursts into the open, headed straight for your party!
+You are unable to defend yourselves against it's long, sharp claws, but your buggies should be able to reach the safety of the trees at the edge of the clearing before it reaches you.
+Unfortunately, there are not enough buggies for everyone. Those unable to find a seat or grab on to a buggy are forced to drop their packs and make a run for it.
+You make it to the treeline and everyone in your buggy quickly jump out so you can turn around and pick up the rest of the group that was on foot.
+However, before you can make a return trip the Therizinosaur overcomes the members on foot and slashes them to pieces...
+As what is left of your party retreat back to Terra Nova, you can hear the screams of your friends behind you as the Therizinosaurus devours them...
+
+Perhaps if you decide to return here some other time, you should consider bringing enough buggies for everyone to outrun any Therizinosaurs...
+	+15 food
+	-5 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party travels west to scavenge the green, rolling plains for food on several land buggies.
+There appear to be plenty of berries and fruit to pick here.
+There are also several packs of docile dinosaurs grazing in the plain and gathered at the watering holes, such as stegosarus, brachiosaurus, ankylosarus, and pteranodons.
+
+Sometime later, after you have been scavenging for a while, you begin to feel uneasy. There are no longer dinosaurs all around you. They seem to have migrated elsewhere...
+Suddenly, you hear a deep roar that shakes the trees at the edge of the clearing, and a Therizinosaurus bursts into the open, headed straight for your party!
+You are unable to defend yourselves against it's long, sharp claws, but your buggies can easily reach the safety of the trees at the edge of the clearing before it reaches you.
+Everyone quickly makes it to the treeline and turn to observe the Therizinosaur.
+It appears to have lost interest in your party. Perhaps it was simply looking for some easy prey.
+It stomps around the area looking for berries and other fruit. Therizinosaurs are primarily herbivores, afterall.
+Since the Therizinosaurus poses no threat, your party is able to continue searching for food, simply keeping a good radius from the beast to prevent angering it.
+Your party gathers a good deal of food from picking berries and fruit on the plains and head back to Terra Nova!
+	+18 food;
+
+
+3) Success, not attacked (75% chance)
+
+Your party travels west to scavenge the green, rolling plains for food on several land buggies.
+There are also several packs of docile dinosaurs grazing in the plain and gathered at the watering holes, such as stegosarus, brachiosaurus, ankylosarus, and pteranodons.
+
+Sometime later, your party has easily found a good deal of food from picking berries and other fruit on the plains.
+You even managed to take down several small oviraptors for some meat thanks to the speed of your buggies!
+	+20 food;

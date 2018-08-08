@@ -1,0 +1,17 @@
+1) Spears
+
+Your people have made spears from hide, flint, stone, and wood!
+	 +5 offense
+	-15 materials;
+
+2) Guns
+
+Your people have fashioned guns using resources from the portal!
+	+10 offense
+	-40 materials;
+
+3) Ballistas
+
+Your men have put together ballistas using leather, wood, and metal!
+	 +20 offense
+	-100 materials;

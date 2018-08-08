@@ -1,0 +1,86 @@
+0) Failure
+
+Your party ventures far southeast into the badlands in search of food.
+The badlands are a large, dried-out lake. It looks like a desert, completely flat and barren.
+The ground underfoot is hard and cracked, and the sky is a somber grey.
+There is nothing living as far as the eye can see. Will you really be able to find food here?
+Your party explores deeper into the badlands on small buggies, keeping an eye out for food or enemies...
+
+Sometime later, your party has searched a great deal of the badlands and have no food to show for it. You have only found the skeleton remains of large dinosaurs.
+Your party begins to head back to Terra Nova. When you are about halfway through the badlands on your way back, one of the members of your team points and shouts.
+Off in the distance behind you is something very small rapidly heading towards you. It's too far away to make out clearly...
+A minute later, someone else points out a second object, this one in front of you, and then a third object on your left!
+As they grow closer, you begin to make out the shape of an Allosaurus!
+Allosaurs are smart and vicious carnivores, over 30 feet tall with a weight of at least 2 metric tons. They hunt in packs to corner their prey.
+Your buggies are too slow to outrun them, so you'll have to fight. You wonder if the muskets you brought will be enough to fend them off...
+
+The battle is short and brutal. Your muskets draw blood but the Allosaurs seem unperturbed.
+They immobilize your buggies by flipping them or stomping on them, and then proceed to methodically crush your team members in their jaws one by one.
+Those that weren't stunned when the buggies crashed take off running in every direction.
+You will be unable to outrun the Allosaurs, and there is nowhere to hide on this flat terrain.
+The only way to survive is if the Allosaurs choose to chase after someone running in the opposite direction instead of you...
+
+Later, you finally make it back to Terra Nova. Nobody else has made it back except for you.
+Perhaps if you decide to return to the badlands some other time, you should consider bringing something powerful enough to kill Allosaurs...
+	-3/5+10 population;
+
+
+1) Success and Failure
+
+Your party ventures far southeast into the badlands in search of food.
+The badlands are a large, dried-out lake. It looks like a desert, completely flat and barren.
+The ground underfoot is hard and cracked, and the sky is a somber grey.
+There is nothing living as far as the eye can see. Will you really be able to find food here?
+Your party explores deeper into the badlands on small buggies, keeping an eye out for food or enemies...
+
+Sometime later, your party has searched a great deal of the badlands and have no food to show for it. You have only found the skeleton remains of large dinosaurs.
+Your party begins to head back to Terra Nova. When you are about halfway through the badlands on your way back, one of the members of your team points and shouts.
+Off in the distance behind you is something very small rapidly heading towards you. It's too far away to make out clearly...
+A minute later, someone else points out a second object, this one in front of you, and then a third object on your left!
+As they grow closer, you begin to make out the shape of an Allosaurus!
+Allosaurs are smart and vicious carnivores, over 30 feet tall with a weight of at least 2 metric tons. They hunt in packs to corner their prey.
+Your buggies are too slow to outrun them, so you'll have to fight. Some of your men have assault rifles, and the rest have muskets.
+Hopefully it is enough to fend them off.
+
+The battle is short and brutal. As soon as the Allosaurs are in range your party concentrates fire on one and bring it down.
+The muskets draw blood but the Allosaurs seem unperturbed by them. The assault rifles seem to be the only thing that phases them.
+The remaining two Allosaurs immobilize your buggies by flipping them or stomping on them, and then proceed to methodically crush your team members in their jaws one by one.
+Those that weren't stunned when the buggies crashed quickly reload and concentrate fire on the second Allosaur, bringing it down as well.
+The final Allosaur flees, realizing it is outmatched. There will be a plethora of meat to harvest from the two dead Allosaurs, but it was at the cost of several of your friend's lives...
+
+Perhaps if you decide to return to the badlands some other time, you should consider bringing enough assault rifles for everyone...
+	+40 food
+	-15 population;
+
+
+2) Success, not attacked (20% chance)
+
+Your party ventures far southeast into the badlands in search of food.
+The badlands are a large, dried-out lake. It looks like a desert, completely flat and barren.
+The ground underfoot is hard and cracked, and the sky is a somber grey.
+There is nothing living as far as the eye can see. Will you really be able to find food here?
+Your party explores deeper into the badlands on small buggies, keeping an eye out for food or enemies...
+
+Sometime later, your party has searched a great deal of the badlands and have no food to show for it. You have only found the skeleton remains of large dinosaurs.
+The ride back to Terra Nova is uneventful. Perhaps this is just bad luck...;
+
+
+3) Success, attacked (80% chance)
+
+Your party ventures far southeast into the badlands in search of food.
+The badlands are a large, dried-out lake. It looks like a desert, completely flat and barren.
+The ground underfoot is hard and cracked, and the sky is a somber grey.
+There is nothing living as far as the eye can see. Will you really be able to find food here?
+Your party explores deeper into the badlands on small buggies, keeping an eye out for food or enemies...
+
+Sometime later, your party has searched a great deal of the badlands and have no food to show for it. You have only found the skeleton remains of large dinosaurs.
+Your party begins to head back to Terra Nova. When you are about halfway through the badlands on your way back, one of the members of your team points and shouts.
+Off in the distance behind you is something very small rapidly heading towards you. It's too far away to make out clearly...
+A minute later, someone else points out a second object, this one in front of you, and then a third object on your left!
+As they grow closer, you begin to make out the shape of an Allosaurus!
+Allosaurs are smart and vicious carnivores, over 30 feet tall with a weight of at least 2 metric tons. They hunt in packs to corner their prey.
+Your buggies are too slow to outrun them, so you'll have to fight. All of your men have assault rifles, so you are confident in your ability to bring the beasts down.
+
+The battle is short and brutal. As soon as the Allosaurs are in range, half your party concentrate fire on the first and half your party fire at the second.
+Both Allosaur's fall, and the final Allosaur flees, realizing it is outmatched. There will be a plethora of meat to harvest from the two dead Allosaurs!
+	+50 food;

@@ -1,5 +1,36 @@
 # Terra Nova Changelog
 
+<strong>"Event Manager"</strong> update, <ins>August 7, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>The following events events are no longer handled within TerraNova.java but are instead handled within EventManager.java:</li>
+<ul>
+	<li>Holding a Festival</li>
+	<li>Holding a Feast</li>
+	<li>Going on a Hunt</li>
+	<li>Gathering Resources</li>
+	<li>Purchasing items from the Offensive Menu</li>
+	<li>Purchasing items from the Defensive Menu</li>
+</ul>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>Fixed a couple of grammar errors when failing to raid the Tyrannosaurus Rex Breeding Grounds.</li>
+<li>If the user loses a proportion of resources which amounts to 0 because they have none of that resource, the user is no longer told that 0 of that resource has been subtracted from their colony.</li>
+</ul>
+
+Total lines of code: <strong>2856</strong> (<strong>added 184</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Menu Manager"</strong> update, <ins>August 4, 2018</ins>.
 
 <strong>Changes:</strong>

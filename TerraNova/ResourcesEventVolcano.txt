@@ -1,0 +1,91 @@
+0) Failure
+
+Your party ventures northwest towards the volcano to gather materials.
+The climate begins to grow hotter, the terrain becomes rocky, and the trees and foliage become sparser as you near the volcano.
+You are eventually hiking uphill in the open, with no cover for miles.
+However, this makes you feel safe, as you are confident you can spot any predators from miles away before they can reach you.
+You hope there will be enough materials at the volcano's peak to make the trip worthwhile...
+
+Sometime later, your party is nearing the peak. It is starting to get very hot. You shield your eyes from the sun and look around.
+Instead of seeing the blue, open sky you see large dots on your vision. You blink rapidly to clear it, but the dots stay there.
+You must be looking at clouds, because the objects are over 50 feet wide. But these clouds are a solid brown. The color looks more like a bird...
+As you ponder the nature of the objects, they suddenly become much closer, no more than a hundred feet above the ground!
+You can make them out clearly now! They're Quetzalcoatlus! Massive, flying carnivores! You warn your party as the Quetzals dive towards you!
+
+Unfortunately, there is not very much your party can do in defense.
+Muskets are the only form of protection you have brought, but they seem only to be a thorn to the Quetzals, making them squawk louder and attack with more energy.
+The barren landscape that once seemed to protect you from predators is now a trap, as you will be unable to lose the Quetzals until you make it to the treeline!
+Your men are picked up by the Quetzals strong forearms, flown high into the sky, and released.
+As you run the miles back to forest's edge, you hear the sickening sound of their bones snapping as they hit the hard earth all around you...
+
+You make it back to safety, but none of your men have made it back with you. It is time to go back to Terra Nova...
+Perhaps if you decide to return to the volcano some other time, you should consider bringing something powerful enough to kill Quetzals...
+	-3/5+10 population;
+
+
+1) Success and Failure
+
+Your party ventures northwest towards the volcano to gather materials.
+The climate begins to grow hotter, the terrain becomes rocky, and the trees and foliage become sparser as you near the volcano.
+You are eventually hiking uphill in the open, with no cover for miles.
+However, this makes you feel safe, as you are confident you can spot any predators from miles away before they can reach you.
+You hope there will be enough materials at the volcano's peak to make the trip worthwhile...
+
+Sometime later, your party is nearing the peak. It is starting to get very hot. You shield your eyes from the sun and look around.
+Instead of seeing the blue, open sky you see large dots on your vision. You blink rapidly to clear it, but the dots stay there.
+You must be looking at clouds, because the objects are over 50 feet wide. But these clouds are a solid brown. The color looks more like a bird...
+As you ponder the nature of the objects, they suddenly become much closer, no more than a hundred feet above the ground!
+You can make them out clearly now! They're Quetzalcoatlus! Massive, flying carnivores! You warn your party as the Quetzals dive towards you!
+
+The barren landscape that once seemed to protect from predators is now a trap, as you will be unable to lose the Quetzals unless you can make it to treeline miles away.
+Your party has brought muskets and a few assault rifles as defense, so it will be better to stand and fight with what weapons you have.
+The Quetzals pick up your men with their strong forearms, fly them high into the sky, and release them.
+As you fight, you hear the sickening sound of their bones snapping as they hit the hard earth all around you.
+Your party fire round after round into the Quetzals, but the muskets are only a thorn to the them, making them squawk louder and attack with more energy.
+Luckily, the assault rifles manage to bring several of them down. They are able to shoot the Quetzals from much further away with a faster fire rate.
+
+After a long and bloody battle, your party is victorious.
+Many lives were lost, but their sacrifices will mean nothing if you do not reach the peak and get resources from this trip.
+What is left of your party push to the peak and find a plethora of volcanic rock, obsidian, and precious stones.
+Your party gathers until they are exhausted from the previous battle and the heat, and you all begin the long trek home...
+
+Perhaps if you decide to return to the volcano some other time, you should consider bringing more assault rifles to kill any Quetzals that attack...
+	+40 materials
+	-15 population;
+
+
+2) Success, attacked (25% chance)
+
+Your party ventures northwest towards the volcano to gather materials.
+The climate begins to grow hotter, the terrain becomes rocky, and the trees and foliage become sparser as you near the volcano.
+You are eventually hiking uphill in the open, with no cover for miles.
+However, this makes you feel safe, as you are confident you can spot any predators from miles away before they can reach you.
+You hope there will be enough materials at the volcano's peak to make the trip worthwhile...
+
+Sometime later, your party is nearing the peak. It is starting to get very hot. You shield your eyes from the sun and look around.
+Instead of seeing the blue, open sky you see large dots on your vision. You blink rapidly to clear it, but the dots stay there.
+You must be looking at clouds, because the objects are over 50 feet wide. But these clouds are a solid brown. The color looks more like a bird...
+As you ponder the nature of the objects, they suddenly become much closer, no more than a hundred feet above the ground!
+You can make them out clearly now! They're Quetzalcoatlus! Massive, flying carnivores! You warn your party as the Quetzals dive towards you!
+
+Your party has brought assault rifles as defense, so your men unload on the diving Quetzals!
+Since everyone has a rifle, you are able to stand your ground and take out the Quetzals before they can grab anyone and fly off with them.
+The battle is short, and your party is victorious. The landscape is once again silent.
+You push to the peak of the volcano and find a plethora of volcanic rock, obsidian, and precious stones.
+Your party gathers until they are exhausted from the previous battle and the heat, and you all begin the long trek home.
+The trip was a success!
+	+45 materials;
+
+
+3) Success, not attacked (75% chance)
+
+Your party ventures northwest towards the volcano to gather materials.
+The climate begins to grow hotter, the terrain becomes rocky, and the trees and foliage become sparser as you near the volcano.
+You are eventually hiking uphill in the open, with no cover for miles.
+However, this makes you feel safe, as you are confident you can spot any predators from miles away before they can reach you.
+You hope there will be enough materials at the volcano's peak to make the trip worthwhile...
+
+You finally reach the peak of the volcano and find a plethora of volcanic rock, obsidian, and precious stones.
+Your party gathers all they can carry and you begin the long trek home.
+The trip was a great success!
+	+50 materials;
