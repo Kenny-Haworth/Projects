@@ -1,5 +1,46 @@
 # Terra Nova Changelog
 
+<strong>"Fair Maiden"</strong> update, <ins>August 10, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>The Menu Manager and Event Manager now handle the Fair Maiden event.</li>
+<li>Nearly all text for finding and rescuing the Fair Maiden has been completely redone.</li>
+<li>The Fair Maiden can now be found at or after day 50.</li>
+<li>Increased the chances of the Fair Maiden spawning from 1% to 2%.</li>
+<li>Successfully rescuing the Fair Maiden now gives the following rewards:</li>
+<ul>
+	<li>+100 happiness</li>
+	<li>+100 food</li>
+	<li>+10 population</li>
+	<li>+15 offense</li>
+	<li>+15 defense</li>
+	<li>+50 materials</li>
+</ul>
+<li>Greatly reduced the amount of code needed to roll chances for the Fair Maiden.</li>
+<li>Chances to find the Fair Maiden now increases by 1% for every 1 offense you have, instead of by 10% for every 10 offense you have.</li>
+<li>Chances to return with the Fair Maiden now increases by 1% for every 1 defense you have, instead of by 10% for every 10 defense you have.</li>
+<li>There is no longer a text delay on the spacing before printing "Your current colony statistics:" at the beginning of a day.</li>
+<li>The Event Manager can now handle the following conditions:</li>
+<ul>
+	<li>Ending on a blank line.</li>
+	<li>Printing custom delays or commands on the last line that is printed for a section.</li>
+	<li>Printing a dark statement, a "noNewLine" custom command, and the end of a section all on the same line.</li>
+	<li>The user no longer has to press enter to continue at the end of a section if the new custom command "noEnter" has been specified.</li>
+</ul>
+</ul>
+
+As a testament to the efficiency of the Fair Maiden update, the total lines of code has dropped despite adding more content!
+
+Total lines of code: <strong>2814</strong> (<strong>removed 42</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Event Manager"</strong> update, <ins>August 7, 2018</ins>.
 
 <strong>Changes:</strong>
@@ -51,7 +92,7 @@ Total lines of code: <strong>2856</strong> (<strong>added 184</strong> since las
 <li>Wind now "dies down" at the end of the day rather then "ends at the end of the day."</li>
 </ul>
 
-As a testament to how efficient the Menu Manager is, for the first time the total amount of code has dropped from an update!
+As a testament to the efficiency of the Menu Manager, for the first time the total amount of code has dropped from an update!
 
 Total lines of code: <strong>2672</strong> (<strong>removed 153</strong> since last update)
 
@@ -268,7 +309,7 @@ This update mostly focuses on making the game more user-friendly and bugfixes.
 <li>Food now begins at 40, population at 10, and offense at 0.</li>
 <li>Changed text from holding a festival, holding a feast, and gathering resources to make it more realistic and immersive.</li>
 <li>Decreased the population gains from the portal to balance the food consumption of a larger population.</li>
-<li>Since the player will not have a reasonable chance of rescuing the fair maiden early on, she will now only spawn after day 50, but still has a 1 in 100 chance of spawning each day after that point.</li>
+<li>Since the player will not have a reasonable chance of rescuing the Fair Maiden early on, she will now only spawn after day 50, but still has a 1 in 100 chance of spawning each day after that point.</li>
 
 </ul>
 
@@ -398,13 +439,13 @@ so this list includes all features since development began.
 </ul>
 
 <li>Added in a portal that gives resources to the player at the end of each day. The user receives more of what they need.</li>
-<li>Added in a "fair maiden."</li>
+<li>Added in a "Fair Maiden."</li>
 <ul>
-	<li>The fair maiden has a 1 in 100 chance of spawning each day.</li>
-	<li>The player can choose to look for the fair maiden after she spawns or not.</li>
-	<li>100 offense is required to successfully find the fair maiden 100% of the time after she spawns, with chances decreasing by 10% for every 10 less offense the user has than 100. (50 offense = 50% chance to rescue her)</li>
-	<li>100 defense is required to successfully bring the fair maiden back to the colony 100% of the time, with chances decreasing by 10% for every 10 less defense the user has than 100. (50 defense = 50% chance to bring her back to the colony)</li>
-	<li>Should the player choose to look for the fair maiden and fail in finding her, the colony loses half it's population.</li>
+	<li>The Fair Maiden has a 1 in 100 chance of spawning each day.</li>
+	<li>The player can choose to look for the Fair Maiden after she spawns or not.</li>
+	<li>100 offense is required to successfully find the Fair Maiden 100% of the time after she spawns, with chances decreasing by 10% for every 10 less offense the user has than 100. (50 offense = 50% chance to rescue her)</li>
+	<li>100 defense is required to successfully bring the Fair Maiden back to the colony 100% of the time, with chances decreasing by 10% for every 10 less defense the user has than 100. (50 defense = 50% chance to bring her back to the colony)</li>
+	<li>Should the player choose to look for the Fair Maiden and fail in finding her, the colony loses half it's population.</li>
 </ul>
   
 </ul>

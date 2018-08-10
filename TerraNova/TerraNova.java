@@ -91,7 +91,7 @@ public class TerraNova
 		
 		ColonyManager colony = new ColonyManager(60, 40, 10, 0, 10, 0); //creates a colony with these base stats
 								//happiness, food, population, offense, defense, materials
-									
+		
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
 		
 		DisplayManager displayManager = new DisplayManager(colonyMenuDelay); //creates a display manager to display the main menu and the colony menu
@@ -117,7 +117,8 @@ public class TerraNova
 			print(" " + day + "", waitAfterQuestionDelay);
 			print(" in the colony of Terra Nova.\n", resultDelay);
 			print("\n", resultDelay);
-			print("           Your current colony statistics:", resultDelay);
+			print("           ", 0); //no delay
+			print("Your current colony statistics:", resultDelay);
 			print("\n", darkStatementDelay);	
 			displayManager.displayColonyStatistics(colony); //display colony menu
 			
@@ -486,271 +487,69 @@ public class TerraNova
 				print("forever.\n", darkStatementDelay);
 			}
 			
-			Special = random.nextInt(100) + 1;
-			if (Special == 1 && !fairMaiden && day > 50)
+			Special = random.nextInt(50) + 1;
+			if (Special == 1 && !fairMaiden && day >= 50)
 			{
-				fairMaiden = true;
+				fairMaiden = true; //fairMaiden can never happen again
 				
-				do
+				eventManager.executeEvent(colony, 0, "FairMaidenEvent.txt"); //read fair maiden exposition out
+				input = menuManager.displayMenu(colony, "FairMaidenMenu.txt"); //display the menu, get an input of 1 or 2
+				
+				if (input == 1) //attempting to find the girl
 				{
-					print("\nJust before you turn in for bed, one of your men hails you on your radio, ", resultDelay);
-					print("saying he's picked up something unusual scanning for radio frequencies.", resultDelay);
-					print("\nCurious, you walk over to the command station to see for yourself. ", resultDelay);
-					print("There appears to be someone trying to hail the base!\n", resultDelay);
-					print("It seems to be the voice of a young girl, and she's stuck deep in the jungle, several hundred kilometers from your position!!!\n", resultDelay);
-					print("Attempting a rescue mission this late at night will be very dangerous, but she'll surely be dead by morning if you leave her to die", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("What will you do", resultDelay);
-					print("?", waitAfterQuestionDelay);
-					print("\n", resultDelay);
-					print("\n", resultDelay);
-					print("	1) Rescue the girl! We can't just leave her to die!!\n", resultDelay);
-					print("\n", resultDelay);
-					print("	2) It's too dangerous! We have to think about the colony first!\n", resultDelay);
-					print("\n", resultDelay);
+					eventManager.executeEvent(colony, 1, "FairMaidenEvent.txt");
 					
-					try
-					{
-						input = kb.nextInt();
-					}
-					catch (InputMismatchException e)
-					{
-						kb.next();
-						input = -1;
-					}
+					double roll = random.nextDouble();
+					double chances = colony.getOffense()/100;
 					
-					if (input == 0)
+					if (chances > roll)
 					{
-						System.out.println();
-						displayManager.displayColonyStatistics(colony);
+						rescueSpecial = 1; //success
 					}
 					else
 					{
-						if (!(input == 1 || input == 2))
-						{
-							print("\nPlease enter only 1 or 2.\n\n", menuDelay);
-						}
-					}
-				}
-				while (!(input == 1 || input == 2));
-				
-				if (input == 1)
-				{
-					print("\nYou've made up your mind, you have to do everything in your power to save her!\n", resultDelay);
-					print("You sound the emergency alarm and order all available units to suit up and assemble at the land rovers!!!\n", resultDelay);
-					print("You quickly explain the situation to your troops, and see your own steel determination reflected in their eyes.\n", resultDelay);
-					print("Without another seconds delay, you all mount up and set forth to rescue the girl!\n", resultDelay);
-					print("\n", resultDelay);
-					print("...\n", darkStatementDelay);
-					print("...\n", darkStatementDelay);
-					print("...\n\n", darkStatementDelay);
-					
-					if (colony.getOffense() < 100)
-					{
-						if (colony.getOffense() > 90)
-						{
-							rescueSpecial = random.nextInt(10) + 1; //90% chance
-							if (rescueSpecial == 10)
-							{
-								rescueSpecial = 0; //failure
-							}
-							else
-							{
-								rescueSpecial = 1; //success
-							}
-						}
-						else if (colony.getOffense() > 80)
-						{
-							rescueSpecial = random.nextInt(5) + 1; //80% chance
-							if (rescueSpecial == 5)
-							{
-								rescueSpecial = 0; //failure
-							}
-							else
-							{
-								rescueSpecial = 1; //success
-							}
-						}
-						else if (colony.getOffense() > 70)
-						{
-							rescueSpecial = random.nextInt(10) + 1; //70% chance
-							if (rescueSpecial == 8 || rescueSpecial == 9 || rescueSpecial == 10)
-							{
-								rescueSpecial = 0; //failure
-							}
-							else
-							{
-								rescueSpecial = 1; //success
-							}
-						}
-						else if (colony.getOffense() > 60)
-						{
-							rescueSpecial = random.nextInt(5) + 1; //60% chance
-							if (rescueSpecial == 2 || rescueSpecial == 3)
-							{
-								rescueSpecial = 0;
-							}
-						}
-						else if (colony.getOffense() > 50)
-						{
-							rescueSpecial = random.nextInt(2) + 1; //50% chance
-						}
-						else if (colony.getOffense() > 40)
-						{
-							rescueSpecial = random.nextInt(5) + 1; //40% chance
-							if (rescueSpecial == 2)
-							{
-								rescueSpecial = 1; //success
-							}
-						}
-						else if (colony.getOffense() > 30)
-						{
-							rescueSpecial = random.nextInt(10) + 1; //30% chance
-							if (rescueSpecial == 2 || rescueSpecial == 3)
-							{
-								rescueSpecial = 1;
-							}
-						}
-						else if (colony.getOffense() > 20)
-						{
-							rescueSpecial = random.nextInt(5) + 1; //20% chance
-						}
-						else
-						{
-							rescueSpecial = random.nextInt(10) + 1; //10% chance
-						}
-					}
-					else
-					{
-						rescueSpecial = 1;
+						rescueSpecial = 0; //failure
 					}
 					
 					if (rescueSpecial == 1) //success in finding the girl
 					{
-						print("Sometime later, deep in the dense jungle of the far north...\n", resultDelay);
-						print("Your driver turns and tells you that you're closing in on the origin of the radio signal!\n", resultDelay);
-						print("Your lean forward in your seat in anticipation, eyes straining to see through the thick windshield", resultDelay);
-						print("...\n", darkStatementDelay);
-						print("Suddenly, there she is!\n", resultDelay);
-						print("Shivering and afraid, your squadron quickly forms a defensive perimeter around her!\n", resultDelay);
-						print("You leap out of your rover and wrap a blanket around her, assuring her that she's safe now!\n", resultDelay);
+						eventManager.executeEvent(colony, 3, "FairMaidenEvent.txt");
 						
-						if (colony.getDefense() < 100)
+						roll = random.nextDouble();
+						chances = colony.getDefense()/100;
+						
+						if (chances > roll)
 						{
-							if (colony.getDefense() > 90)
-							{
-								returnSpecial = random.nextInt(10) + 1; //90% chance
-								if (returnSpecial == 10)
-								{
-									returnSpecial = 0; //failure
-								}
-								else
-								{
-									returnSpecial = 1; //success
-								}
-							}
-							else if (colony.getDefense() > 80)
-							{
-								returnSpecial = random.nextInt(5) + 1; //80% chance
-								if (returnSpecial == 5)
-								{
-									returnSpecial = 0; //failure
-								}
-								else
-								{
-									returnSpecial = 1; //success
-								}
-							}
-							else if (colony.getDefense() > 70)
-							{
-								returnSpecial = random.nextInt(10) + 1; //70% chance
-								if (returnSpecial == 8 || returnSpecial == 9 || returnSpecial == 10)
-								{
-									returnSpecial = 0; //failure
-								}
-								else
-								{
-									returnSpecial = 1; //success
-								}
-							}
-							else if (colony.getDefense() > 60)
-							{
-								returnSpecial = random.nextInt(5) + 1; //60% chance
-								if (returnSpecial == 2 || returnSpecial == 3)
-								{
-									returnSpecial = 0;
-								}
-							}
-							else if (colony.getDefense() > 50)
-							{
-								returnSpecial = random.nextInt(2) + 1; //50% chance
-							}
-							else if (colony.getDefense() > 40)
-							{
-								returnSpecial = random.nextInt(5) + 1; //40% chance
-								if (returnSpecial == 2)
-								{
-									returnSpecial = 1; //success
-								}
-							}
-							else if (colony.getDefense() > 30)
-							{
-								returnSpecial = random.nextInt(10) + 1; //30% chance
-								if (returnSpecial == 2 || returnSpecial == 3)
-								{
-									returnSpecial = 1;
-								}
-							}
-							else if (colony.getDefense() > 20)
-							{
-								returnSpecial = random.nextInt(5) + 1; //20% chance
-							}
-							else
-							{
-								returnSpecial = random.nextInt(10) + 1; //10% chance
-							}
+							returnSpecial = 1; //success
 						}
 						else
 						{
-							returnSpecial = 1;
+							returnSpecial = 0; //failure
 						}
-						
+							
 						if (returnSpecial == 1) //sucess in returning the girl, lots of good things!
 						{
-							//success!!
+							eventManager.executeEvent(colony, 5, "FairMaidenEvent.txt");
 						}
 						else //failure in returning the girl
 						{
-							//loss of population and Special, maybe 1/4 loss population
+							eventManager.executeEvent(colony, 6, "FairMaidenEvent.txt");
 						}
 					}
-					else //failure of getting to Special
+					else //failure in finding the girl
 					{
-						print("Sometime later, deep in the dense jungle of the far north...\n", resultDelay);
-						print("A dense fog seems to have slowly crept into this region.\n", resultDelay);
-						print("You're beginning to have second thoughts about this rescue mission", resultDelay);
-						print("...\n", darkStatementDelay);
-						print("\n...\n\n", darkStatementDelay);
-						print("Suddenly, a large pack of raptors materialize from the fog!\n", resultDelay);
-						print("Your offensive capabilities are no match for their speed! Your men are overrun and split into every direction!\n", resultDelay);
-						print("Your troops are savagely torn limb from limb and you barely make it out with the men in your rover alive!\n", resultDelay);
-						print("Using your radios you manage to regroup with what is left of your squadron. It's going to a quiet ride back to Terra Nova", resultDelay);
-						print("...\n", darkStatementDelay);
-						print("\t-" + colony.getPopulation()/2 + " population\n", resourceGainDelay);
-						colony.subtractPopulation(colony.getPopulation()/2);
+						eventManager.executeEvent(colony, 4, "FairMaidenEvent.txt");
 					}
-					
 				}
-				else if (input == 2)
+				else if (input == 2) //not trying to get the special
 				{
-					print("\nAs much as you'd like to save her, you simply can't justify risking everything for one girl.\n", resultDelay);
-					print("With a heavy heart, you decide must ignore her cry for help.\n", resultDelay);
-					print("You only hope it was the right decision to make", resultDelay);
-					print("...\n", darkStatementDelay);
+					eventManager.executeEvent(colony, 2, "FairMaidenEvent.txt");
 				}
+			} //end fair maiden event
+			else //if the fair maiden event doesn't occur, print a new line
+			{
+				print("\n", resultDelay);
 			}
-			
-			print("\n", resultDelay);
 			
 			print("||=================== End of Day " + day + " ===================||\n", menuDelay);
 			enter();
