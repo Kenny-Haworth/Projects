@@ -3,6 +3,8 @@
 		@note Make print method and enter method universal.
 */
 
+package Managers;
+
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 import java.util.InputMismatchException;

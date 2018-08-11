@@ -2,6 +2,8 @@
 	A class to manage all of a colony's information.
 */
 
+package Managers;
+
 public class ColonyManager
 {
 	private int happiness;
@@ -11,7 +13,7 @@ public class ColonyManager
 	private int defense;
 	private int materials;
 	
-	ColonyManager(int happ, int foo, int pop, int off, int def, int mat)
+	public ColonyManager(int happ, int foo, int pop, int off, int def, int mat)
 	{
 		happiness = happ;
 		food = foo;

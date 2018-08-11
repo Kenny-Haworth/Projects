@@ -2,6 +2,8 @@
 	A class to manage weather for a colony.
 */
 
+package Managers;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

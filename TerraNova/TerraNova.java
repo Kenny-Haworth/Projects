@@ -15,6 +15,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.InputMismatchException;
 import java.io.*;
+import Managers.*;
 
 public class TerraNova
 {
@@ -77,6 +78,11 @@ public class TerraNova
 		int waitAfterQuestionDelay = 750;
 		int resourceGainDelay = 125;
 		
+		String hunts = "Events/Hunts/"; //to access various files
+		String resources = "Events/Resources/";
+		String events = "Events/";
+		String menus = "Menus/";
+		
 		if (textDelay == 1) //text delay is turned OFF
 		{
 			colonyMenuDelay = 0;
@@ -128,27 +134,27 @@ public class TerraNova
 			
 			while(!optionChosen)
 			{
-				input = menuManager.displayMenu(colony, "PrimaryMenu.txt");
+				input = menuManager.displayMenu(colony, menus + "PrimaryMenu.txt");
 				
 				if (input == 1) //festival
 				{
-					input = menuManager.displayMenu(colony, "FestivalMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "FestivalMenu.txt");
 					
-					optionChosen = eventManager.executeEvent(colony, input, "FestivalEvents.txt");
+					optionChosen = eventManager.executeEvent(colony, input, events + "FestivalEvents.txt");
 				}
 				else if (input == 2) //feast
 				{
-					input = menuManager.displayMenu(colony, "FeastMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "FeastMenu.txt");
 					
-					optionChosen = eventManager.executeEvent(colony, input, "FeastEvents.txt");
+					optionChosen = eventManager.executeEvent(colony, input, events + "FeastEvents.txt");
 				}
 				else if (input == 3) //hunt
 				{
-					input = menuManager.displayMenu(colony, "HuntMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "HuntMenu.txt");
 					
 					if (input == 1) //hunting outside the gates
 					{
-						optionChosen = eventManager.executeEvent(colony, input, "HuntEventGates.txt");
+						optionChosen = eventManager.executeEvent(colony, input, hunts + "Gates.txt");
 					}
 					else if (input == 2) //hunting at the waterfalls
 					{
@@ -162,7 +168,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "HuntEventWaterfalls.txt");
+						optionChosen = eventManager.executeEvent(colony, result, hunts + "Waterfalls.txt");
 					}
 					else if (input == 3) //hunting at the open plains
 					{
@@ -176,7 +182,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "HuntEventPlains.txt");
+						optionChosen = eventManager.executeEvent(colony, result, hunts + "Plains.txt");
 					}
 					else if (input == 4) //hunting in the deep forest
 					{
@@ -190,7 +196,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "HuntEventForest.txt");
+						optionChosen = eventManager.executeEvent(colony, result, hunts + "Forest.txt");
 					}
 					else if (input == 5) //hunting at the badlands
 					{
@@ -204,7 +210,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "HuntEventBadlands.txt");
+						optionChosen = eventManager.executeEvent(colony, result, hunts + "Badlands.txt");
 					}
 					else if (input == 6) //hunting at the t-rex breeding grounds
 					{
@@ -218,16 +224,16 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "HuntEventRex.txt");
+						optionChosen = eventManager.executeEvent(colony, result, hunts + "Rex.txt");
 					}
 				}
 				else if (input == 4) //resources
 				{
-					input = menuManager.displayMenu(colony, "ResourcesMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "ResourcesMenu.txt");
 					
 					if (input == 1) //gathering materials right outside the gates
 					{
-						optionChosen = eventManager.executeEvent(colony, input, "ResourcesEventGates.txt");
+						optionChosen = eventManager.executeEvent(colony, input, resources + "Gates.txt");
 					}
 					else if (input == 2) //gathering materials at the riverbeds
 					{
@@ -241,7 +247,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "ResourcesEventRiverbeds.txt");
+						optionChosen = eventManager.executeEvent(colony, result, resources + "Riverbeds.txt");
 					}
 					else if (input == 3) //gathering materials at the cove
 					{
@@ -255,7 +261,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "ResourcesEventCove.txt");
+						optionChosen = eventManager.executeEvent(colony, result, resources + "Cove.txt");
 					}
 					else if (input == 4) //gathering materials in the caves
 					{
@@ -269,7 +275,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "ResourcesEventCaves.txt");
+						optionChosen = eventManager.executeEvent(colony, result, resources + "Caves.txt");
 					}
 					else if (input == 5) //gathering materials at the volcano, 50 mats
 					{
@@ -283,7 +289,7 @@ public class TerraNova
 							}
 						}
 						
-						optionChosen = eventManager.executeEvent(colony, result, "ResourcesEventVolcano.txt");
+						optionChosen = eventManager.executeEvent(colony, result, resources + "Volcano.txt");
 					}
 				}
 			}
@@ -397,19 +403,19 @@ public class TerraNova
 			
 			while(!optionChosen) //upgrades menu
 			{
-				input = menuManager.displayMenu(colony, "UpgradeMenu.txt");
+				input = menuManager.displayMenu(colony, menus + "UpgradeMenu.txt");
 				
 				if (input == 1) //offensive upgrade menu
 				{
-					input = menuManager.displayMenu(colony, "OffensiveMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "OffensiveMenu.txt");
 					
-					optionChosen = eventManager.executeEvent(colony, input, "OffensiveEvents.txt");
+					optionChosen = eventManager.executeEvent(colony, input, events + "OffensiveEvents.txt");
 				}
 				else if (input == 2) //defensive upgrade menu
 				{
-					input = menuManager.displayMenu(colony, "DefensiveMenu.txt");
+					input = menuManager.displayMenu(colony, menus + "DefensiveMenu.txt");
 					
-					optionChosen = eventManager.executeEvent(colony, input, "DefensiveEvents.txt");
+					optionChosen = eventManager.executeEvent(colony, input, events + "DefensiveEvents.txt");
 				}
 				else if (input == 3)
 				{
@@ -492,12 +498,12 @@ public class TerraNova
 			{
 				fairMaiden = true; //fairMaiden can never happen again
 				
-				eventManager.executeEvent(colony, 0, "FairMaidenEvent.txt"); //read fair maiden exposition out
-				input = menuManager.displayMenu(colony, "FairMaidenMenu.txt"); //display the menu, get an input of 1 or 2
+				eventManager.executeEvent(colony, 0, events + "FairMaidenEvent.txt"); //read fair maiden exposition out
+				input = menuManager.displayMenu(colony, menus + "FairMaidenMenu.txt"); //display the menu, get an input of 1 or 2
 				
 				if (input == 1) //attempting to find the girl
 				{
-					eventManager.executeEvent(colony, 1, "FairMaidenEvent.txt");
+					eventManager.executeEvent(colony, 1, events + "FairMaidenEvent.txt");
 					
 					double roll = random.nextDouble();
 					double chances = colony.getOffense()/100;
@@ -513,7 +519,7 @@ public class TerraNova
 					
 					if (rescueSpecial == 1) //success in finding the girl
 					{
-						eventManager.executeEvent(colony, 3, "FairMaidenEvent.txt");
+						eventManager.executeEvent(colony, 3, events + "FairMaidenEvent.txt");
 						
 						roll = random.nextDouble();
 						chances = colony.getDefense()/100;
@@ -529,21 +535,21 @@ public class TerraNova
 							
 						if (returnSpecial == 1) //sucess in returning the girl, lots of good things!
 						{
-							eventManager.executeEvent(colony, 5, "FairMaidenEvent.txt");
+							eventManager.executeEvent(colony, 5, events + "FairMaidenEvent.txt");
 						}
 						else //failure in returning the girl
 						{
-							eventManager.executeEvent(colony, 6, "FairMaidenEvent.txt");
+							eventManager.executeEvent(colony, 6, events + "FairMaidenEvent.txt");
 						}
 					}
 					else //failure in finding the girl
 					{
-						eventManager.executeEvent(colony, 4, "FairMaidenEvent.txt");
+						eventManager.executeEvent(colony, 4, events + "FairMaidenEvent.txt");
 					}
 				}
 				else if (input == 2) //not trying to get the special
 				{
-					eventManager.executeEvent(colony, 2, "FairMaidenEvent.txt");
+					eventManager.executeEvent(colony, 2, events + "FairMaidenEvent.txt");
 				}
 			} //end fair maiden event
 			else //if the fair maiden event doesn't occur, print a new line

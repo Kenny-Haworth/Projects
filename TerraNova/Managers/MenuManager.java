@@ -3,6 +3,8 @@
 		@note Make print method universal.
 */
 
+package Managers;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;

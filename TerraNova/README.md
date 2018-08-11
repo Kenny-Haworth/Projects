@@ -1,5 +1,23 @@
 # Terra Nova Changelog
 
+<strong>"Organization"</strong> update, <ins>August 11, 2018</ins>.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>All event text files are now in an "Events" folder, with subfolders for hunt events and resource events.</li>
+<li>All menu text files are now in a "Menus" folder.</li>
+<li>All managers (ColonyManager.java, DisplayManager.java, etc.) are now in a "Managers" folder and are imported through a "Managers" package.</li>
+</ul>
+
+Total lines of code: <strong>2830</strong> (<strong>added 16</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Fair Maiden"</strong> update, <ins>August 10, 2018</ins>.
 
 <strong>Changes:</strong>
