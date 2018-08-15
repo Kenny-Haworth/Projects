@@ -95,7 +95,7 @@ public class TerraNova
 			resourceGainDelay = 0;
 		}
 		
-		ColonyManager colony = new ColonyManager(60, 40, 10, 0, 10, 0); //creates a colony with these base stats
+		ColonyManager colony = new ColonyManager(85, 40, 10, 0, 10, 0); //creates a colony with these base stats
 								//happiness, food, population, offense, defense, materials
 		
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
@@ -106,13 +106,7 @@ public class TerraNova
 		
 		EventManager eventManager = new EventManager(resultDelay, resourceGainDelay, darkStatementDelay); //creates an event manager to handle events
 		
-		int input; //declared, uninitialized variables
-		int attackStrength;
-		int enemyAttack;
-		int attackType;
-		int Special;
-		int rescueSpecial;
-		int returnSpecial;
+		int input; //declared, uninitialized variable
 		
 		Scanner kb = new Scanner(System.in);
 		Random random = new Random();
@@ -294,109 +288,146 @@ public class TerraNova
 				}
 			}
 			
-			enemyAttack = random.nextInt(2) + 1; //50% chance of being attacked
+			int enemyAttack = random.nextInt(2) + 1; //50% chance of being attacked
 			if (enemyAttack == 1)
 			{
-				if (day <= 10)
+				double happinessModifier = ((((double)75/85)*colony.getHappiness()) + 25)/100; //calculate the effective defense using happiness and population
+				double populationModifier;
+				
+				if (colony.getPopulation() >= colony.getDefense())
+				{
+					populationModifier = 1;
+				}
+				else //population < defense
+				{
+					populationModifier = (double)colony.getPopulation()/colony.getDefense();
+				}
+				
+				int effectiveDefense = (int)((happinessModifier*populationModifier)*colony.getDefense()); //SCALES properly
+				
+				int attackType = 1;
+				
+				if (day > 15) //after day 15, chance of sixer attack
+				{
+					attackType = random.nextInt(2) + 1;
+				}
+				
+				if (attackType == 1)
 				{
 					print("Dino attack!\n", resultDelay);
-					attackStrength = random.nextInt(8 + (2*day)) + 1;
-					enter();
-						
-					print("Your defense: " + colony.getDefense() + "\n", resultDelay);
-					print("Dino attack strength:", resultDelay);
-					print(" " + attackStrength + "", waitAfterQuestionDelay);
+				}
+				else //attackType == 2
+				{
+					print("Sixer attack!\n", resultDelay);
+				}
+				
+				enter();
+				
+				int popResult; //what should be printed to tell the user of their population and happiness modifiers in battle
+				int hapResult;
+				
+				if (populationModifier == 1) //tell the user what's going on with their population
+				{
+					popResult = 1;
+				}
+				else if (populationModifier >= .85)
+				{
+					popResult = 2;
+				}
+				else if (populationModifier >= .65)
+				{
+					popResult = 3;
+				}
+				else if (populationModifier >= .45)
+				{
+					popResult = 4;
+				}
+				else
+				{
+					popResult = 5;
+				}
+				
+				if (colony.getHappiness() > 85) //tell the user what's going on with their happiness
+				{
+					hapResult = 1;
+				}
+				else if (colony.getHappiness() == 85)
+				{
+					hapResult = 2;
+				}
+				else if (colony.getHappiness() >= 65)
+				{
+					hapResult = 3;
+				}
+				else if (colony.getHappiness() >= 45)
+				{
+					hapResult = 4;
+				}
+				else
+				{
+					hapResult = 5;
+				}
+				
+				String result = popResult + "" + hapResult; //concatenate the results into one string
+				
+				eventManager.executeEvent(colony, Integer.parseInt(result), events + "AttackStats.txt"); //print out the stat result
+				int attackStrength = random.nextInt(6) + day;
+				
+				if (attackType == 1)
+				{
+					print("Your effective defense: " + effectiveDefense + "\n", resultDelay);
+					print("Dino attack strength: ", resultDelay);
+					print(Integer.toString(attackStrength), waitAfterQuestionDelay);
 					print("\n", resultDelay);
 					
-					if (colony.getDefense() > attackStrength)
+					if (effectiveDefense > attackStrength)
 					{
 						print("You fought the dinosaurs out of your territory!\n", resultDelay);
-						enter();
 					}
-					else if (colony.getDefense() < attackStrength)
+					else if (effectiveDefense < attackStrength)
 					{
 						print("The dinosaurs have overrun your base!\n", resultDelay);
 						print("GAME OVER!\n", darkStatementDelay);
 						enter();
 						break;
 					}
-					else if (attackStrength == colony.getDefense())
+					else if (effectiveDefense == attackStrength)
 					{
-						print("\nThe battle is tied! Because you hold the defensive position, they are unable to overrun you!\n", resultDelay);
+						print("The battle is tied! Because you hold the defensive position, they are unable to overrun you!\n", resultDelay);
 						print("However, because you cannot overcome the dinosaurs, your troop's moral has been greatly lowered!\n", resultDelay);
 						print("\t-20 happiness\n", resourceGainDelay);
 						colony.subtractHappiness(20);
-						enter();
 					}
 				}
-				else if (day > 10)
+				else if (attackType == 2)
 				{
-					attackType = random.nextInt(2) + 1;
-					if (attackType == 1)
+					attackStrength = (attackStrength/4) + attackStrength; //the attack becomes a quarter stronger
+					
+					print("Your effective defense: " + effectiveDefense + "\n", resultDelay);
+					print("Sixer attack strength: ", resultDelay);
+					print(Integer.toString(attackStrength), waitAfterQuestionDelay);
+					print("\n", resultDelay);
+					
+					if (effectiveDefense > attackStrength)
 					{
-						print("Dino attack!\n", resultDelay);
-						attackStrength = random.nextInt(8 + (2*day)) + 1;
-						enter();
-						
-						print("Your defense: " + colony.getDefense() + "\n", resultDelay);
-						print("Dino attack strength:", resultDelay);
-						print(" " + attackStrength + "", waitAfterQuestionDelay);
-						print("\n", resultDelay);
-						
-						if (colony.getDefense() > attackStrength)
-						{
-							print("You fought the dinosaurs out of your territory!\n", resultDelay);
-							enter();
-						}
-						else if (colony.getDefense() < attackStrength)
-						{
-							print("The dinosaurs have overrun your base!\n", resultDelay);
-							print("GAME OVER!\n", darkStatementDelay);
-							enter();
-							break;
-						}
-						else if (attackStrength == colony.getDefense())
-						{
-							print("The battle is tied! But because you hold the defensive position, they are unable to overrun you!\n", resultDelay);
-							print("However, because you cannot overcome the dinosaurs, your troop's moral has been greatly lowered!\n", resultDelay);
-							print("\t-20 happiness\n", resourceGainDelay);
-							colony.subtractHappiness(20);
-							enter();
-						}
+						print("You fought the Sixers out of your territory!\n", resultDelay);
 					}
-					else if (attackType == 2)
+					else if (effectiveDefense < attackStrength)
 					{
-						print("Sixer attack!\n", resultDelay);
-						attackStrength = random.nextInt(8 + (2*day)) + 1;
-						enter();
-						
-						print("Your defense: " + colony.getDefense() + "\n", resultDelay);
-						print("Sixer attack strength:", resultDelay);
-						print(" " + attackStrength + "", waitAfterQuestionDelay);
-						print("\n", resultDelay);
-						
-						if (colony.getDefense() > attackStrength)
-						{
-							print("You fought the Sixers out of your territory!\n", resultDelay);
-							enter();
-						}
-						else if (colony.getDefense() < attackStrength)
-						{
-							print("The Sixers have overtaken your base!\n", resultDelay);
-							print("GAME OVER!\n", darkStatementDelay);
-							enter();
-							break;
-						}
-						else if (attackStrength == colony.getDefense())
-						{
-							print("The battle is tied! But because you hold the defensive position, they are unable to conquer you!\n", resultDelay);
-							print("However, because you cannot overcome the Sixers, your troop's moral has been greatly lowered!\n", resultDelay);
-							print("\t-20 happiness\n", resourceGainDelay);
-							colony.subtractHappiness(20);
-							enter();
-						}
+						print("The Sixers have overtaken your base!\n", resultDelay);
+						print("GAME OVER!\n", darkStatementDelay);
+						break;
+					}
+					else if (effectiveDefense == attackStrength)
+					{
+						print("The battle is tied! Because you hold the defensive position, they are unable to conquer you!\n", resultDelay);
+						print("However, because you cannot overcome the Sixers, your troop's moral has been greatly lowered!\n", resultDelay);
+						print("\t-30 happiness\n", resourceGainDelay);
+						colony.subtractHappiness(30);
 					}
 				}
+				
+				enter();
 			}
 			
 			optionChosen = false;
@@ -493,7 +524,7 @@ public class TerraNova
 				print("forever.\n", darkStatementDelay);
 			}
 			
-			Special = random.nextInt(50) + 1;
+			int Special = random.nextInt(50) + 1; //2% chance of spawning
 			if (Special == 1 && !fairMaiden && day >= 50)
 			{
 				fairMaiden = true; //fairMaiden can never happen again
@@ -507,6 +538,7 @@ public class TerraNova
 					
 					double roll = random.nextDouble();
 					double chances = colony.getOffense()/100;
+					int rescueSpecial;
 					
 					if (chances > roll)
 					{
@@ -523,6 +555,7 @@ public class TerraNova
 						
 						roll = random.nextDouble();
 						chances = colony.getDefense()/100;
+						int returnSpecial;
 						
 						if (chances > roll)
 						{
@@ -564,7 +597,7 @@ public class TerraNova
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //clears the screen
 			print("\n", resultDelay);
 			
-		} // ends the while loop at the very beginning
+		} //ends the while loop at the very beginning
 	} //ends method
 	
 	public static void print(String data, long delay) throws InterruptedException

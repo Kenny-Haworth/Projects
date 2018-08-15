@@ -1,5 +1,92 @@
 # Terra Nova Changelog
 
+<strong>"Attack"</strong> update, <ins>August 14, 2018</ins>.
+
+Happiness and population now matter! The lower happiness and population are, the weaker your effective defense will be,
+and the higher happiness and population are, the stronger your effective defense will be.
+
+<strong>Changes:</strong>
+
+<ul>
+<li>A combination of happiness, population, and defense now determine the colony's effective defense when an enemy attacks.</li>
+<li>The effect of happiness (ignoring population) upon effective defense is the following:</li>
+<ul>
+	<li>If happiness is 85, the colony's effective defense will be the same as the colony's defense.</li>
+	<li>If happiness is above 85, the colony's effective defense will be greater than the colony's defense.</li>
+	<li>If happiness is below 85, the colony's effective defense will be less than the colony's defense.</li>
+	<ul>
+		<li>This effect will scale down to 1/4, such that at 0 happiness the colony's effective defense will always be 1/4 of the colony's defense.</li>
+	</ul>
+</ul>
+<li>The effect of population (ignoring happiness) upon effective defense is the following:</li>
+<ul>
+	<li>If population is equal to or above the colony's defense, the colony's effective defense will be the same as the colony's defense.</li>
+	<li>If population is less than the colony's defense, the colony's effective defense will be less than the colony's defense.</li>
+	<ul>
+		<li>This effect will scale down to 0, such that at 0 population the colony's effective defense will always be 0 regardless of the colony's actual defense.</li>
+		<li><strong>Note</strong> that at some point 0 population will mean game over, but this will be added in a later update. For now, 0 population is still a death sentence as you will be sure to die to the next enemy attack.</li>
+	</ul>
+</ul>
+<li>When an enemy attacks, the player will be told how strong their effective defense is based upon their population and happiness.</li>
+<ul>
+	<li>The less population the colony has compared to defense, the more severely the player is warned that there are not enough men to defend Terra Nova with all available weapons.</li>
+	<li>The more unhappy the colony gets, the more severely the player is warned that the men are unhappy and will not fight at full strength. If happiness is above 85, the player will be told the colony is getting a defense boost from the colony's happiness.</li>
+	<li>The event manager handles printing this event. There are 25 possibilities to be printed.</li>
+</ul>
+<li>The way enemy attack strength is calculated has been changed in the following ways:</li>
+<ul>
+	<li>Enemy attack strength begins on day 1 at a minimum strength of 1 and a maximum strength of 6.</li>
+	<li>Every day after that, both minimum strength and maximum strength are raised by 1.</li>
+	<ul>
+		<li>Assuming the player does not change their effective defense, the earliest game over possible is now on day 6 with a maximum attack strength of 11.</li>
+		<li>Assuming the player does not change their effective defense, the latest game over possible is now on day 11 with a minimum attack strength of 11.</li>
+	</ul>
+	<li>The following changes were made to Sixer attacks:</li>
+	<ul>
+		<li>Sixer attacks can now only occur after day 15.</li>
+		<li>After day 15, if there is an attack, there is a 50% chance of dinosaur attack and a 50% chance of Sixer attack.</li>
+		<li>Tying in battle with Sixers now decreases happiness by 30 instead of 20.</li>
+		<li>Sixer attacks are now 1/4 stronger than dinosaur attacks.</li>
+		<ul>
+			<li>For example, if dinosaurs would have attacked with a strength of 100, the Sixer attack will be a strength of 125.</li>
+		</ul>
+	</ul>
+</ul>
+<li>The colony now starts with 85 happiness.</li>
+<li>The Event Manager can now handle reading text files up to 99 sections long instead of up to 10 sections long.</li>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>Removed some unnecessary logic parentheses in the Event Manager class.</li>
+</ul>
+
+<strong>Additional Notes:</strong>
+
+<strong>The game is unbalanced at this point, and not in the player's favor!</strong> I played on this update a little bit to test it and I couldn't make it past day 10.
+Later updates will focus on making it easier to keep a larger population by drastically increasing food gains from hunting!
+
+Here's my reasoning on the way happiness and population affect defense in this update:
+
+<ins>Population:</ins> If you had 10 people and bought 20 assault rifles, your defense should not rise as much as if you had 20 people and bought 20 assault rifles,
+as 10 people can only wield 10 assault rifles.
+
+Thus, increasing your defense has no effect if your population does not at least equal your defense.
+Try and keep your population as high as your defense for the best results.
+If your population ever drops to 0, you logically would not be able to defend Terra Nova with no people, which is why effective defense scales down to 0 based upon population.
+
+<ins>Happiness:</ins> Your people will always have some willingness to defend themselves regardless of how unhappy they are. At a baseline level, they
+want to survive. However, they will fight much better if they are happier, so effective defense scales down to a proportion of your defense as happiness drops, in this case 1/4 of your defense at 0 happiness.
+
+Total lines of code: <strong>2997</strong> (<strong>added 167</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Organization"</strong> update, <ins>August 11, 2018</ins>.
 
 <strong>Changes:</strong>

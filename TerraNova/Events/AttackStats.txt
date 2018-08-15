@@ -1,0 +1,134 @@
+11)
+
+You have plenty of men to handle defense as you prepare for battle!
+Additionally, your men are happy and are greatly emboldened!
+Terra Nova's defenses are at their best, and your men will be fighting at a greater than normal strength!;
+
+12)
+
+You have plenty of men to handle defense as you prepare for battle!
+Additionally, your men are content and will be fighting at normal strength!;
+
+13)
+
+You have plenty of men to handle defense as you prepare for battle!
+However, your men are uneasy and will be fighting at a less than average strength!;
+
+14)
+
+You have plenty of men to handle defense as you prepare for battle!
+However, your men are very unhappy! They will be much weaker than normal!;
+
+15)
+
+You have plenty of men to handle defense as you prepare for battle!
+However, your men are severely unhappy and demoralized!
+This battle will be very difficult to win...;
+
+21)
+
+You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
+However, your men are happy and are greatly emboldened for the upcoming battle!
+What men you do have will be fighting at a greater than normal strength!;
+
+22)
+
+You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
+However, what men you do have are content and will be fighting at normal strength!;
+
+23)
+
+You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
+Additionally, your men are uneasy and will be fighting at a less than average strength!;
+
+24)
+
+You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
+Additionally, your men are very unhappy! They will be much weaker than normal!;
+
+25)
+
+You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
+Additionally, your men are severely unhappy and demoralized!
+This battle will be very difficult to win...;
+
+31)
+
+You are lacking in men to defend Terra Nova! This will make the battle much more difficult!
+However, your men are happy and are greatly emboldened!
+What men you do have will be fighting at a greater than normal strength!;
+
+32)
+
+You are lacking in men to defend Terra Nova! This will make the battle much more difficult!
+However, what men you do have are content and will be fighting at normal strength!;
+
+33)
+
+You are lacking in men to defend Terra Nova! This will make the battle much more difficult!
+Additionally, your men are uneasy and will be fighting at a less than average strength!;
+
+34)
+
+You are lacking in men to defend Terra Nova! This will make the battle much more difficult!
+Additionally, your men are very unhappy! They will be much weaker than normal!;
+
+35)
+
+You are lacking in men to defend Terra Nova! This will make the battle much more difficult!
+Additionally, your men are severely unhappy and demoralized!
+Things do not look good for this fight...;
+
+41)
+
+You are greatly lacking in men to defend Terra Nova! The battle will be very difficult!
+However, your men are happy and are greatly emboldened for the upcoming battle!
+What men you do have will be fighting at a greater than normal strength!;
+
+42)
+
+You are greatly lacking in men to defend Terra Nova! The battle will be very difficult!
+However, what men you do have are content and will be fighting at normal strength!;
+
+43)
+
+You are greatly lacking in men to defend Terra Nova! The battle will be very difficult!
+Additionally, your men are uneasy and will be fighting at a less than average strength!;
+
+44)
+
+You are greatly lacking in men to defend Terra Nova! The battle will be very difficult!
+Additionally, your men are very unhappy! They will be much weaker than normal!;
+
+45)
+
+You are greatly lacking in men to defend Terra Nova!
+Additionally, your men are severely unhappy and demoralized!
+This battle will be one of the hardest ones you have fought yet...;
+
+51)
+
+You are severly lacking in men to defend Terra Nova! The battle will be nearly impossible to win!
+However, your men are happy and are greatly emboldened for the upcoming battle!
+What men you do have will be fighting at a greater than normal strength!;
+
+52)
+
+You are severly lacking in men to defend Terra Nova! The battle will be nearly impossible to win!
+However, what men you do have are content and will be fighting at normal strength!;
+
+53)
+
+You are severly lacking in men to defend Terra Nova! The battle will be nearly impossible to win!
+Additionally, your men are uneasy and will be fighting at a less than average strength!;
+
+54)
+
+You are severly lacking in men to defend Terra Nova! The battle will be nearly impossible to win!
+Additionally, your men are very unhappy! They will be much weaker than normal!;
+
+55)
+
+You are severly lacking in men to defend Terra Nova! The battle will be nearly impossible to win!
+Additionally, your men are severely unhappy and demoralized!
+This is no doubt the end for Terra Nova...;

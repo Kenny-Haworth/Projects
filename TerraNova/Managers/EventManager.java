@@ -35,7 +35,7 @@ public class EventManager
 		{
 			String cheese = inputData.nextLine();
 			
-			if (!cheese.equals("") && cheese.charAt(0) - '0' == input) //the section in the text file to print has been found
+			if (!cheese.equals("") && (cheese.charAt(0) - '0' == input || Integer.toString(input).equals("" + cheese.charAt(0) + cheese.charAt(1)))) //the section in the text file to print has been found
 			{
 				cheese = inputData.nextLine(); //the first line is blank
 				boolean statEnding = false;
@@ -102,7 +102,7 @@ public class EventManager
 							StringBuilder stringBuilder = new StringBuilder(); //now change cheese to the proper amount
 							stringBuilder.append("	"); //begin with a tab
 							
-							if ((cheese.indexOf('+') >= 0 && (cheese.indexOf('-') == -1 || (cheese.indexOf('+') < cheese.indexOf('-'))))) //add a + or -
+							if (cheese.indexOf('+') >= 0 && (cheese.indexOf('-') == -1 || (cheese.indexOf('+') < cheese.indexOf('-')))) //add a + or -
 							{
 								stringBuilder.append("+");
 							}
