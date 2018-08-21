@@ -18,7 +18,8 @@ The best thing you can do now is run. However, the Spinosaur emerges from the wa
 You all drop your packs to run faster, but several of you are picked off by the beast before you can finally lose it...
 
 Perhaps if you decide to return here some other time, you should consider bringing some form of transportation to outrun the Spinosaur...
-	-1/2 population;
+	-1/2 population
+	-20 happiness;
 
 
 1) Success and Failure
@@ -45,7 +46,8 @@ However, this leaves the divers at the mercy of the Spinosaur, as it turns to re
 
 Perhaps if you decide to return here some other time, you should consider keeping an eye out for the Spinosaur and bring enough buggies for everyone...
 	+15 materials
-	-5 population;
+	-5 population
+	-10 happiness;
 
 
 2) Success, attacked (25% chance)

@@ -1,5 +1,7 @@
 ||=============== Defensive Upgrades ===============||;slow;materials
-1) Reinforced Walls       (+5 defense, -15 materials);15;You need at least 15 materials to create reinforced walls!
-2) Personal Body Armor   (+10 defense, -40 materials);40;You need at least 40 materials to make personal body armor!
-3) Trenches              (+20 defense, -100 materials);100;You need at least 100 materials to dig trenches!
-4) Go back
+1) Tall Towers           (+ 5 defense, -10 materials);10;You need at least 10 materials to create tall towers!
+2) Reinforced Walls      (+10 defense, -20 materials);20;You need at least 20 materials to reinforce your walls!
+3) Personal Body Armor   (+20 defense, -40 materials);40;You need at least 40 materials to craft personal body armor!
+4) A Moat                (+40 defense, -80 materials);80;You need at least 80 materials to dig a moat!
+5) Ballistas             (+80 defense, -160 materials);160;You need at least 160 materials to create ballistas!
+6) Go back

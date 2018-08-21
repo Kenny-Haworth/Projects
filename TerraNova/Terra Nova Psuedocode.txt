@@ -1,24 +1,32 @@
 This file contains all planned ideas for the Terra Nova game
 
+Planned for next update:
+	Fix stats getting over 1000 and breaking the menu :(
+	Make minimum population loss. If not reach min pop loss, game over! This requires alternative text scenarios and changes to the eventmanager!
+	clear screen after game over
+	"battle nearly impossible to win" when I'm broken. Tons of defense, not as many people. Manage this based on POSSIBLE enemy strength?
+	maybe make PERCENTAGE of population that dies from starvation determine happiness loss, not flat amount (late game losing 150+ people? -75 happiness, no recovery)
+	add a delay to "text delay on" printing
+
 Ideas:
 	weather events (have one to add offense), droughts
 	disease (medicine cure from lab, can disease people or food, both of which decreases happiness)
-	difficulty levels??
+	difficulty levels?? read in from config files as Ryan suggests
 	lucas - each set of 10 days increases his chances of successfully blow up the portal, exponential function would work well
 	sound files <===== this would be awesome. Rain in background on rainy days!
 	new population are children? three/five/ten days and they become adults?
 	have different defense numbers depending on attack - dino's or sixers, sixers are stronger
 		optionally adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
-	create exe file? or jar file?
+	Make game easily playable on any system, .exe or .jar files maybe. Only release class files online?
 	highlight text in other color for input
-	happiness maxes at 100
-	immersive randomized text when attacks aren't sent between events
+	immersive randomized text when attacks aren't sent between events, gives the current state of the colony (not enough happiness/population/food/defense)
+	Consider buying offensive and defensive upgrades cost progressively more materials each time you buy them
 
 New Game is selected.
 Exposition is read out. (warning of Lucas)
 the following loops each day:
 day is read out
-	after day 25, Lucas becomes a chance, increasing each day
+	after day 25, Lucas becomes a chance, increasing exponentially each day
 
 statistics of the colony are read out
 

@@ -19,7 +19,8 @@ You eventually find your way outside the forest and regroup with what is left of
 It's going to be a long walk back to Terra Nova...
 
 Perhaps if you decide to return here some other time, you should consider crafting a weapon strong enough to penetrate the Utahraptors' thick hides...
-	-3/5 population;
+	-3/5 population
+	-30 happiness;
 
 
 1) Success and Failure
@@ -44,8 +45,9 @@ Realizing they are outmatched, the raptors run off in every direction. You hear 
 There is a good amount of meat to be harvested from the fallen raptors, but several members of your party died in the fight...
 
 Perhaps if you decide to return here some other time, you should consider bringing enough muskets for everyone...
-	+25 food
-	-10 population;
+	+100 food
+	-10 population
+	-15 happiness;
 
 
 2) Success, attacked (25% chance)
@@ -67,7 +69,7 @@ Once they are close enough, you give the order and your party opens fire! Over h
 Realizing they are outmatched, the raptors run off in every direction. You hear their cackling grow fainter as they retreat back into the dark forest...
 There is a good amount of meat to be harvested from the fallen raptors, along with the creepers and berries you already picked.
 The trip was a great success!
-	+35 food;
+	+140 food;
 
 
 3) Success, not attacked (75% chance)
@@ -78,4 +80,4 @@ Visibility is reduced to around 25 feet in front of you.
 Because the trees grow so close together, buggies cannot enter this forest, so your party has all brought muskets to defend yourselves.
 It is eerily quiet, and the only sounds you can hear around you are the crunching of twigs and foliage underfoot as you walk...
 There are several edible vines and creepers in this forest, as well small berries. You harvest more than enough. It is time to head back to Terra Nova.
-	+30 food;
+	+120 food;

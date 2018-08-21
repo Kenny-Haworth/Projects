@@ -2,22 +2,22 @@
 
 Your people enjoyed a quiet picnic on the green rolling hills just outside the colony gates!
 	 +5 happiness
-	-10 food;
+	-20 food;
 
 2) A Banquet
 
 Everyone enjoyed the wide variety of food at the banquet!
 	+10 happiness
-	-18 food;
+	-40 food;
 
 3) A Barbeque
 
 Meat and fish were grilled over open fires and handed out for the barbeque!
 	+20 happiness
-	-30 food;
+	-80 food;
 
 4) A huge multi-meal feast!
 
 Large, long tables were placed together and heaps of food were brought out in the all-you-can-eat feast!
 	+30 happiness
-	-45 food;
+	-120 food;

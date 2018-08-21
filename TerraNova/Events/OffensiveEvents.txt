@@ -1,17 +1,38 @@
 1) Spears
 
-Your people have made spears from hide, flint, stone, and wood!
+Your people have crafted spears from hide, flint, stone, and wood!
 	 +5 offense
-	-15 materials;
+	-10 materials;
 
-2) Guns
+2) Buggies
 
-Your people have fashioned guns using resources from the portal!
+Your people have created a few small, 4-person buggies!
+They are designed with off-roading in mind and will be perfect for quickly traversing any kind of terrain!
 	+10 offense
+	-20 materials;
+
+3) Muskets
+
+Your people have crafted several low-power muskets!
+It took several tries to get the right ratio of sulfur, charcoal, and saltpeter to make the gunpowder.
+They take a long time to reload and the ammuniation takes a lot of materials, but they will be great for ranged combat!
+	+20 offense
 	-40 materials;
 
-3) Ballistas
+4) Assault Rifles
 
-Your men have put together ballistas using leather, wood, and metal!
-	 +20 offense
-	-100 materials;
+Your people have crafted several fully-automatic assault rifles!
+Creating several batches of muskets has given you the opportunity to experiment on ranged weapons.
+You now know how to make weapons of higher caliber!
+The ammuniation is expensive to craft, but the destructive power of the assault rifles is more than worth it.
+	+40 offense
+	-80 materials;
+
+5) A Rocket Launcher
+
+You have been experimenting with larger quantities of gunpowder exploding all at once, and you wonder if you can weaponize it.
+TNT is volatile and unreliable for defending Terra Nova, but a rocket launcher would be great for taking down large dinosaurs.
+Your scientists will require a lot of materials to research this weapon, as there will be a lot of trial-and-error.
+However, your scientists finally perfect their research and produce a rocket launcher!
+	+80 offense
+	-160 materials;

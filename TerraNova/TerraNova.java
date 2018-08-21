@@ -95,7 +95,7 @@ public class TerraNova
 			resourceGainDelay = 0;
 		}
 		
-		ColonyManager colony = new ColonyManager(85, 40, 10, 0, 10, 0); //creates a colony with these base stats
+		ColonyManager colony = new ColonyManager(85, 80, 20, 0, 10, 0); //creates a colony with these base stats
 								//happiness, food, population, offense, defense, materials
 		
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
@@ -126,7 +126,7 @@ public class TerraNova
 			
 			boolean optionChosen = false;
 			
-			while(!optionChosen)
+			while(!optionChosen) //daily options
 			{
 				input = menuManager.displayMenu(colony, menus + "PrimaryMenu.txt");
 				
@@ -288,7 +288,7 @@ public class TerraNova
 				}
 			}
 			
-			int enemyAttack = random.nextInt(2) + 1; //50% chance of being attacked
+			int enemyAttack = random.nextInt(1) + 1; //50% chance of being attacked
 			if (enemyAttack == 1)
 			{
 				double happinessModifier = ((((double)75/85)*colony.getHappiness()) + 25)/100; //calculate the effective defense using happiness and population
@@ -376,8 +376,8 @@ public class TerraNova
 				if (attackType == 1)
 				{
 					print("Your effective defense: " + effectiveDefense + "\n", resultDelay);
-					print("Dino attack strength: ", resultDelay);
-					print(Integer.toString(attackStrength), waitAfterQuestionDelay);
+					print("Dino attack strength:", resultDelay);
+					print(" " + Integer.toString(attackStrength), waitAfterQuestionDelay);
 					print("\n", resultDelay);
 					
 					if (effectiveDefense > attackStrength)
@@ -405,7 +405,7 @@ public class TerraNova
 					
 					print("Your effective defense: " + effectiveDefense + "\n", resultDelay);
 					print("Sixer attack strength: ", resultDelay);
-					print(Integer.toString(attackStrength), waitAfterQuestionDelay);
+					print(" " + Integer.toString(attackStrength), waitAfterQuestionDelay);
 					print("\n", resultDelay);
 					
 					if (effectiveDefense > attackStrength)
@@ -463,12 +463,38 @@ public class TerraNova
 			}
 			else //food < population
 			{
-				print("You have " + colony.getPopulation() + " people at the end of the day, but only " + colony.getFood() + " food to feed them all!\n", resultDelay);
-				print(colony.getPopulation()-colony.getFood() + " people went unfed today, so " + (colony.getPopulation()-colony.getFood())/2 + " of them starved to death!\n", resultDelay);
-				print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
-				print("\t-" + (colony.getPopulation()-colony.getFood())/2 + " population\n", resourceGainDelay);
-				colony.subtractPopulation((colony.getPopulation()-colony.getFood())/2);
-				colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
+				if (colony.getFood() != 0) //there is some food to feed people
+				{
+					print("You have " + colony.getPopulation() + " people at the end of the day, but only " + colony.getFood() + " food to feed them all!\n", resultDelay);
+				}
+				else //food = 0
+				{
+					print("You have " + colony.getPopulation() + " people at the end of the day, but no food to feed them!\n", resultDelay);
+				}
+				
+				if ((colony.getFood() + 1) == colony.getPopulation()) //only one person starves
+				{
+					print(colony.getPopulation()-colony.getFood() + " person went unfed today, so they starved to death!\n", resultDelay);
+					print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					print("\t-1 population\n", resourceGainDelay);
+					colony.subtractPopulation(1);
+					colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
+				}
+				else //multiple people starve
+				{
+					print(colony.getPopulation()-colony.getFood() + " people went unfed today, so " + (colony.getPopulation()-colony.getFood())/2 + " of them starved to death!\n", resultDelay);
+					print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					print("\t-" + (colony.getPopulation()-colony.getFood())/2 + " population\n", resourceGainDelay);
+					
+					int amount = colony.subtractHappiness((colony.getPopulation()-colony.getFood())/4); //deduct happiness, could be 0
+					if (amount != 0)
+					{
+						print("\t-" + amount + " happiness\n", resourceGainDelay);
+					}
+					
+					colony.subtractPopulation((colony.getPopulation()-colony.getFood())/2);
+					colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
+				}
 			}
 			
 			weatherManager.revertWeather(colony); //remove weather events
@@ -525,7 +551,7 @@ public class TerraNova
 			}
 			
 			int Special = random.nextInt(50) + 1; //2% chance of spawning
-			if (Special == 1 && !fairMaiden && day >= 50)
+			if (Special == 1 && !fairMaiden && day >= 20)
 			{
 				fairMaiden = true; //fairMaiden can never happen again
 				
@@ -627,7 +653,7 @@ public class TerraNova
 		{
 			return 0;
 		}
-		else if (current > high)
+		else if (current >= high)
 		{
 			return 2;
 		}

@@ -20,6 +20,8 @@ public class WeatherManager
 	private int darkStatementDelay;
 	private int resourceGainDelay;
 	
+	private int amount; //for temporary amounts to be reverted
+	
 	public WeatherManager(int result, int darkStatement, int resourceGain)
 	{
 		resultDelay = result;
@@ -40,20 +42,30 @@ public class WeatherManager
 				rain = true;
 				print("It's raining today", resultDelay);
 				print("...\n", darkStatementDelay);
-				print("\t-10 happiness\n", resourceGainDelay);
-				colony.subtractHappiness(10);
+				
+				amount = colony.subtractHappiness(10);
+				
+				if (amount != 0)
+				{
+					print("\t-" + amount + " happiness\n", resourceGainDelay);
+				}
 			}
 			else if (weather == 2)
 			{
 				sunshine = true;
 				print("The sun is out and it's shining brightly today!\n", resultDelay);
-				print("\t+10 happiness\n", resourceGainDelay);
-				colony.addHappiness(10);
+				
+				amount = colony.addHappiness(10);
+				
+				if (amount != 0)
+				{
+					print("\t+" + amount + " happiness\n", resourceGainDelay);
+				}
 			}
 			else if (weather == 3)
 			{
 				lightning = true;
-				print("There's a lightning storm today!\n", resultDelay); //Low chance of someone dying? Maybe make materials harder to get?
+				print("There's a lightning storm today!\n", resultDelay); //Low chance of someone dying? Maybe make materials harder to get on the mountains!
 			}
 			else if (weather == 4)
 			{
@@ -68,8 +80,14 @@ public class WeatherManager
 				print("...\n", darkStatementDelay);
 				print("The wailing of the wind through the trees slowly eats on everyone's nerves", resultDelay);
 				print("...\n", darkStatementDelay);
-				print("\t-10 offense\n", resourceGainDelay);
-				colony.subtractOffense(10);
+				
+				amount = colony.getOffense()/10;
+				
+				if (amount != 0)
+				{
+					print("\t-" + amount + " offense\n", resourceGainDelay);
+					colony.subtractOffense(amount);
+				}
 			}
 			else if (weather == 6)
 			{
@@ -79,8 +97,14 @@ public class WeatherManager
 				print("You can barely see 15 feet beyond your walls!\n", resultDelay);
 				print("This will make it much more difficult to see enemies", resultDelay);
 				print("...\n", darkStatementDelay);
-				print("\t-10 defense\n", resourceGainDelay);
-				colony.subtractDefense(10);
+				
+				amount = colony.getDefense()/10;
+				
+				if (amount != 0)
+				{
+					print("\t-" + amount + " defense\n", resourceGainDelay);
+					colony.subtractDefense(amount);
+				}
 			}
 			
 			print("\n", resultDelay);
@@ -97,8 +121,12 @@ public class WeatherManager
 			print("...\n", darkStatementDelay);
 			print("The Jurassic Age truly holds a beautiful world", resultDelay);
 			print("...\n", darkStatementDelay);
-			print("\t+10 happiness\n", resourceGainDelay);
-			colony.addHappiness(10);
+			
+			if (amount != 0)
+			{
+				print("\t+" + amount + " happiness\n", resourceGainDelay);
+				colony.addHappiness(amount);
+			}
 		}
 		else if (sunshine)
 		{
@@ -107,8 +135,12 @@ public class WeatherManager
 			print("...\n", darkStatementDelay);
 			print("Everyone's mood darkens as the world is once again cast into shadows", resultDelay);
 			print("...\n", darkStatementDelay);
-			print("\t-10 happiness\n", resourceGainDelay);
-			colony.subtractHappiness(10);
+			
+			if (amount != 0) //success in adding happiness
+			{
+				print("\t-" + amount + " happiness\n", resourceGainDelay);
+				colony.subtractHappiness(amount);
+			}
 		}
 		else if (lightning)
 		{
@@ -125,16 +157,24 @@ public class WeatherManager
 			wind = false;
 			print("\nThe howling gale of wind has finally died down at the end of the day!\n", resultDelay);
 			print("Your guards finally relax as the world once again falls quiet and peaceful.\n", resultDelay);
-			print("\t+10 offense\n", resourceGainDelay);
-			colony.addOffense(10);
+			
+			if (amount != 0)
+			{
+				print("\t+" + amount + " offense\n", resourceGainDelay);
+				colony.addOffense(amount);
+			}
 		}
 		else if (fog)
 		{
 			fog = false;
-			print("\nThe fog finally has begun to lift at the end of the day!\n", resultDelay);
+			print("\nThe fog has finally begun to lift at the end of the day!\n", resultDelay);
 			print("Your men are now at ease, being able to see far beyond your walls once more.\n", resultDelay);
-			print("\t+10 defense\n", resourceGainDelay);
-			colony.addDefense(10);
+			
+			if (amount != 0)
+			{
+				print("\t+" + amount + " defense\n", resourceGainDelay);
+				colony.addDefense(amount);
+			}
 		}
 	}
 	

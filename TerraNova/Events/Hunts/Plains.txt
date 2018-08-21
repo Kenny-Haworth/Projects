@@ -11,7 +11,8 @@ You all drop your packs and make a run for it, but it catches up to you and slas
 You finally make it to the treeline. As what is left of your party retreat back to Terra Nova, you can hear the screams of your friends behind you as the Therizinosaurus devours them...
 
 Perhaps if you decide to return here some other time, you should use some form of transportation to outrun any Therizinosaurs...
-	-1/2 population;
+	-1/2 population
+	-20 happiness;
 
 
 1) Success and Failure
@@ -29,8 +30,9 @@ However, before you can make a return trip the Therizinosaur overcomes the membe
 As what is left of your party retreat back to Terra Nova, you can hear the screams of your friends behind you as the Therizinosaurus devours them...
 
 Perhaps if you decide to return here some other time, you should consider bringing enough buggies for everyone to outrun any Therizinosaurs...
-	+15 food
-	-5 population;
+	+60 food
+	-5 population
+	-10 happiness;
 
 
 2) Success, attacked (25% chance)
@@ -47,7 +49,7 @@ It appears to have lost interest in your party. Perhaps it was simply looking fo
 It stomps around the area looking for berries and other fruit. Therizinosaurs are primarily herbivores, afterall.
 Since the Therizinosaurus poses no threat, your party is able to continue searching for food, simply keeping a good radius from the beast to prevent angering it.
 Your party gathers a good deal of food from picking berries and fruit on the plains and head back to Terra Nova!
-	+18 food;
+	+72 food;
 
 
 3) Success, not attacked (75% chance)
@@ -57,4 +59,4 @@ There are also several packs of docile dinosaurs grazing in the plain and gather
 
 Sometime later, your party has easily found a good deal of food from picking berries and other fruit on the plains.
 You even managed to take down several small oviraptors for some meat thanks to the speed of your buggies!
-	+20 food;
+	+80 food;

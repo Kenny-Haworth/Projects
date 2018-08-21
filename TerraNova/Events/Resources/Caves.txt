@@ -24,7 +24,8 @@ You all want to return and help those that fell to the Troodons, but you know it
 For now, you will have to hope they escape the Troodons and make it back to Terra Nova...
 
 Perhaps if you decide to return here some other time, you should consider crafting a weapon that can take out the Troodons from a distance...
-	-3/5 population;
+	-3/5 population
+	-30 happiness;
 
 
 1) Success and Failure
@@ -53,7 +54,8 @@ Several groups still have the stones they mined, but it was at the cost of sever
 
 Perhaps if you decide to return here some other time, you should consider bringing enough muskets for everyone...
 	+25 materials
-	-10 population;
+	-10 population
+	-15 happiness;
 
 
 2) Success, not attacked (25% chance)
@@ -68,7 +70,7 @@ Your group stays near enough to the cave's entrance to have enough light to see 
 
 Sometime later, your group has ventured farther into the cave in the search of more stones now that your eyes have adjusted to the darkness.
 Your group gathers all you can carry and meet back up with the other groups. The mining trip was a great success!
-	+35 materials;
+	+45 materials;
 
 
 3) Success, attacked (75% chance)
@@ -91,4 +93,4 @@ The other groups had muskets as well, but you should check on them to make sure 
 As your group finds their way out and emerge into the sunlight, you find the other groups were also attacked by Troodons but are safe.
 Continuing to mine will be risky now that you know Troodons are in the area. You have all already managed to mine a good deal of resources.
 It is time to head back to Terra Nova.
-	+30 materials;
+	+40 materials;

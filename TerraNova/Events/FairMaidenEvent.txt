@@ -67,11 +67,11 @@ Your party arrives safely! The girl has been rescued and the mission was a succe
 You want to question the girl, but it seems she is exhausted and has fallen asleep.
 You will have to wait for her to recover for now. It is time to get some rest!
 	+100 happiness
-	+100 food
+	+500 food
 	+10 population
 	+15 offense
 	+15 defense
-	+50 materials;
+	+200 materials;
 
 6) Failure in returning the girl
 

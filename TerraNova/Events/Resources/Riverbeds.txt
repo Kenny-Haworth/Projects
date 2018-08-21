@@ -14,7 +14,8 @@ The hissing seems to have attracted other Dilophosaurs as well! You have brought
 Your party drop their packs and take off, but the Dilophosaurs manage to pick off several of you by pouncing with their sharp claws...
 
 Perhaps if you decide to return to the riverbeds some other time, you should consider bringing something to fend the Dilophosaurs off...
-	-1/4 population;
+	-1/4 population
+	-10 happiness;
 
 
 1) Success and Failure
@@ -37,7 +38,8 @@ Eventually your party emerges victorious, but the Dilophosaurs managed to pick o
 
 Perhaps if you decide to return to the riverbeds some other time, you should consider bringing enough spears for everyone...
 	+7 materials
-	-3 population;
+	-3 population
+	-5 happiness;
 
 
 2) Success, attacked (25% chance)

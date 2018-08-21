@@ -35,7 +35,8 @@ public class EventManager
 		{
 			String cheese = inputData.nextLine();
 			
-			if (!cheese.equals("") && (cheese.charAt(0) - '0' == input || Integer.toString(input).equals("" + cheese.charAt(0) + cheese.charAt(1)))) //the section in the text file to print has been found
+			//the section in the text file to print has been found
+			if (!cheese.equals("") && (cheese.charAt(0) - '0' == input || (cheese.length() > 1 && Integer.toString(input).equals("" + cheese.charAt(0) + cheese.charAt(1)))))
 			{
 				cheese = inputData.nextLine(); //the first line is blank
 				boolean statEnding = false;
@@ -144,17 +145,56 @@ public class EventManager
 						//perform the stat change on the colony
 						if (cheese.indexOf('+') >= 0 && (cheese.indexOf('-') == -1 || (cheese.indexOf('+') < cheese.indexOf('-')))) //+ is before the - or the - does not exist
 						{
-							if (stat.equals("happiness"))
+							if (stat.equals("happiness")) //should the full happiness amount not be added, only what was able to be added is printed
 							{
-								colony.addHappiness(secondAmount + ((multiply*amount)/divide));
+								int replacementValue = colony.addHappiness(secondAmount + ((multiply*amount)/divide));
+								
+								if (replacementValue == 0) //no happiness could be added
+								{
+									if (cheese.indexOf(';') >= 0) //this line is the last to be read
+									{
+										complete = true;
+										enter();
+										break;
+									}
+									
+									continue; //go the next iteration, we don't need to print anything
+								}
+								
+								int offset = 3;
+								
+								while (cheese.charAt(cheese.indexOf('+') + offset-1) != ' ')
+								{
+									offset++;
+								}
+								
+								cheese = cheese.substring(0, 2) + replacementValue + cheese.substring(offset, cheese.length()); //simply inserting the correct value into the string
 							}
 							else if (stat.equals("food"))
 							{
 								colony.addFood(secondAmount + ((multiply*amount)/divide));
 							}
-							else if (stat.equals("population"))
+							else if (stat.equals("population")) //can only add at most half population
 							{
-								colony.addPopulation(secondAmount + ((multiply*amount)/divide));
+								int addPopulation = secondAmount + ((multiply*amount)/divide);
+								
+								if (addPopulation > (colony.getPopulation()/2)) //can't add all possible population
+								{
+									StringBuilder stringBuilder = new StringBuilder();
+									stringBuilder.append("	+" + (colony.getPopulation()/2) + " population");
+									
+									if (cheese.indexOf(';') >= 0)
+									{
+										stringBuilder.append(";");
+									}
+									
+									cheese = stringBuilder.toString();
+									colony.addPopulation(colony.getPopulation()/2); //add the population last so we append the correct amount
+								}
+								else
+								{
+									colony.addPopulation(secondAmount + ((multiply*amount)/divide));
+								}
 							}
 							else if (stat.equals("offense"))
 							{
@@ -171,30 +211,53 @@ public class EventManager
 						}
 						else if (cheese.indexOf('-') >= 0 && (cheese.indexOf('+') == -1 || (cheese.indexOf('-') < cheese.indexOf('+')))) //- is before the + or the + does not exist
 						{
-							if (stat.equals("happiness"))
+							int replacementValue = -1;
+							
+							if (stat.equals("happiness")) //prevent showing happiness subtracted that couldn't be subtracted
 							{
-								colony.subtractHappiness(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractHappiness(secondAmount + ((multiply*amount)/divide));
 							}
 							else if (stat.equals("food"))
 							{
-								colony.subtractFood(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractFood(secondAmount + ((multiply*amount)/divide));
 							}
 							else if (stat.equals("population"))
 							{
-								colony.subtractPopulation(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractPopulation(secondAmount + ((multiply*amount)/divide));
 							}
 							else if (stat.equals("offense"))
 							{
-								colony.subtractOffense(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractOffense(secondAmount + ((multiply*amount)/divide));
 							}
 							else if (stat.equals("defense"))
 							{
-								colony.subtractDefense(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractDefense(secondAmount + ((multiply*amount)/divide));
 							}
 							else if (stat.equals("materials"))
 							{
-								colony.subtractMaterials(secondAmount + ((multiply*amount)/divide));
+								replacementValue = colony.subtractMaterials(secondAmount + ((multiply*amount)/divide));
 							}
+							
+							if (replacementValue == 0) //none of that stat could be subtracted, don't inform the user!
+							{
+								if (cheese.indexOf(';') >= 0) //this line is the last to be read
+								{
+									complete = true;
+									enter();
+									break;
+								}
+								
+								continue; //go the next iteration, we don't need to print anything
+							}
+							
+							int offset = 3; //tell the user what could be subtracted
+							
+							while (cheese.charAt(cheese.indexOf('-') + offset-1) != ' ')
+							{
+								offset++;
+							}
+							
+							cheese = cheese.substring(0, 2) + replacementValue + cheese.substring(offset, cheese.length()); //simply inserting the correct value into the string
 						}
 						
 						if (cheese.charAt(cheese.length()-1) == ';') //the stat change is the last line in the section, remove the ";" later

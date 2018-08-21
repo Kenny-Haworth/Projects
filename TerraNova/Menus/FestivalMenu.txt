@@ -1,6 +1,6 @@
 How big of a festival would you like?;slow;materials
 1) A Dance        (+5 population,  -10 materials);10;You need at least 10 materials to hold a dance!
-2) A Parade       (+10 population, -18 materials);18;You need at least 18 materials to hold a parade!
-3) A Play         (+20 population, -30 materials);30;You need at least 30 materials to hold a play!
-4) A Carnival     (+30 population, -45 materials);45;You need at least 45 materials to hold a carnival!
+2) A Parade       (+10 population, -20 materials);20;You need at least 20 materials to hold a parade!
+3) A Play         (+20 population, -40 materials);40;You need at least 40 materials to hold a play!
+4) A Carnival     (+40 population, -80 materials);80;You need at least 80 materials to hold a carnival!
 5) Go back

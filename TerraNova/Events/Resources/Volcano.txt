@@ -20,7 +20,8 @@ As you run the miles back to forest's edge, you hear the sickening sound of thei
 
 You make it back to safety, but none of your men have made it back with you. It is time to go back to Terra Nova...
 Perhaps if you decide to return to the volcano some other time, you should consider bringing something powerful enough to kill Quetzals...
-	-3/5+10 population;
+	-3/5+10 population
+	-40 happiness;
 
 
 1) Success and Failure
@@ -49,9 +50,10 @@ Many lives were lost, but their sacrifices will mean nothing if you do not reach
 What is left of your party push to the peak and find a plethora of volcanic rock, obsidian, and precious stones.
 Your party gathers until they are exhausted from the previous battle and the heat, and you all begin the long trek home...
 
-Perhaps if you decide to return to the volcano some other time, you should consider bringing more assault rifles to kill any Quetzals that attack...
+Perhaps if you decide to return to the volcano some other time, you should consider bringing more assault rifles to kill any Quetzals that may attack...
 	+40 materials
-	-15 population;
+	-15 population
+	-20 happiness;
 
 
 2) Success, attacked (25% chance)
@@ -74,7 +76,7 @@ The battle is short, and your party is victorious. The landscape is once again s
 You push to the peak of the volcano and find a plethora of volcanic rock, obsidian, and precious stones.
 Your party gathers until they are exhausted from the previous battle and the heat, and you all begin the long trek home.
 The trip was a success!
-	+45 materials;
+	+75 materials;
 
 
 3) Success, not attacked (75% chance)
@@ -88,4 +90,4 @@ You hope there will be enough materials at the volcano's peak to make the trip w
 You finally reach the peak of the volcano and find a plethora of volcanic rock, obsidian, and precious stones.
 Your party gathers all they can carry and you begin the long trek home.
 The trip was a great success!
-	+50 materials;
+	+80 materials;

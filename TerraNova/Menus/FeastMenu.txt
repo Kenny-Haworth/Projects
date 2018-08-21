@@ -1,6 +1,6 @@
 How big of a feast would you like?;slow;food
-1) A Picnic                  (+5 happiness,  -10 food);10;You need at least 10 food to hold a picnic!
-2) A Banquet                 (+10 happiness, -18 food);18;You need at least 18 food to hold a banquet!
-3) A Barbeque                (+20 happiness, -30 food);30;You need at least 30 food to hold a barbeque!
-4) A huge multi-meal feast!  (+30 happiness, -45 food);45;You need at least 45 food to hold a feast!
+1) A Picnic                  (+5 happiness,  -20 food);20;You need at least 20 food to hold a picnic!
+2) A Banquet                 (+10 happiness, -40 food);40;You need at least 40 food to hold a banquet!
+3) A Barbeque                (+20 happiness, -80 food);80;You need at least 80 food to hold a barbeque!
+4) A huge multi-meal feast!  (+30 happiness, -120 food);120;You need at least 120 food to hold a feast!
 5) Go back

@@ -22,7 +22,8 @@ The only way to survive is if the Allosaurs choose to chase after someone runnin
 
 Later, you finally make it back to Terra Nova. Nobody else has made it back except for you.
 Perhaps if you decide to return to the badlands some other time, you should consider bringing something powerful enough to kill Allosaurs...
-	-3/5+10 population;
+	-3/5+10 population
+	-40 happiness;
 
 
 1) Success and Failure
@@ -49,8 +50,9 @@ Those that weren't stunned when the buggies crashed quickly reload and concentra
 The final Allosaur flees, realizing it is outmatched. There will be a plethora of meat to harvest from the two dead Allosaurs, but it was at the cost of several of your friend's lives...
 
 Perhaps if you decide to return to the badlands some other time, you should consider bringing enough assault rifles for everyone...
-	+40 food
-	-15 population;
+	+160 food
+	-15 population
+	-20 happiness;
 
 
 2) Success, not attacked (20% chance)
@@ -83,4 +85,4 @@ Your buggies are too slow to outrun them, so you'll have to fight. All of your m
 
 The battle is short and brutal. As soon as the Allosaurs are in range, half your party concentrate fire on the first and half your party fire at the second.
 Both Allosaur's fall, and the final Allosaur flees, realizing it is outmatched. There will be a plethora of meat to harvest from the two dead Allosaurs!
-	+50 food;
+	+200 food;

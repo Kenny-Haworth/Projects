@@ -1,5 +1,7 @@
 ||=============== Offensive Upgrades ===============||;slow;materials
-1) Spears      (+ 5 offense, -15 materials);15;You need at least 15 materials to craft spears!
-2) Guns        (+10 offense, -40 materials);40;You need at least 40 materials to craft guns!
-3) Ballistas   (+20 offense, -100 materials);100;You need at least 100 materials to craft ballistas!
-4) Go back
+1) Spears              (+ 5 offense, -10 materials);10;You need at least 10 materials to craft spears!
+2) Buggies             (+10 offense, -20 materials);20;You need at least 20 materials to make buggies!
+3) Muskets             (+20 offense, -40 materials);40;You need at least 40 materials to craft muskets!
+4) Assault Rifles      (+40 offense, -80 materials);80;You need at least 80 materials to make assault rifles!
+5) A Rocket Launcher   (+80 offense, -160 materials);160;You need at least 160 materials to make a rocket launcher!
+6) Go back

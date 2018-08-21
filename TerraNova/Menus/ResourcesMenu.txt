@@ -2,6 +2,6 @@ Where would you like to gather resources?;fast
 1) Right Outside the Gates      (+5 materials, no danger)
 2) The Riverbeds                (+10 materials, low danger)
 3) The Cove                     (+20 materials, moderate danger)
-4) The Caves                    (+30 materials, moderate-high danger)
-5) The Volcano                  (+50 materials, high danger)
+4) The Caves                    (+40 materials, moderate-high danger)
+5) The Volcano                  (+80 materials, high danger)
 6) Go back

@@ -2,4 +2,4 @@
 
 You scavenged the area right outside your gates for food!
 You feel safe in the shadow of your walls, but there's not very much food here either...
-	+5 food;
+	+20 food;

@@ -1,17 +1,39 @@
-1) Reinforced Walls
+1) Tall Towers
 
-Your people have reinforced the wall with hide, stone, and wood!
-	 +5 defense
-	-15 materials;
+Using stone and baked clay as mortar, your people have built several towers and turrets on Terra Nova's outer walls!
+These are excellent for getting a higher vantage point and spotting enemies from further away!
+They will also help with protecting your men from enemy Sixer attacks!
+	+5 defense
+	-10 materials;
 
-2) Personal Body Armor
+2) Reinforced Walls
 
-Your people have made personal body armor from dinosaur hide!
+Your people reinforced Terra Nova's walls using hardened stone and wood!
+The wood is crafted into supporting trusses and struts that lean against Terra Nova's walls from the inside.
+The hardened stone fills in small gaps in the walls and reinforces structurally weak points!
 	+10 defense
+	-20 materials;
+
+3) Personal Body Armor
+
+Using thick dinosaur hides and leather, your people have fashioned personal body armor!
+They are a little bit heavy, but will provide great protection!
+	+20 defense
 	-40 materials;
 
-3) Trenches
+4) A Moat
 
-Your people dug trenches using iron shovels!
-	+ 20 defense
-	-100 materials;
+You have decided to dig a moat to defend Terra Nova!
+The moat is 10 feet wide and 40 feet deep, and your people have filled it with water!
+Your people additionally made a raisable wooden drawbridge to cross the moat!
+This moat will slow down almost any land dinosaurs attacking Terra Nova!
+	+40 defense
+	-80 materials;
+
+5) Ballistas
+
+Using the concept of a giant crossbow, you have armed your towers and turrets with ballistas!
+The ballistas shoot large spear bolts, powerful enough to pierce large dinosaur hides!
+They aren't very accurate, but it shouldn't matter for large targets!
+	+80 defense
+	-160 materials;

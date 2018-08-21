@@ -55,9 +55,20 @@ public class ColonyManager
 	}
 	
 	//methods
-	public void addHappiness(int amount)
+	//returns how much was added
+	public int addHappiness(int amount)
 	{
-		happiness += amount;
+		if ((amount + happiness) > 100) //happiness caps at 100
+		{
+			int added = 100 - happiness; //the amount that was added
+			happiness = 100;
+			return added;
+		}
+		else
+		{
+			happiness += amount;
+			return amount;
+		}
 	}
 	
 	public void addFood(int amount)
@@ -85,33 +96,94 @@ public class ColonyManager
 		materials += amount;
 	}
 	
-	public void subtractHappiness(int amount)
+	//returns how much was subtracted
+	public int subtractHappiness(int amount)
 	{
-		happiness -= amount;
+		if ((happiness - amount) < 0)
+		{
+			int subtracted = happiness;
+			happiness = 0;
+			return subtracted;
+		}
+		else
+		{
+			happiness -= amount;
+			return amount;
+		}
 	}
 	
-	public void subtractFood(int amount)
+	public int subtractFood(int amount)
 	{
-		food -= amount;
+		if ((food - amount) < 0)
+		{
+			int subtracted = food;
+			food = 0;
+			return subtracted;
+		}
+		else
+		{
+			food -= amount;
+			return amount;
+		}
 	}
 	
-	public void subtractPopulation(int amount)
+	public int subtractPopulation(int amount)
 	{
-		population -= amount;
+		if ((population - amount) < 0)
+		{
+			int subtracted = population;
+			population = 0;
+			return subtracted;
+		}
+		else
+		{
+			population -= amount;
+			return amount;
+		}
 	}
 	
-	public void subtractOffense(int amount)
+	public int subtractOffense(int amount)
 	{
-		offense -= amount;
+		if ((offense - amount) < 0)
+		{
+			int subtracted = offense;
+			offense = 0;
+			return subtracted;
+		}
+		else
+		{
+			offense -= amount;
+			return amount;
+		}
 	}
 	
-	public void subtractDefense(int amount)
+	public int subtractDefense(int amount)
 	{
-		defense -= amount;
+		if ((defense - amount) < 0)
+		{
+			int subtracted = defense;
+			defense = 0;
+			return subtracted;
+		}
+		else
+		{
+			defense -= amount;
+			return amount;
+		}
 	}
 	
-	public void subtractMaterials(int amount)
+	public int subtractMaterials(int amount)
 	{
-		materials -= amount;
+		if ((materials - amount) < 0)
+		{
+			int subtracted = materials;
+			materials = 0;
+			return subtracted;
+		}
+		else
+		{
+			materials -= amount;
+			return amount;
+		}
 	}
 }

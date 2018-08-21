@@ -1,8 +1,8 @@
 Where would you like to hunt?;fast
-1) Right Outside the Gates                 (+5 food, no danger)
-2) The Waterfalls                          (+10 food, low danger)
-3) The Open Plains                         (+20 food, moderate danger)
-4) The Deep Forest                         (+30 food, moderate-high danger)
-5) The Badlands                            (+50 food, high danger)
-6) The Tyrannosaurus Rex Breeding Grounds  (+60 food, very high danger)
+1) Right Outside the Gates                 (+20 food, no danger)
+2) The Waterfalls                          (+40 food, low danger)
+3) The Open Plains                         (+80 food, moderate danger)
+4) The Deep Forest                         (+120 food, moderate-high danger)
+5) The Badlands                            (+200 food, high danger)
+6) The Tyrannosaurus Rex Breeding Grounds  (+240 food, very high danger)
 7) Go back

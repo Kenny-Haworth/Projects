@@ -8,16 +8,16 @@ Your people enjoyed the lively dancing!
 
 The people paraded through the streets in ornate costumes!
 	+10 population
-	-18 materials;
+	-20 materials;
 
 3) A Play
 
 Actors performed an amazing play for the entertainment of the people!
 	+20 population
-	-30 materials;
+	-40 materials;
 
 4) A Carnival
 
 A fair was held with several entertaining games and events!
-	+30 population
-	-45 materials;
+	+40 population
+	-80 materials;

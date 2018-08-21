@@ -63,8 +63,9 @@ However, the rex still manages to crush and devour several members of your team 
 At least the animal will make for some good meat in addition to all the fruit and berries you harvested...
 
 Perhaps if you decide to return to the T-rex breeding grounds some other time, you should consider bringing a second rocket launcher...
-	+55 food
-	-20 population;
+	+220 food
+	-20 population
+	-25 happiness;
 
 
 2) Success, attacked (25% chance)
@@ -83,7 +84,7 @@ Your party has brought assault rifles and a couple of rocket launchers as defens
 Luckily, your men with the rocket launchers manage to land direct hits, severely wounding the rex.
 It is a simple matter from there to bring it down with the assault rifles.
 It will make for some great meat in addition to all the fruit and berries you harvested!
-	+65 food;
+	+260 food;
 
 
 3) Success, not attacked (75% chance)
@@ -94,4 +95,4 @@ It seems herbivores do not venture into this region, which is why there is so mu
 
 Sometime later, your party has harvested a great deal of food and are ready to head back to Terra Nova.
 The expedition was successful and uneventful!
-	+60 food;
+	+240 food;

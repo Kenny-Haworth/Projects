@@ -1,5 +1,105 @@
 # Terra Nova Changelog
 
+<strong>"Cornucopia"</strong> update, <ins>August 20, 2018</ins>.
+
+Cornucopias contain a plethora of delicious things, and this update is no different!
+
+<strong>Changes:</strong>
+
+<ul>
+<li>Happiness now caps at 100.</li>
+<li>Happiness, food, population, offense, defense, and materials can no longer become negative.</li>
+<li>The Colony Manager now returns how much of a stat was able to be added or subtracted for stats that have a floor or cap.</li>
+<li>The following changes were made to the Weather Manager:</li>
+<ul>
+	<li>Fog and wind now subtract 10% of the colony's offense and defense for the day, respectively, rather than a flat value.</li>
+	<li>If happiness is added or subtracted because of weather, only the amount that was able to be added or subtracted at the beginning of the day will be reverted at the end of the day.</li>
+	<ul>
+		<li>For example, take a colony of 95 happiness that experiences sunshine weather, granting +10 happiness. Happiness will cap at 100, but 10 happiness will not be subtracted at the end of the day, since this will leave the colony at 90 happiness, a net loss of 5 happiness. Instead, only 5 happiness will be subtracted at the end of the day, since only 5 happiness was able to be added at the beginning of the day before hitting the happiness cap.</li>
+		<li>As another example, take a colony of 5 happiness that experiences rain weather, resulting in -10 happiness. Happiness flatlines at 0, but 10 happiness will not be added at the end of the day, since this will leave the colony at 10 happiness, a net gain of 5 happiness. Instead, only 5 happiness will be added at the end of the day, since only 5 happiness was able to be subtracted at the beginning of the day before hitting the happiness base of 0.</li>
+	</ul>
+</ul>
+	
+<li>Information printed to the screen from the Event Manager and Weather Manager in regards to stat gain or loss to the colony has been changed along the following guidelines:</li>
+<ul>
+	<li>Only the amount that is able to be added or subtracted from a given stat will be shown on screen for the user to see.</li>
+	<ul>
+		<li>For example, if a colony has 96 happiness and experiences sunshine, the user will be told that only 4 happiness was gained, not 10, since only 4 happiness could be added before hitting the happiness cap of 100.</li>
+	</ul>
+	<li>If none of a statistic can be added or subtracted from the colony, the user is not informed that 0 of that stat was added or subtracted.</li>
+	<ul>
+		<li>For example, if a colony has 0 happiness and experiences rain, the user will not be told of any effects, since no more happiness can be subtracted from the colony.</li>
+	</ul>
+</ul>
+<li>The population gains and material costs on the Festival Menu has been changed to the following:</li>
+<ul>
+	<li>A Dance        (+5 population,  -10 materials)</li>
+	<li>A Parade       (+10 population, -20 materials)</li>
+	<li>A Play         (+20 population, -40 materials)</li>
+	<li>A Carnival     (+40 population, -80 materials)</li>
+</ul>
+<li>Doubled food cost for feasts and changed the Feast Menu to the following:</li>
+<ul>
+	<li>A Picnic                  (+5 happiness,  -20 food)</li>
+	<li>A Banquet                 (+10 happiness, -40 food)</li>
+	<li>A Barbeque                (+20 happiness, -80 food)</li>
+	<li>A huge multi-meal feast!  (+30 happiness, -120 food)</li>
+</ul>
+<li>Quadrupled food gains from hunting. Yes, you read that correctly. Quadrupled. Cornucopia's are a symbol of plenty, after all.</li>
+<li>Increased material gains from the Caves and the Volcano to +40 materials and +80 materials, respectively.</li>
+<li>The Offensive Upgrades menu has been changed to the following items:</li>
+<ul>
+	<li>Spears              (+ 5 offense, -10 materials)</li>
+	<li>Buggies             (+10 offense, -20 materials)</li>
+	<li>Muskets             (+20 offense, -40 materials)</li>
+	<li>Assault Rifles      (+40 offense, -80 materials)</li>
+	<li>A Rocket Launcher   (+80 offense, -160 materials)</li>
+</ul>
+<li>The Defensive Upgrades menu has been changed to the following items:</li>
+<ul>
+	<li>Tall Towers           (+ 5 defense, -10 materials)</li>
+	<li>Reinforced Walls      (+10 defense, -20 materials)</li>
+	<li>Personal Body Armor   (+20 defense, -40 materials)</li>
+	<li>A Moat                (+40 defense, -80 materials)</li>
+	<li>Ballistas             (+80 defense, -160 materials)</li>
+</ul>
+<li>Increased starting food to 80 and starting population to 20.</li>
+<li>If one person goes unfed at the end of the day they now starve to death rather than the user being informed that they lost 0 population.</li>
+<li>Losing population to starvation now deducts happiness at a rate of -1 happiness for every 2 people who starve.</li>
+<li>Increased gains from finding the Fair Maiden from +100 food to +500 food and +50 materials to +200 materials.</li>
+<li>The Fair Maiden now spawns after day 20 instead of after day 50.</li>
+<li>Holding a festival to increase population can now only increase population by half as many people as you have.</li>
+<ul>
+	<li>Logically, if you had 10 people you couldn't make more than 5 babies, assuming an equal ratio of male to female.</li>
+	<li>If you have 1 population, you will be unable to increase your population through a festival. The only way to raise population above 1 is through gaining population from the portal, after which festivals can be held to increase population again.</li>
+</ul>
+<li>Failing to hunt or gather resources in a dangerous area now deducts happiness in addition to population.</li>
+</ul>
+
+<strong>Bugfixes:</strong>
+
+<ul>
+<li>Fixed a crash when the Fair Maiden spawns caused by the Event Manager reading null chars. The Event Manager now checks if the char exists before reading it.</li>
+<li>The player can no longer get an instant game over from fog deducting 10 defense from the colony for a day.</li>
+<li>Fixed a broken delay when enemy attack strength prints during an attack.</li>
+<li>Fixed a grammar error when people starve to death and there is 0 food.</li>
+<li>Fixed a grammar error when fog lifts at the end of the day.</li>
+</ul>
+
+<strong>Additional Notes:</strong>
+
+This update makes the game much more balanced. Early game is a little bit difficult if the player does not immediately gather resources,
+but late game becomes incredibly easy. The player can reach around day 250 before sustaining a large population is no longer viable, since enemy strength scales infinitely
+and only 240 food can be gathered each day.
+
+Total lines of code: <strong>3262</strong> (<strong>added 265</strong> since last update)
+
+<hr />
+
+
+
+
+
 <strong>"Attack"</strong> update, <ins>August 14, 2018</ins>.
 
 Happiness and population now matter! The lower happiness and population are, the weaker your effective defense will be,
@@ -76,8 +176,8 @@ Thus, increasing your defense has no effect if your population does not at least
 Try and keep your population as high as your defense for the best results.
 If your population ever drops to 0, you logically would not be able to defend Terra Nova with no people, which is why effective defense scales down to 0 based upon population.
 
-<ins>Happiness:</ins> Your people will always have some willingness to defend themselves regardless of how unhappy they are. At a baseline level, they
-want to survive. However, they will fight much better if they are happier, so effective defense scales down to a proportion of your defense as happiness drops, in this case 1/4 of your defense at 0 happiness.
+<ins>Happiness:</ins> Your people will always have some willingness to defend themselves regardless of how unhappy they are. At a baseline level, they want to survive.
+However, they will fight much better if they are happier, so effective defense scales down to a proportion of your defense as happiness drops, in this case 1/4 of your defense at 0 happiness.
 
 Total lines of code: <strong>2997</strong> (<strong>added 167</strong> since last update)
 
@@ -160,13 +260,13 @@ Total lines of code: <strong>2814</strong> (<strong>removed 42</strong> since la
 	<li>Purchasing items from the Offensive Menu</li>
 	<li>Purchasing items from the Defensive Menu</li>
 </ul>
+<li>The Event Manager will not tell the user that 0 of a stat is gained or lost if the stat calculation is a proportion as opposed to a flat amount.</li>
 </ul>
 
 <strong>Bugfixes:</strong>
 
 <ul>
 <li>Fixed a couple of grammar errors when failing to raid the Tyrannosaurus Rex Breeding Grounds.</li>
-<li>If the user loses a proportion of resources which amounts to 0 because they have none of that resource, the user is no longer told that 0 of that resource has been subtracted from their colony.</li>
 </ul>
 
 Total lines of code: <strong>2856</strong> (<strong>added 184</strong> since last update)
