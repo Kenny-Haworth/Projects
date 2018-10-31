@@ -1,0 +1,78 @@
+#const house_width=3.
+#const house_height=3.
+#const perimeter= 2*house_width + 2*(house_height-2).
+
+construction_type(door;wall;floor;bed).
+
+0 {construction(X,Y,CONSTRUCTION_TYPE) : construction_type(CONSTRUCTION_TYPE)} 1 :-
+	width(X),
+	height(Y).
+
+neighbors_con(X,Y,TYPE, COUNT) :-
+	COUNT =  {construction(X-1,Y-1,TYPE);
+					construction(X,Y-1,TYPE);
+					construction(X+1,Y-1,TYPE);
+					construction(X-1,Y,TYPE);
+					construction(X+1,Y,TYPE);
+					construction(X-1,Y+1,TYPE);
+					construction(X,Y+1,TYPE);
+					construction(X+1,Y+1,TYPE)},
+					construction(X,Y,_),
+					construction_type(TYPE).
+
+immediate_neighbors_con(X,Y,TYPE, COUNT) :-
+	COUNT =  {construction(X,Y-1,TYPE);
+					construction(X-1,Y,TYPE);
+					construction(X+1,Y,TYPE);
+					construction(X,Y+1,TYPE)},
+					construction(X,Y,_),
+					construction_type(TYPE).					
+					
+%only flowers or grass can be built on
+buildingGround(X,Y) :- terrain(X,Y,grass).
+buildingGround(X,Y) :- terrain(X,Y,flower).
+
+%no construction_type should be on non-buildingGround	
+:- construction(X,Y,CONSTRUCTION_TYPE), not buildingGround(X,Y).
+
+%there should be only one bed and one door
+:- {construction(X,Y,door)} != 1.
+:- {construction(X,Y,bed)} != 1.
+
+%there must be a minimum of 7 walls
+:- {construction(X,Y, wall)} < 7.
+
+%the neighbors of every floor should be a door, a bed, other floors, or walls. They must be inside the house in other words.
+:- construction(X,Y,floor), neighbors_con(X,Y, door, D_COUNT), 
+							neighbors_con(X,Y, bed, B_COUNT), 
+							neighbors_con(X,Y, floor, F_COUNT),
+							neighbors_con(X,Y, wall, W_COUNT),
+							D_COUNT + B_COUNT + F_COUNT + W_COUNT != 8.
+
+%if a construction is a bed, all of its neighbors should be walls, doors, or floors
+:- construction(X,Y,bed), 	neighbors_con(X,Y,wall, W_COUNT),
+							neighbors_con(X,Y,door, D_COUNT),
+							%neighbors_con(X,Y,floor, F_COUNT)
+							W_COUNT + D_COUNT != 8.%+ F_COUNT != 8.
+
+%forbid doors from not having one bed OR floor immediate neighbor, ensuring they are never placed in the corner of the house
+:- construction(X,Y,door), 	immediate_neighbors_con(X,Y,bed, B_COUNT),
+							immediate_neighbors_con(X,Y,floor,F_COUNT),
+							B_COUNT + F_COUNT != 1.
+
+%forbid doors from opening to water, bridges, or trees.
+:- construction(X,Y,door), immediate_neighbors(X,Y, tree, T_COUNT), 
+                           immediate_neighbors(X,Y, bridge, B_COUNT), 
+                           immediate_neighbors(X,Y, water, W_COUNT),
+                           T_COUNT + B_COUNT + W_COUNT != 0.
+							
+%walls should have exactly 2 neighboring walls or a neighboring wall and door in the cardinal directions
+:- construction(X,Y,wall), immediate_neighbors(X,Y, wall, W_COUNT), 
+                           immediate_neighbors(X,Y, door, D_COUNT), 
+                           W_COUNT + D_COUNT != 2.
+%
+%well_placed_wall(X,Y) :- 	immediate_neighbors(X,Y, wall, W_COUNT), 
+%							immediate_neighbors(X,Y, door, D_COUNT), 
+%							W_COUNT + D_COUNT = 2.
+%								
+%:- construction(X,Y,wall), not well_placed_wall(X,Y).

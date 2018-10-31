@@ -34,7 +34,7 @@ public class Digraph
 		int column = 0;
 		
 		while (inputFile.hasNext()) //loop until the file is empty
-		{	
+		{
 			int count = 0; //the number of strings currently read in one row
 			
 			for (int i = 0; i < 5; i++) //loop 5 times for 5 columns
@@ -160,14 +160,14 @@ public class Digraph
 				}
 				
 				for (int co = 0; co < 20; co++) //search each of temp's neighbors for a shorter path
-				{	
+				{
 					if (data[cityNumber][co] > 0 && ((distance + data[cityNumber][co]) < entries[co].getDistance())) //Dijkstra's algorithm, if it is a neighbor and the combined distance
 					{																				//is less than the previous distance, it becomes the new shortest distance
 						entries[co].setDistance((distance + data[cityNumber][co])); //set the new shortest distance
 						entries[co].setCode(array[cityNumber][1]); //save the previous city taken to get to this location
 						
 						queue.remove(entries[cityNumber]); //remove the Entry object from the priority queue
-						queue.add(entries[co]); //add the Entry object back to the priority queue. This ensure it is sorted properly
+						queue.add(entries[co]); //add the Entry object back to the priority queue. This ensures it is sorted properly
 					}
 				}
 				
