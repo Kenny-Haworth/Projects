@@ -1,3 +1,10 @@
+/**
+	Where are we dropping boys?
+	
+	A buddy of mine actually asked me to make this since he could never decide where to go in the game Fortnite.
+	It simply picks a location at random.
+*/
+
 import java.util.Random;
 
 public class fortnite

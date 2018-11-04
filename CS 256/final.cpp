@@ -146,8 +146,8 @@ class penguin : public animal
 int main()
 {
 	vector<tiger> allTigers; //this vector can hold unlimited tiger objects
-	vector<polarBear> allPolarBears; //this vector can hold unlimited tiger objects
-	vector<penguin> allPenguins; //this vector can hold unlimited tiger objects
+	vector<polarBear> allPolarBears; //this vector can hold unlimited polarBear objects
+	vector<penguin> allPenguins; //this vector can hold unlimited penguin objects
 	
 	int amount;
 	

@@ -1,16 +1,17 @@
 %Define constants for the width and height
 #const max_width=12.
 #const max_height=10.
+#const area=max_width*max_height.
 
 %Define the domain for the terrain type
 terrain_type(grass;tree;flower;water;bridge).
 
 %define X and Y coordinates
-width(1..max_width). %1 to 12
-height(1..max_height). %1 to 10
+width(1..max_width).
+height(1..max_height).
 
 
-%For each X,Y pair, we choose 1 and only 1 terrain type at that location
+%For each X,Y pair, we choose 1 and only terrain type at that location
 1 {terrain(XX,YY,TERRAIN_TYPE) : terrain_type(TERRAIN_TYPE)} 1 :-
 	width(XX),
 	height(YY).
@@ -45,7 +46,7 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 %Determine if a point is part of a horizontal -- a horizontal bridge end has grass to the left or right
 horizontal(XX,YY,start) :- terrain(XX,YY,bridge), terrain(XX-1,YY,grass).
 horizontal(XX,YY,start) :- terrain(XX,YY,bridge), terrain(XX+1,YY,grass).
-%A horizontal bridge middle has a horizontal bridge to the left OR right
+%A horizontal bridge middle has a horizontal bridge to the left or right
 horizontal(XX,YY,mid) :- terrain(XX,YY,bridge), horizontal(XX-1,YY,_).
 horizontal(XX,YY,mid) :- terrain(XX,YY,bridge), horizontal(XX+1,YY,_).
 
@@ -57,13 +58,13 @@ vertical(XX,YY,start) :- terrain(XX,YY,bridge), terrain(XX,YY-1,grass).
 vertical(XX,YY,mid) :- terrain(XX,YY,bridge), vertical(XX,YY-1,_).
 vertical(XX,YY,mid) :- terrain(XX,YY,bridge), vertical(XX,YY+1,_).
 
-%If a piece is a bridge, it must be a horizontal OR vertical bridge
+%If a piece is a bridge, it must be a horizontal or vertical bridge
 :- terrain(XX,YY,bridge), not horizontal(XX,YY,_), not vertical(XX,YY,_).
 
-%If a piece is a bridge, it must be either horizontal OR vertical, but not both
+%If a piece is a bridge, it must be either horizontal or vertical, but not both
 :- terrain(XX,YY,bridge), horizontal(XX,YY,_), vertical(XX,YY,_).
 
-%A bridge should NOT start and end immediately
+%A bridge should not start and end immediately
 :- horizontal(X1,YY,start), horizontal(X2,YY,start), X1-X2=1.
 :- vertical(XX,Y1,start), vertical(XX,Y2,start), Y1-Y2=1.
 :- horizontal(XX,Y1,start), horizontal(XX,Y2,start), Y1-Y2=1.
@@ -78,7 +79,7 @@ vertical(XX,YY,mid) :- terrain(XX,YY,bridge), vertical(XX,YY+1,_).
 %There should be at least 5 pieces of bridge
 :- {terrain(XX,YY,bridge)} 5 .
 
-%A flower should not be surrounded by more than 2 flowers (2 maximum)
+%A flower should not be surrounded by more than 2 flowers
 :- terrain(XX,YY,flower), neighbors(XX,YY,flower, COUNT), COUNT > 3.
 
 %Water must touch at least 4 other pieces of water
@@ -110,9 +111,9 @@ surrounded_by_water(XX,YY) :-  terrain(XX,YY-1,water),terrain(XX,YY-1,water).
 connected(XX,YY) :- terrain(XX,YY,grass).
 %A bridge is connected to grass if it is connected to something that is connected to grass
 connected(XX,YY) :- terrain(XX,YY,bridge), 1 {connected(XX,YY-1);
-												connected(XX-1,YY);
-												connected(XX+1,YY);
-												connected(XX,YY+1)}.
+																	connected(XX-1,YY);
+																	connected(XX+1,YY);
+																	connected(XX,YY+1)}.
 %All bridges must be connected
 :- terrain(XX,YY,bridge), not connected(XX,YY).
 

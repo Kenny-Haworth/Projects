@@ -2,7 +2,7 @@ public class TowerOfHanoi
 {
 	public static void main(String[] args)
 	{
-		moveDisks(3, "Tower A", "Tower C ", "Tower B");
+		moveDisks(6, "Tower A", "Tower C ", "Tower B");
 	}
 	
 	public static void moveDisks(int n, String fromTower, String toTower, String auxTower)

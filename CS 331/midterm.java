@@ -6,7 +6,7 @@ public class midterm
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		final int textDelay = 15;
+		final int textDelay = 0;
 		final int newLineDelay = 500;
 		
 		print("Welcome to your study buddy for Gilbert Young's CS 331 midterm!", TimeUnit.MILLISECONDS, textDelay);
@@ -401,21 +401,21 @@ public class midterm
 		{
 			print("You got " + correct + "/16 correct and scored " + grade + "%! Fantastic!", TimeUnit.MILLISECONDS, textDelay);
 		}
-		else if (grade == 90)
+		else if (grade >= 90)
 		{
 			print("You got " + correct + "/16 correct and scored " + grade + "%! Great job!", TimeUnit.MILLISECONDS, textDelay);
 		}
-		else if (grade == 80)
+		else if (grade >= 80)
 		{
-			print("You got " + correct + "/16 correct and scored " + grade + "%! Fantastic!", TimeUnit.MILLISECONDS, textDelay);
+			print("You got " + correct + "/16 correct and scored " + grade + "%! You're getting there!", TimeUnit.MILLISECONDS, textDelay);
 		}
-		else if (grade == 70)
+		else if (grade >= 70)
 		{
-			print("You got " + correct + "/16 correct and scored " + grade + "%! Fantastic!", TimeUnit.MILLISECONDS, textDelay);
+			print("You got " + correct + "/16 correct and scored " + grade + "%! Keep trying!", TimeUnit.MILLISECONDS, textDelay);
 		}
-		else if (grade <= 60)
+		else if (grade < 70)
 		{
-			print("You got " + correct + "/16 correct and scored " + grade + "%! Fantastic!", TimeUnit.MILLISECONDS, textDelay);
+			print("You got " + correct + "/16 correct and scored " + grade + "%! Study harder!", TimeUnit.MILLISECONDS, textDelay);
 		}
 		
 		//perhaps complexities?
@@ -432,65 +432,5 @@ public class midterm
 			System.out.print(ch);
 			unit.sleep(delay);
 		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-midterm(key, startIndex, endIndex, array)
-{
-	if(endIndex < startIndex)
-	{
-		number could not be found
-		return a negative a number to indicate failure
-	}
-	
-	i = startIndex + (endIndex-startIndex)/8
-	
-	if (key == array[i])
-	{
-		return i;
-	}
-	else if (key > array)
-	{
-		midterm(key, i+1, endIndex, array);
-	}
-	else if (key < array)
-	{
-		midterm(key, startIndex, i-1, array);
 	}
 }

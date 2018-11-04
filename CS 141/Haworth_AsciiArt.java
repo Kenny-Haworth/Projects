@@ -18,7 +18,7 @@ public class Haworth_AsciiArt
 {
 	public static void main(String[] args) throws IOException
 	{	
-		File input = new File("blinkers.life");
+		File input = new File("police.txt");
 		
 		Scanner inputData = new Scanner(input); //Reads in a file and creates a Scanner class to read it into the array.
 		

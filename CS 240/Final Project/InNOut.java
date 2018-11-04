@@ -92,7 +92,7 @@ public class InNOut
 			shipment--; //counts down the days until a shipment arrives when shipment is 0
 			if (shipment == 0) //A shipment is today
 			{
-				int numberOfItems = random.nextInt(301) + 700; //Generates between 700 and 1000 items
+				int numberOfItems = random.nextInt(301) + 2700; //Generates between 2700 and 3000 items
 				
 				//Keep track of how many of each item arrives from the shipment
 				int bun = 0;
