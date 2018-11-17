@@ -7,3 +7,5 @@ The agent was trained over several hundred game sessions, slowly getting better 
 This type of machine learning is known as reinforcement learning.
 
 The replays folder contains several runs of the game, showing how the agent improved from the first few episodes on.
+
+![alt text](https://github.com/Kenny-Haworth/Projects/tree/master/Super%20Mario%20Bros%20AI/replays/screenshot.png)
