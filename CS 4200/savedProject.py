@@ -16,7 +16,7 @@ from keras.layers import Flatten
 from collections import deque
 
 numberOfEpisodes = 10000000 #we will train forever
-path = "SuperMarioWeights.h5"
+path = "test.h5"
 memory = deque(maxlen=2000)
 gamma = 0.95 #discount rate
 epsilon = 1.0 #exploration rate
@@ -50,7 +50,7 @@ def buildModel(actionSize):
 	model.add(Flatten())
 	model.add(Dense(1024, activation='hard_sigmoid')) #change to 4096 hidden nodes?
 	
-	model.add(Dense(actionSize)) #the final dense layer specifies the size of the output)
+	model.add(Dense(actionSize)) #the final dense layer specifies the size of the output
 	adam = Adam(lr=learningRate)
 	model.compile(loss='mse', optimizer=adam)
 	
@@ -201,7 +201,7 @@ if __name__ == "__main__":
 			
 			previousReward = reward
 			
-			if done or (lives > info['lives']) or (stepsWithoutRewardGain > 1001): #losing a life ends the episode or not moving for 3 in-game seconds
+			if done or (lives > info['lives']) or (stepsWithoutRewardGain > 1001): #losing a life ends the episode or not moving for 30 in-game seconds
 				print("\nEpisode #{} ended in {} steps. Epsilon = {}. Total reward = {}".format(episode+1, steps, epsilon, totalReward))
 				
 				#save the replay if it was better than anything seen previously

@@ -17,13 +17,13 @@ from keras.layers import Flatten
 from collections import deque
 
 numberOfEpisodes = 10000000 #we will train forever
-path = "SuperMarioWeightsV2.h5"
+path = "world1-1Weights.h5"
 memory = deque(maxlen=2000)
 gamma = 0.95 #discount rate
-epsilon = 0.6816822575233553#1 #1.0 #exploration rate
+epsilon = 1.0 #1.0 #exploration rate
 epsilon_min = .05 #5% of all actions are random at minimum
-epsilon_decay = 0.999 #very slow epsilon decay
-learningRate = 1e-4
+epsilon_decay = 0.9995 #very slow epsilon decay
+learningRate = 1e-5
 
 state = None
 first = False
@@ -36,7 +36,7 @@ def buildModel(actionSize):
 	model = Sequential() #create a sequential model to stack layers from input to output
 	
 	#convo2D(number of output channels, kernel size, strides, activation function, input shape)
-	model.add(Conv2D(32, kernel_size=(5, 5), strides=(1, 1), activation='relu', input_shape=(56, 60, 4)))
+	model.add(Conv2D(32, kernel_size=(5, 5), strides=(1, 1), activation='relu', input_shape=(65, 70, 4)))
 	
 	#pooling layer, defines size of pooling and size of strides
 	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
@@ -49,9 +49,9 @@ def buildModel(actionSize):
 	
 	#flatten the output, specify maximum of 1024 hidden nodes
 	model.add(Flatten())
-	model.add(Dense(1024, activation='hard_sigmoid')) #change to 4096 hidden nodes?
+	model.add(Dense(2048, activation='hard_sigmoid')) #change to 4096 hidden nodes?
 	
-	model.add(Dense(actionSize)) #the final dense layer specifies the size of the output)
+	model.add(Dense(4))#(actionSize)) #the final dense layer specifies the size of the output
 	adam = Adam(lr=learningRate)
 	model.compile(loss='mse', optimizer=adam)
 	
@@ -62,13 +62,12 @@ def train(model, image, actionSize):
 	
 	#choose a random action
 	if (np.random.rand() <= epsilon):
-		return env.action_space.sample()
+		num = random.randint(0,3)
+		return (lookup_table(num), [0,0,0,0]) 
 
-	q = model.predict(image)
+	q = model.predict(image) #q is an np array [[a, b, c, d]]
 	
-	chosen_action = np.zeros(actionSize)
-	chosen_action[np.argmax(q[0])] = 1
-	return chosen_action
+	return (lookup_table(np.argmax(q[0])), q[0])
 	
 def remember(observation, action, reward, nextState, done):
 	memory.append((observation, action, reward, nextState, done))
@@ -82,16 +81,38 @@ def replay(model, batchSize):
 		target = reward
 		
 		if not done:
-			#nextState = processImage(nextState)
 			target = (reward + gamma * np.amax(model.predict(nextState)[0]))
 			
-		#state = processImage(state)
 		targetF = model.predict(state)
 		targetF[0][np.argmax(action)] = target
 		model.fit(state, targetF, epochs=1, verbose=0)
 		
 	if epsilon > epsilon_min:
 		epsilon *= epsilon_decay
+		
+	return model
+	
+#returns the action to take
+def lookup_table(action):
+
+	#right arrow only
+	if (action == 0):
+		return [0,0,0,0,0,0,0,1,0]
+		
+	#right arrow and jump key
+	elif (action == 1):
+		return [0,0,0,0,0,0,0,1,1]
+	
+	#right arrow and b button
+	elif (action == 2):
+		return [1,0,0,0,0,0,0,1,0]
+		
+	#right arrow, jump key, and b button
+	elif (action == 3):
+		return [0,0,0,0,0,0,0,1,1]
+		
+	else:
+		print("Fatal logic error!")
 	
 def loadModel(model):
 	model.load_weights(path)
@@ -145,20 +166,22 @@ def processImage(frame1, frame2, frame3, frame4) -> np.array: #(observation) -> 
 	return state
 	
 def processFrame(frame):
-	grayScaleState = skimage.color.rgb2lab(frame)
-	grayScaleState = grayScaleState[:,:,1]/100
-	resizedState = skimage.transform.resize(grayScaleState, (56, 60))
+	#grayScaleState = skimage.color.rgb2lab(frame)
+	#grayScaleState = grayScaleState[:,:,1]/100
+	grayScaleState = skimage.color.rgb2gray(observation)
+	resizedState = skimage.transform.resize(grayScaleState, (65, 70))
+	
 	return resizedState
 
 if __name__ == "__main__":
-	env = retro.make(game='SuperMarioBros-Nes', state='Level1-1', record = './replaysV2')
+	env = retro.make(game='SuperMarioBros-Nes', state='Level1-1', record = './World1')
 	
 	actionSize = env.action_space.n #returns 9, the number of possible actions
 	initialAction = np.zeros([actionSize]) #forms an array of 0's in the action space
 	
 	model = buildModel(actionSize) #create a convolutional neural network
-	loadModel(model) #load the saved weights for the model
-	batchSize = 100
+	#loadModel(model) #load the saved weights for the model
+	batchSize = 200
 	maximumTotalReward = 0
 	newBest = False
 	
@@ -174,7 +197,7 @@ if __name__ == "__main__":
 			while len(string) != 6:
 				string = "0" + string
 			
-			os.remove("./replaysV2/SuperMarioBros-Nes-Level1-1-" + string + ".bk2")
+			os.remove("./World1/SuperMarioBros-Nes-Level1-1-" + string + ".bk2")
 		
 		newBest = False
 		
@@ -203,7 +226,7 @@ if __name__ == "__main__":
 			#env.render() #disable to increase speed by ~1.1x
 			
 			if (t == 0): #only choose a new action every 4 frames
-				action = train(model, image, actionSize) #get an action
+				action, networkAction = train(model, image, actionSize) #get an action
 				
 			nextObservation, reward, done, info = env.step(action) #take an action
 			
@@ -219,15 +242,15 @@ if __name__ == "__main__":
 			totalReward += reward
 			
 				
-			reward *= 20 #the reward for moving to the right should be large
-			
-			#penalize losing a life heavily, total reward is independent of this
-			if (lives > info['lives']):
-				reward = -1000
-			if (action[7] == 1): #give a reward for moving to the right
-				reward += 5
-			if (action[8] == 1): #give a large reward for jumping
-				reward += 10
+			#reward *= 20 #the reward for moving to the right should be large
+			#
+			##penalize losing a life heavily, total reward is independent of this
+			#if (lives > info['lives']):
+			#	reward = -1000
+			#if (action[7] == 1): #give a reward for moving to the right
+			#	reward += 5
+			#if (action[8] == 1): #give a large reward for jumping
+			#	reward += 10
 			
 			
 			frame_count += 1
@@ -237,11 +260,9 @@ if __name__ == "__main__":
 			if (info['lives'] > lives): #the player gained a 1UP, update the number of lives
 				lives = info['lives']
 			
-			#image = processImage(observation)
-			
 			if (t == 3):
 				image = processImage(frame1, frame2, frame3, frame4) #huge slowdown here!
-				remember(image, action, rewardOverFourFrames, previousImage, done) #add to the memory buffer
+				remember(image, networkAction, rewardOverFourFrames, previousImage, done) #add to the memory buffer
 				rewardOverFourFrames = 0
 				previousImage = image
 			
@@ -257,26 +278,34 @@ if __name__ == "__main__":
 			if (t == 4):
 				t = 0
 			
-			if done or (lives > info['lives']) or (stepsWithoutRewardGain > 1001000): #losing a life ends the episode or not moving for 30 in-game seconds
+			if done or (lives > info['lives']) or (stepsWithoutRewardGain > 10010000): #losing a life ends the episode or not moving for 30 in-game seconds
 				print("\nEpisode #{} ended in {} steps. Epsilon = {}. Total reward = {}".format(episode+1, steps, epsilon, totalReward))
 				
-				if (lives > info['lives']):
-					print("Agent died.")
-				
-				if (stepsWithoutRewardGain > 1001):
-					print("Agent timed out.")
+				#if (lives > info['lives']):
+				#	print("Agent died.")
+				#
+				#if (stepsWithoutRewardGain > 1001):
+				#	print("Agent timed out.")
 				
 				#save the replay if it was better than anything seen previously
-				if (totalReward > maximumTotalReward) and (totalReward > 641):
+				if (totalReward > maximumTotalReward):
 					print("NEW BEST REPLAY!!!")
+					print("NEW BEST REPLAY!!!")
+					print("NEW BEST REPLAY!!!")
+					print("NEW BEST REPLAY!!!")
+					print("NEW BEST REPLAY!!!")
+					print("NEW BEST REPLAY!!!")
+					print()
+					print()
+					print()
 					maximumTotalReward = totalReward
 					newBest = True
 				
 				break
 				
 			#call replay memory
-			if len(memory) > batchSize and (frame_count % 1000) == 0: #1000 frames is 30 in-game seconds
-				replay(model, batchSize)
+			if len(memory) > batchSize and (frame_count % 500) == 0: #500 frames is 15 in-game seconds
+				model = replay(model, batchSize)
 				
 		#if (episode % 10 == 0): #save the model every 10 episodes
 		saveModel(model) #save the model every episode
@@ -291,6 +320,8 @@ exit(0)
 #increase pixel input to 80x80 maybe
 ###if you lose a life, give a giant penalty! -100 reward
 #grade rewards over time, so that it becomes heavily incentivized to move instead of standing still
+#restrict output to 6 values, choose the max of those 6. The max indicates what set of actions to choose,
+#such as right & a, right & a & b, right, right & b, etc.
 #implement monitoring for replays (try it in test.py), python -m retro.scripts.playback_movie ./replaysV2/SuperMarioBros-Nes-Level1-1-000002.bk2
 
 

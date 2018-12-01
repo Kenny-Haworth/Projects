@@ -34,17 +34,19 @@ for episode in range(numEpisodes):
 			action[0] = 0 #b button
 			action[1] = 0
 			action[2] = 0
-			action[3] = 0
+			action[3] = 0 #what button is crouch? definitely needed for going into the pipes
 			action[4] = 0
 			action[5] = 0
 			action[6] = 0 #left arrow
 			action[7] = 0 #right arrow
-			action[8] = 1 #jump button
+			action[8] = 0 #jump button
 			
 		env.render()
-		obs, reward, done, info = env.step(action)
+		obs, reward, done, info = env.step(env.action_space.sample())
 		
-		for i in range(400000):
+		print(info['score'])
+		
+		for i in range(40000):
 			pass
 		
 		steps += 1
