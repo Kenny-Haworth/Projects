@@ -224,15 +224,15 @@ if __name__ == "__main__":
 			totalReward += reward
 			
 				
-			#reward *= 20 #the reward for moving to the right should be large
-			#
-			##penalize losing a life heavily, total reward is independent of this
-			#if (lives > info['lives']):
-			#	reward = -1000
-			#if (action[7] == 1): #give a reward for moving to the right
-			#	reward += 5
-			#if (action[8] == 1): #give a large reward for jumping
-			#	reward += 10
+			reward *= 20 #the reward for making progress to the right should be large
+			
+			#penalize losing a life heavily, total reward is independent of this
+			if (lives > info['lives']):
+				reward = -1000
+			if (action[7] == 1): #give a reward for moving to the right
+				reward += 5
+			if (action[8] == 1): #give a large reward for jumping
+				reward += 10
 			
 			
 			frame_count += 1
@@ -304,28 +304,15 @@ exit(0)
 #increase pixel input to 80x80 maybe
 ###if you lose a life, give a giant penalty! -100 reward
 #grade rewards over time, so that it becomes heavily incentivized to move instead of standing still
+#restrict output to 6 values, choose the max of those 6. The max indicates what set of actions to choose,
+#such as right & a, right & a & b, right, right & b, etc.
 #implement monitoring for replays (try it in test.py), python -m retro.scripts.playback_movie ./replaysV2/SuperMarioBros-Nes-Level1-1-000002.bk2
-
 
 #print("Action Space {}".format(env.action_space))
 #print("State Space {}".format(env.observation_space))
 
-#action[0] = 0 #b button
-#action[1] = 1
-#action[2] = 0
-#action[3] = 1
-#action[4] = 1
-#action[5] = 0
-#action[6] = 1 #left arrow
-#action[7] = 1 #right arrow
-#action[8] = 1 #jump button
-
 #print(env.observation_space) #Box(224, 240, 3)
 #print(env.action_space) #<gym.spaces.multi_binary.MultiBinary object at 0x000001EA6EE47470>
-
-#busy loop to slow emulator down to real time!
-#for i in range(400000):
-#	pass
 
 #action is an array of 9 numbers, all either 0 or 1 to indicate a button pressed or not pressed
 #obs is some giant matrix
