@@ -37,8 +37,6 @@ for episode in range(numEpisodes):
 		for i in range(400000): #busy loop to slow down emulator to real-time
 			pass
 		
-		print("Steps:", steps, ". Time:", info['time'])
-		
 		if (info['lives'] > lives): #the player gained a 1UP, update the number of lives
 			lives = info['lives']
 		
