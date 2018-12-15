@@ -10,7 +10,6 @@ The following files of the Nachos OS have been implemented:
 		<li>Alarm.java</li>
 		<li>Communicator.java</li>
 		<li>PriorityScheduler.java</li>
-		<li>UserProcess.java</li>
 	</ul>
 	<li>Within userprog:</li>
 	<ul>
