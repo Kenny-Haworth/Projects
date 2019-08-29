@@ -22,7 +22,7 @@ public class TerraNova
 	public static void main(String[] args) throws Exception
 	{
 		int input;
-		int textDelay = 0; //1 is OFF, 0 is ON
+		int textDelay = 1; //1 is OFF, 0 is ON
 		final int loop = 0;
 		DisplayManager displayManager = new DisplayManager();
 		
@@ -45,7 +45,7 @@ public class TerraNova
 				else if (textDelay == 1)
 				{
 					textDelay = 0;
-					System.out.println("\nText delay has been turned on.\n");
+					print("\nText delay has been turned on.\n\n", 40);
 				}
 			}
 			else if (input == 3)
@@ -62,7 +62,7 @@ public class TerraNova
 	
 	public static void startGame(int textDelay) throws InterruptedException, IOException
 	{
-		int day = 1;
+		int day = 11;//1;
 		
 		boolean gameOver = false; //special events control
 		boolean portal = true;
@@ -95,7 +95,7 @@ public class TerraNova
 			resourceGainDelay = 0;
 		}
 		
-		ColonyManager colony = new ColonyManager(85, 80, 20, 0, 10, 0); //creates a colony with these base stats
+		ColonyManager colony = new ColonyManager(80, 31, 19, 15, 35, 14);//(85, 40, 10, 0, 10, 0); //creates a colony with these base stats
 								//happiness, food, population, offense, defense, materials
 		
 		WeatherManager weatherManager = new WeatherManager(resultDelay, darkStatementDelay, resourceGainDelay); //creates a weather manager to manage a colony's weather
@@ -326,7 +326,9 @@ public class TerraNova
 				int popResult; //what should be printed to tell the user of their population and happiness modifiers in battle
 				int hapResult;
 				
-				if (populationModifier == 1) //tell the user what's going on with their population
+				int highestEnemyStrength = ((5 + day)/4) + (5 + day);
+				
+				if (populationModifier >= 1) //tell the user what's going on with their population based on highest enemy strength
 				{
 					popResult = 1;
 				}
@@ -346,6 +348,8 @@ public class TerraNova
 				{
 					popResult = 5;
 				}
+				
+				//if () //tell the user what's going on with their defense based on highest enemy strength
 				
 				if (colony.getHappiness() > 85) //tell the user what's going on with their happiness
 				{
@@ -389,7 +393,9 @@ public class TerraNova
 						print("The dinosaurs have overrun your base!\n", resultDelay);
 						print("GAME OVER!\n", darkStatementDelay);
 						enter();
-						break;
+						gameOver = true;
+						new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //clears the screen
+						continue;
 					}
 					else if (effectiveDefense == attackStrength)
 					{
@@ -416,7 +422,10 @@ public class TerraNova
 					{
 						print("The Sixers have overtaken your base!\n", resultDelay);
 						print("GAME OVER!\n", darkStatementDelay);
-						break;
+						enter();
+						gameOver = true;
+						new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //clears the screen
+						continue;
 					}
 					else if (effectiveDefense == attackStrength)
 					{
@@ -475,7 +484,12 @@ public class TerraNova
 				if ((colony.getFood() + 1) == colony.getPopulation()) //only one person starves
 				{
 					print(colony.getPopulation()-colony.getFood() + " person went unfed today, so they starved to death!\n", resultDelay);
-					print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					
+					if (colony.getFood() != 0)
+					{
+						print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					}
+					
 					print("\t-1 population\n", resourceGainDelay);
 					colony.subtractPopulation(1);
 					colony.subtractFood(colony.getFood()); //could also write a method to set food and set it to 0 here
@@ -483,13 +497,27 @@ public class TerraNova
 				else //multiple people starve
 				{
 					print(colony.getPopulation()-colony.getFood() + " people went unfed today, so " + (colony.getPopulation()-colony.getFood())/2 + " of them starved to death!\n", resultDelay);
-					print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					
+					if (colony.getFood() != 0)
+					{
+						print("\t-" + colony.getFood() + " food\n", resourceGainDelay);
+					}
+					
 					print("\t-" + (colony.getPopulation()-colony.getFood())/2 + " population\n", resourceGainDelay);
 					
-					int amount = colony.subtractHappiness((colony.getPopulation()-colony.getFood())/4); //deduct happiness, could be 0
-					if (amount != 0)
+					int percentageAmount = (int)((((colony.getPopulation()-colony.getFood())/2)/(double)colony.getPopulation())*100); //happiness loss based on % of population lost
+					int flatAmount = (colony.getPopulation()-colony.getFood())/4; //happiness loss based on flat amount of population lost (-1 happiness for every 2 deaths)
+					
+					int lowestAmount = percentageAmount < flatAmount ? percentageAmount : flatAmount; //choose the lowest of the two
+					
+					if (lowestAmount != 0)
 					{
-						print("\t-" + amount + " happiness\n", resourceGainDelay);
+						int amountSubtracted = colony.subtractHappiness(lowestAmount);
+						
+						if (amountSubtracted != 0)
+						{
+							print("\t-" + amountSubtracted + " happiness\n", resourceGainDelay);
+						}
 					}
 					
 					colony.subtractPopulation((colony.getPopulation()-colony.getFood())/2);

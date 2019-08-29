@@ -1,12 +1,8 @@
 This file contains all planned ideas for the Terra Nova game
 
 Planned for next update:
-	Fix stats getting over 1000 and breaking the menu :(
 	Make minimum population loss. If not reach min pop loss, game over! This requires alternative text scenarios and changes to the eventmanager!
-	clear screen after game over
-	"battle nearly impossible to win" when I'm broken. Tons of defense, not as many people. Manage this based on POSSIBLE enemy strength?
-	maybe make PERCENTAGE of population that dies from starvation determine happiness loss, not flat amount (late game losing 150+ people? -75 happiness, no recovery)
-	add a delay to "text delay on" printing
+	"battle nearly impossible to win" when I'm broken (op). Tons of defense, not as many people. Manage this based on POSSIBLE enemy strength?
 
 Ideas:
 	weather events (have one to add offense), droughts
@@ -15,12 +11,14 @@ Ideas:
 	lucas - each set of 10 days increases his chances of successfully blow up the portal, exponential function would work well
 	sound files <===== this would be awesome. Rain in background on rainy days!
 	new population are children? three/five/ten days and they become adults?
-	have different defense numbers depending on attack - dino's or sixers, sixers are stronger
-		optionally adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
-	Make game easily playable on any system, .exe or .jar files maybe. Only release class files online?
-	highlight text in other color for input
-	immersive randomized text when attacks aren't sent between events, gives the current state of the colony (not enough happiness/population/food/defense)
-	Consider buying offensive and defensive upgrades cost progressively more materials each time you buy them
+	adding defenses that defend against certain types of dino's? (troughs, fire lines, barricades, guns, etc)
+	Make game easily playable on any system, .exe or .jar files maybe. Only release class files, not source code, online?
+	highlight text in other color for input (requires external program, can't be done in command prompt)
+	immersive randomized text when attacks aren't sent between events, gives the current state of the colony (not enough happiness/population/food/defense based on current enemy strength (day))
+	Consider buying offensive and defensive upgrades cost progressively more materials each time you buy them, making buying the same thing over and over again impractical
+	other colonies/roads/trading (change lore)
+	overcharge happiness buff? (make permanent max past 100)
+		consider other colony buffs and upgrades. Could be interesting, like Dying Light
 
 New Game is selected.
 Exposition is read out. (warning of Lucas)
@@ -112,5 +110,5 @@ results in a decrease in population and no more resources at the end of the day.
 
 end of loop
 
-at game over, create a text document (that you append data to) that gives the date, time, and final day the user got to as well as what gave them their game over,
+at game over, create a text document (that you append data to) that gives the date, time (total play time too?), and final day the user got to as well as what gave them their game over,
 maybe have a high score file and save/load game file

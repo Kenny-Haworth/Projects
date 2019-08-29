@@ -3,7 +3,7 @@
 
 Just before you turn in for bed, one of your men hails you on your radio, saying he's picked up something unusual scanning for radio frequencies.
 Curious, you walk over to the command station to see for yourself. There appears to be someone trying to hail the base!
-It seems to be the voice of a young girl, and she's stuck deep in the jungle several hundred kilometers from your position!!!
+It's the voice of a young girl, and she's stuck deep in the jungle several hundred kilometers from your position!
 Attempting a rescue mission this late at night will be very dangerous, but she'll surely be dead by morning if you leave her to die...;#noEnter
 
 1) Trying to find the girl, success or failure not yet determined
@@ -28,13 +28,13 @@ You only hope it was the right decision to make...;#noEnter
 
 Sometime later, deep in the dense jungle of the far north...
 Your driver turns and tells you that you're closing in on the origin of the radio signal!
-Your lean forward in your seat in anticipation, eyes straining to see through the thick windshield...
-Suddenly, there she is! She is huddling in a natural alcove of a boulder, shielding her eyes from the bright lights of the rovers!
+Your lean forward in your seat, eyes straining to see through the thick windshield...
+Suddenly, there she is! She is huddling in the natural alcove of a boulder, shielding her eyes from the bright lights of the rovers!
 Your squadron quickly forms a defensive perimeter around her!
 You leap out of your rover and wrap a blanket around her, assuring her that she's safe now!
 
 You are relieved you were able to find her, but you know finding her was only half the battle.
-You still must return to Terra Nova safely with her. The nothern jungles are very dangerous, even more so at night.
+You still must return to Terra Nova safely. The nothern jungles are very dangerous, even more so at night.
 To be safe, you let her ride in your rover and the other rovers form a circle around yours as you head back.
 
 ...
@@ -60,7 +60,7 @@ Using your radios you manage to regroup with what is left of your squadron. It's
 Hours later, it has started to rain heavily.
 However, you are finally only minutes from Terra Nova!
 Everyone has been on edge for hours, driving through the darkness in dangerous territory.
-You can now make out the lights from the outter walls of Terra Nova though, and everyone begins to relax.
+You can now make out the lights from the outter walls of Terra Nova, and everyone begins to relax.
 You will soon be safe behind the walls, and you look forward to getting some rest.
 
 Your party arrives safely! The girl has been rescued and the mission was a success!

@@ -23,7 +23,7 @@ However, your men are very unhappy! They will be much weaker than normal!;
 
 You have plenty of men to handle defense as you prepare for battle!
 However, your men are severely unhappy and demoralized!
-This battle will be very difficult to win...;
+This battle will be difficult to win...;
 
 21)
 
@@ -50,7 +50,7 @@ Additionally, your men are very unhappy! They will be much weaker than normal!;
 
 You do not have quite enough men to wield all the weapons you have to defend Terra Nova!
 Additionally, your men are severely unhappy and demoralized!
-This battle will be very difficult to win...;
+This battle will be difficult to win...;
 
 31)
 
