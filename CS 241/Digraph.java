@@ -79,6 +79,8 @@ public class Digraph
 			distance = inputFile.nextInt(); //the third int is the distance
 			data[row-1][column-1] = distance; //save the data to a path matrix
 		}
+
+		inputFile.close();
 	}
 	
 	/**
