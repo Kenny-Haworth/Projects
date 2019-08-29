@@ -8,7 +8,7 @@ https://kenny-haworth.github.io/
 
 <ul>
 
-<li><strong>project.py</strong> contains final implemenation of the project.</li>
+<li><strong>project.py</strong> contains the final implemenation of the project.</li>
 <li><strong>originalProject.py</strong> contains the project without frame skipping or a restricted action space.</li>
 <li><strong>actions.py</strong> contains the test program for mapping array indices to actions.</li>
 <li>The <strong>replays</strong> folder contains several runs of the game sorted by distance reached, showing how the agent improved from the first few episodes on for the first four worlds.</li>
