@@ -1,47 +1,5 @@
 # Terra Nova Changelog
 
-<strong>"Bugfixes"</strong> update, <ins>December 16, 2018</ins>.
-
-Winter break is finally here, and with it I have some time to work on Terra Nova again!
-This update contains a few improvements focused around... ???
-
-<strong>Changes:</strong>
-
-<ul>
-<li>The screen now clears after a game over and after the lore has been read at the start of a new game.</li>
-<li>Text printed immediately after turning text delay on now has text delay.</li>
-<li>Added in the lore and tutorial (finally).</li>
-<li>When population die to starvation, happiness is now subtracted based upon whichever of the following two calculations is lowest:</li>
-<ul>
-	<li>1. -1 happiness for every 2 people that starve</li>
-	<li>2. Loss of happiness based upon the percentage of the population that died to starvation.</li>
-	<li>This prevents loss of population from crippling the player late game, as losing 200 people resulted in -100 happiness under the first calculation, lowering defense by 3/4 and resulting in an unrecoverable game over. However, losing 200 population is a small amount compared to 1000 people, so only 20 happiness is lost based on the second calculation.</li>
-</ul>
-<li>Reduced starting food to 40 and starting population to 10.</li>
-<ul>
-	<li>This little change makes early game much easier, as there is not too much population to feed starting out, and any population needed as defense increases can be gained through the portal or festivals.</li>
-</ul>
-<li></li>
-</ul>
-
-<strong>Bugfixes:</strong>
-
-<ul>
-<li>The colony information menu now properly displays statistics up to 4 digits long.</li>
-<li>When population die to starvation, only the amount of happiness that was able to be subtracted from the colony is displayed.</li>
-<li>When population die to starvation and there is no food, -0 food is no longer displayed.</li>
-<li></li>
-<li></li>
-</ul>
-
-Total lines of code: <strong>3262</strong> (<strong>added </strong> since last update)
-
-<hr />
-
-
-
-
-
 <strong>"Cornucopia"</strong> update, <ins>August 20, 2018</ins>.
 
 Cornucopias contain a plethora of delicious things, and this update is no different!
@@ -87,7 +45,7 @@ Cornucopias contain a plethora of delicious things, and this update is no differ
 	<li>A Barbeque                (+20 happiness, -80 food)</li>
 	<li>A huge multi-meal feast!  (+30 happiness, -120 food)</li>
 </ul>
-<li>Quadrupled food gains from hunting. Yes, you read that correctly. Quadrupled. Cornucopias are a symbol of plenty, after all.</li>
+<li>Quadrupled food gains from hunting. Yes, you read that correctly. Quadrupled. Cornucopia's are a symbol of plenty, after all.</li>
 <li>Increased material gains from the Caves and the Volcano to +40 materials and +80 materials, respectively.</li>
 <li>The Offensive Upgrades menu has been changed to the following items:</li>
 <ul>
@@ -123,7 +81,7 @@ Cornucopias contain a plethora of delicious things, and this update is no differ
 <ul>
 <li>Fixed a crash when the Fair Maiden spawns caused by the Event Manager reading null chars. The Event Manager now checks if the char exists before reading it.</li>
 <li>The player can no longer get an instant game over from fog deducting 10 defense from the colony for a day.</li>
-<li>Fixed a broken text delay when enemy attack strength prints during an attack.</li>
+<li>Fixed a broken delay when enemy attack strength prints during an attack.</li>
 <li>Fixed a grammar error when people starve to death and there is 0 food.</li>
 <li>Fixed a grammar error when fog lifts at the end of the day.</li>
 </ul>
@@ -447,7 +405,6 @@ Total lines of code: <strong>2771</strong> (<strong>added 86</strong> since last
 
 
 <strong>"Danger"</strong> update, <ins>July 30, 2018</ins>.
-
 This update focuses on implementing danger into the game.
 
 Most of the following are stats for nerds, so to summarize the danger update, successfully harvesting food or materials in a dangerous area is dependent upon your offense.
